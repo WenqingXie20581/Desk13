@@ -5,7 +5,7 @@ Project of Desk13
 
 Group Members:
 
-- Wanqing Xie
+- Wenqing Xie
 - Haolong Li
 - Kaixiang Ma
 - Yifan Luo
