@@ -1,0 +1,7 @@
+<h2>Cookbook</h2>
+<ul class="cookbook">
+  <li *ngFor="let recipe of recipes">
+      <a routerLink="/cookbook/{{recipe.id}}"></a>
+    <span>{{recipe.title}}</span>
+  </li>
+</ul>
