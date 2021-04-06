@@ -8,7 +8,7 @@ import { WorldmapComponent } from './worldmap/worldmap.component';
 const routes: Routes = [
   { path: '', redirectTo: '/worldmap', pathMatch: 'full' },
   { path: 'worldmap', component: WorldmapComponent },
-  { path: 'cookbook/:id', component: RecipeComponent },
+  { path: 'cookbook/:nation/:id', component: RecipeComponent },
   { path: 'cookbook/:nation', component: CookbookComponent }
 ];
 
