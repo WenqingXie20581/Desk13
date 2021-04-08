@@ -13,20 +13,32 @@
       </button>
     </mat-toolbar-row>
 </mat-toolbar>
-
 <mat-sidenav-container class="container">
-  <mat-sidenav class="sidenav" #sideNav mode="side" position="start" opened="true" 
-     fixedTopGap="0" fixedBottomGap="0">
-    <div>left menu</div>
-  </mat-sidenav>
-  <mat-sidenav-content>
+    <mat-sidenav class="sidenav" #sideNav mode="side" position="start" opened="true" 
+       fixedTopGap="0" fixedBottomGap="0">
+       <mat-nav-list>
+        <a routerLink="/worldmap" mat-list-item><mat-icon>map</mat-icon>world map</a>
+        <!-- <button (click)="showNations = !showNations" mat-raised-button>nations</button>
+        <mat-nav-list *ngIf="showNations">
+            <a *ngFor="let nation of nations" class="nations"
+            routerLink="/cookbook/{{nation}}">
+              <span>{{nation}}</span>
+           </a>
+        </mat-nav-list>  -->
+        <a routerLink="/upload"mat-list-item><mat-icon>upload</mat-icon>upload</a>
+        <a routerLink="/feedback" mat-list-item><mat-icon>chat</mat-icon>feedback</a>
+      </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- <app-sidenav></app-sidenav> -->
     <!-- <mat-drawer-container style="height:100px;margin:10px;border: 1px solid black">
       <mat-drawer mode="side" opened="true">Drawer Side</mat-drawer>
       <mat-drawer-content>Content</mat-drawer-content>
     </mat-drawer-container> -->
-    <router-outlet></router-outlet>
-</mat-sidenav-content>
-</mat-sidenav-container>
   
 <!-- <button mat-raised-button color="primary">Hello World！</button>
 <div>

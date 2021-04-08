@@ -4,6 +4,10 @@
   z-index: 2;
 }
 
+.toolbar-seprator {
+  flex: 1 1 auto;
+}
+
 .container,
 .sidenav {
   padding-top: 64px;
@@ -11,7 +15,4 @@
 }
 .sidenav {
   width: 15%;
-}
-.toolbar-seprator {
-  flex: 1 1 auto;
 }

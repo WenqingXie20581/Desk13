@@ -8,18 +8,27 @@ import { CookbookComponent } from './cookbook/cookbook.component';
 import { WorldmapComponent } from './worldmap/worldmap.component';
 import { RecipeComponent} from './recipe/recipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FeedbackComponent } from './feedback/feedback.component'
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { MatListModule } from '@angular/material/list';
+import { MatStepperModule } from '@angular/material/stepper'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
 @NgModule({
   declarations: [
     AppComponent,
     CookbookComponent,
     WorldmapComponent,
-    RecipeComponent  ],
+    RecipeComponent,
+    FeedbackComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,7 +37,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-
+    MatListModule,
+    MatStepperModule,
+    MatInputModule,
+    FormsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

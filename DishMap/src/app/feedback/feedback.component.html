@@ -1,0 +1,89 @@
+<button mat-button (click)="isLinear = !isLinear">切換Linear狀態</button>
+
+<form [formGroup]="surveyForm">
+  <mat-vertical-stepper [linear]="isLinear">
+    <mat-step formGroupName="basicQuestions" [stepControl]="surveyForm.get('basicQuestions')" optional>
+      <ng-template matStepLabel>
+        <u>personal information</u>
+      </ng-template>
+      <h4>please provide your information</h4>
+      <mat-form-field>
+        <input name="name" matInput placeholder="name" formControlName="name" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input name="e-mail" matInput placeholder="e-mail" formControlName="e-mail" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>next</button>
+      </div>
+    </mat-step>
+    <mat-step editable="false">
+      <ng-template matStepLabel>
+        <u>questions</u>
+      </ng-template>
+
+      <div>
+        <p>1. How do you know us?</p>
+          <mat-form-field>
+            <mat-label>Select</mat-label>
+            <mat-select>
+              <mat-option value="one">Advertising</mat-option>
+              <mat-option value="two">Friends introduce</mat-option>
+              <mat-option value="one">Application store</mat-option>
+              <mat-option value="two">social media</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+
+      <div>
+        <p>2. How do you rete this app?</p>
+        <mat-slider formControlName="appScore" min="0" max="100" step="5" thumbLabel [tickInterval]="2"></mat-slider>
+      </div>
+
+      <div>
+        <p>3. Which of the issues below was the biggest problem during your experience with this app?</p>
+          <mat-form-field>
+            <mat-label>multiple</mat-label>
+            <mat-select  multiple>
+              <mat-option value="one">I experience bugs</mat-option>
+              <mat-option value="two">The app was confusing to use</mat-option>
+              <mat-option value="three">The app was missing feature I needed</mat-option>
+              <mat-option value="four">the app crashed</mat-option>
+              <mat-option value="five">The app was vidually unappealing</mat-option>
+              <mat-option value="six">Other</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+
+      <div>
+        <p>4. What do you like most about this app</p>
+          <mat-form-field>
+            <mat-label>multiple</mat-label>
+            <mat-select  multiple>
+              <mat-option value="one">Functionality</mat-option>
+              <mat-option value="two">Look and feel</mat-option>
+              <mat-option value="three">Speed</mat-option>
+              <mat-option value="four">Navigation</mat-option>
+              <mat-option value="five">Stability</mat-option>
+              <mat-option value="six">Content</mat-option>
+              <mat-option value="seven">Other</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+
+      <button mat-button matStepperPrevious>back</button>
+      <button mat-button matStepperNext>next</button>
+    </mat-step>
+    <mat-step label="other">
+      <h4>If you have any questions or Suggestions, please let us know.</h4>
+      <div>
+        <mat-form-field>
+            <mat-label>Textarea</mat-label>
+            <textarea matInput rows="6" cols="60"></textarea>
+          </mat-form-field>
+      </div>
+      <button mat-button matStepperPrevious>back</button>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>
