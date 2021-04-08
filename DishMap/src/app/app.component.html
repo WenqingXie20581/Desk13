@@ -1,5 +1,78 @@
-<button mat-raised-button color="primary">Hello World！</button>
+<mat-toolbar class="header" color="warn">
+    <mat-toolbar-row>
+    <button mat-icon-button (click)="sideNav.toggle()">
+        <mat-icon>{{ sideNav.opened ? 'close' : 'menu' }}</mat-icon>
+      </button>
+      <span>Dish Map</span>
+      <span class="toolbar-seprator"></span>
+      <button mat-icon-button>
+        <mat-icon>message</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </mat-toolbar-row>
+</mat-toolbar>
 
-<button>Hello World！</button>
+<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" #sideNav mode="side" position="start" opened="true" 
+     fixedTopGap="0" fixedBottomGap="0">
+    <div>left menu</div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- <mat-drawer-container style="height:100px;margin:10px;border: 1px solid black">
+      <mat-drawer mode="side" opened="true">Drawer Side</mat-drawer>
+      <mat-drawer-content>Content</mat-drawer-content>
+    </mat-drawer-container> -->
+    <router-outlet></router-outlet>
+</mat-sidenav-content>
+</mat-sidenav-container>
+  
+<!-- <button mat-raised-button color="primary">Hello World！</button>
+<div>
+<mat-icon>person</mat-icon>
+</div>
+<div>
+<mat-icon color="primary">thumb_up</mat-icon>
+</div>
+<div>
+<mat-icon color="warn">warning</mat-icon>
+</div>
+<mat-sidenav-container>
+    <mat-sidenav>Start</mat-sidenav>
+    <mat-sidenav-content>Main</mat-sidenav-content>
+    <mat-sidenav-content>Main</mat-sidenav-content>
+    <mat-sidenav-content>Main</mat-sidenav-content>
+    <mat-sidenav-content>Main</mat-sidenav-content>
+    <mat-sidenav-content>Main</mat-sidenav-content>
+    <mat-sidenav-content>Main</mat-sidenav-content>
 
-<router-outlet></router-outlet>
+  </mat-sidenav-container>
+  <button mat-button>我是按钮</button>
+  <button mat-button color="primary">Primary</button>
+  <button mat-button color="accent">Accent</button>
+  <button mat-button color="warn">Warn</button>
+  <button mat-button disabled>Disabled</button>
+  <a mat-button>Link</a>
+
+  <button mat-raised-button>我是raised按钮</button>
+  <button mat-raised-button color="primary">Primary</button>
+  <button mat-raised-button color="accent">Accent</button>
+  <button mat-raised-button color="warn">Warn</button>
+  <button mat-raised-button disabled>Disabled</button>
+  <a mat-button>Link</a>
+
+  <button mat-raised-button color="primary"><mat-icon>thumb_up</mat-icon> 我有Icon</button>
+  <button mat-icon-button color="primary"><mat-icon>thumb_up</mat-icon></button>
+ <button mat-raised-button mat-icon-button color="primary"><mat-icon>thumb_up</mat-icon></button>
+
+ <button mat-fab>    <mat-icon>thumb_up</mat-icon>
+ </button>
+ <button mat-fab color="primary">    <mat-icon>thumb_up</mat-icon>
+ </button>
+ <button mat-fab color="accent">    <mat-icon>thumb_up</mat-icon>
+ </button>
+ <button mat-fab color="warn">    <mat-icon>thumb_up</mat-icon>
+ </button>
+ <button mat-fab disabled>    <mat-icon>thumb_up</mat-icon>
+ </button> -->
