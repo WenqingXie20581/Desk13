@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+
 import { Recipe } from './models/Recipe';
-import { RECIPES } from './data/recipe-data'
 import { NATIONS } from './data/nation-data'
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 
 @Injectable({
@@ -10,7 +12,10 @@ import { Observable, of } from 'rxjs';
 })
 export class RecipeService {
 
-  constructor(){
+  private recipeUrl = 'api/recipe';
+
+  constructor(
+    private http: HttpClient){
   }
 
   getNations() : Observable<string[]> {
@@ -18,11 +23,12 @@ export class RecipeService {
   }
 
   getRecipes() : Observable<Recipe[]> {
-    return of(RECIPES);
+    return this.http.get<Recipe[]>(this.recipeUrl);
   } 
 
   getRecipe(id: number): Observable<Recipe> {
-     return of(RECIPES.find(recipe => recipe.id === id));
+    const url = `${this.recipeUrl}/${id}`;
+    return this.http.get<Recipe>(url);
   }
 
 }
