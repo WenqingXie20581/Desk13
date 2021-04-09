@@ -11,9 +11,18 @@
         <input name="name" matInput placeholder="name" formControlName="name" required>
       </mat-form-field>
       <br>
-      <mat-form-field>
-        <input name="e-mail" matInput placeholder="e-mail" formControlName="e-mail" required>
-      </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+           placeholder="Ex. pat@example.com">
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
       <div>
         <button mat-button matStepperNext>next</button>
       </div>
@@ -80,10 +89,11 @@
       <div>
         <mat-form-field>
             <mat-label>Textarea</mat-label>
-            <textarea matInput rows="6" cols="60"></textarea>
+            <textarea matInput cols="90" rows="10" MatTextareaAutosize></textarea>
           </mat-form-field>
       </div>
       <button mat-button matStepperPrevious>back</button>
+      <button mat-raised-button color="primary"><mat-icon>upload</mat-icon>submit</button>
     </mat-step>
   </mat-vertical-stepper>
 </form>

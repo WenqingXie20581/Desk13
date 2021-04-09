@@ -44,7 +44,7 @@ import { MatSliderModule } from '@angular/material/slider';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatSliderModule
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
