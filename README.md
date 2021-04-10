@@ -19,11 +19,13 @@ Also on your Github repository, you must write a front-page document (readme.md)
 ### Team
 Team (product) name
 Name / photo / role for each team member.
-Introduction [10 marks]
+
+### Introduction [10 marks]
 Abstract. Motivation for the project, framing of the problem and a high-level overview of the system.
 Project Objectives. The high level goals of the project and the contribution towards solving the problem. A checklist against which the team can evaluate their success.
 Video. Short (1-2min) demo video to explain your system (think Kickstarter)
-Background and Motivation [10 marks]
+
+### Background and Motivation [10 marks]
 Background literature. Academic research review.
 State of the art survey. Current industry review.
 Clear definition of the problem. How does your project relate to the above? We will be marking the ability of your team to identify a worthwhile and important problem and clearly articulate the scope and challenge of the problem.
@@ -35,13 +37,15 @@ Middle Tier - Express, Node, the RESTful API
 Front End - Angular. Details of implementation.
 Additional elements and components e.g. authentification. Tell us about any other aspects not covered above!
 Deployment details (including Docker), include how you have been achieving continuous integration and deployment.
+
 ### UX Design [15 marks]
 Design Process and Early prototyping and ideation (including mood boards and paper prototyping)
 Identification of interacting users and broader stakeholders.
 UX approach – design heuristics/approach, design methods (design fiction / heuristics)
 Understanding of user group (questionnaires / user stories / interviews)
 Wireframes and interaction flow diagrams for final key subsystems.
-Sprints & Project Management [15 marks]
+
+### Sprints & Project Management [15 marks]
 Group working methods used (for instance did your team choose a particular style of agile? what communication channels did you use?)
 Discussion of team roles (specialisation is ok!). A summary of individual contributions (note: this is for reference, your team will all receive the same grade!).
 Documentation of your sprints, including both high level overview, timeline, and selected highlights that were critical points in the project (remember to show the users stories implemented in each sprint). We expect a summary of meeting logs (including for instance apologies for absence etc)
