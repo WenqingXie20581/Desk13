@@ -14,14 +14,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Point static path to dist (folder where build files are located)
-app.use(express.static(path.join(__dirname, 'dist/dishmap')));
+app.use(express.static(path.join(__dirname, 'dist/DishMap')));
 
 // Set our api routes
 app.use('/api', api);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/DishMap/index.html'));
 });
 
 /**
