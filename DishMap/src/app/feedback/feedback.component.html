@@ -1,60 +1,52 @@
-<button mat-button (click)="isLinear = !isLinear">切換Linear狀態</button>
-
-<form [formGroup]="surveyForm">
-  <mat-vertical-stepper [linear]="isLinear">
-    <mat-step formGroupName="basicQuestions" [stepControl]="surveyForm.get('basicQuestions')" optional>
+<div [hidden]="submitted" >
+<form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" #fdForm="ngForm">
+  <mat-vertical-stepper linear>
+    <mat-step formGroupName="basicQuestions" [stepControl]="surveyForm.get('basicQuestions')" linear>
       <ng-template matStepLabel>
         <u>personal information</u>
       </ng-template>
       <h4>please provide your information</h4>
       <mat-form-field>
-        <input name="name" matInput placeholder="name" formControlName="name" required>
+        <mat-label>name</mat-label>
+        <input name="name" matInput placeholder="name" [(ngModel)]="feedback.name" 
+        formControlName="name" required>
       </mat-form-field>
       <br>
-  <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
-    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-           placeholder="Ex. pat@example.com">
-    <mat-hint>Errors appear instantly!</mat-hint>
-    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-      Please enter a valid email address
-    </mat-error>
-    <mat-error *ngIf="emailFormControl.hasError('required')">
-      Email is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" [(ngModel)]="feedback.email"
+               placeholder="Ex. pat@example.com" required>
+      </mat-form-field>
       <div>
-        <button mat-button matStepperNext>next</button>
+        <button type="button" mat-button matStepperNext>next</button>
       </div>
     </mat-step>
-    <mat-step editable="false">
+    <mat-step linear>
       <ng-template matStepLabel>
         <u>questions</u>
       </ng-template>
-
       <div>
-        <p>1. How do you know us?</p>
+        <h4>1. How do you know us?</h4>
           <mat-form-field>
             <mat-label>Select</mat-label>
-            <mat-select>
+            <mat-select (ngModel)="feedback.questions[0]" required >
               <mat-option value="one">Advertising</mat-option>
               <mat-option value="two">Friends introduce</mat-option>
-              <mat-option value="one">Application store</mat-option>
-              <mat-option value="two">social media</mat-option>
+              <mat-option value="three">Application store</mat-option>
+              <mat-option value="four">social media</mat-option>
             </mat-select>
           </mat-form-field>
       </div>
-
       <div>
-        <p>2. How do you rete this app?</p>
-        <mat-slider formControlName="appScore" min="0" max="100" step="5" thumbLabel [tickInterval]="2"></mat-slider>
+        <h4>2. How do you rete this app?</h4>
+        <mat-slider  min="0" max="100" step="5" (ngModel)="feedback.questions[1]"
+        thumbLabel [tickInterval]="2" required></mat-slider>
       </div>
-
       <div>
-        <p>3. Which of the issues below was the biggest problem during your experience with this app?</p>
+        <h4>3. Which of the issues below was the biggest problem during your experience with this app?</h4>
           <mat-form-field>
             <mat-label>multiple</mat-label>
-            <mat-select  multiple>
+            <mat-select  multiple required (ngModel)="feedback.questions[2]">
               <mat-option value="one">I experience bugs</mat-option>
               <mat-option value="two">The app was confusing to use</mat-option>
               <mat-option value="three">The app was missing feature I needed</mat-option>
@@ -64,12 +56,11 @@
             </mat-select>
           </mat-form-field>
       </div>
-
       <div>
-        <p>4. What do you like most about this app</p>
+        <h4>4. What do you like most about this app</h4>
           <mat-form-field>
             <mat-label>multiple</mat-label>
-            <mat-select  multiple>
+            <mat-select  multiple required (ngModel)="feedback.questions[3]">
               <mat-option value="one">Functionality</mat-option>
               <mat-option value="two">Look and feel</mat-option>
               <mat-option value="three">Speed</mat-option>
@@ -80,20 +71,24 @@
             </mat-select>
           </mat-form-field>
       </div>
-
-      <button mat-button matStepperPrevious>back</button>
-      <button mat-button matStepperNext>next</button>
+      <button type="button" mat-button matStepperPrevious>back</button>
+      <button type="button" mat-button matStepperNext>next</button>
     </mat-step>
-    <mat-step label="other">
+    <mat-step label="other" linear>
       <h4>If you have any questions or Suggestions, please let us know.</h4>
       <div>
         <mat-form-field>
             <mat-label>Textarea</mat-label>
-            <textarea matInput cols="90" rows="10" MatTextareaAutosize></textarea>
+            <textarea matInput cols="90" rows="10" MatTextareaAutosize (ngModel)="feedback.advice" ></textarea>
           </mat-form-field>
       </div>
-      <button mat-button matStepperPrevious>back</button>
-      <button mat-raised-button color="primary"><mat-icon>upload</mat-icon>submit</button>
+      <button type="button" mat-button matStepperPrevious>back</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!fdForm.form.valid"
+      ><mat-icon>upload</mat-icon>submit</button>
     </mat-step>
   </mat-vertical-stepper>
 </form>
+</div>
+<div *ngIf="submitted">
+  <h2>Thanks for your feedback, we continuously improve our app</h2>
+</div>

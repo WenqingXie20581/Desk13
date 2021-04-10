@@ -24,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { RecipeService } from './recipe.service';
+import { UploadComponent } from './upload/upload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { RecipeService } from './recipe.service';
     WorldmapComponent,
     RecipeComponent,
     FeedbackComponent,
+    UploadComponent,
   ],
   imports: [
     BrowserModule,
