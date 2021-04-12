@@ -25,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { RecipeService } from './recipe.service';
 import { UploadComponent } from './upload/upload.component';
+
 @NgModule({
   declarations: [
     AppComponent,
