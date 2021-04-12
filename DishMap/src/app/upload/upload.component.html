@@ -1,4 +1,5 @@
 <div [hidden]="submitted">
+<<<<<<< HEAD
     <form (ngSubmit)="onSubmit()" #ulForm="ngForm">
       <div>
         <ng-template>
@@ -70,6 +71,13 @@
         </div>
 
         <div>
+=======
+    <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" #fdForm="ngForm">
+          <ng-template matStepLabel>
+            <u>title</u>
+          </ng-template>
+          <h4>please provide your information</h4>
+>>>>>>> 6739e325ec2c561d54be99e2bc49efdd446d9ee1
           <mat-form-field>
             <mat-label>ingredient's treatment </mat-label>
             <input
