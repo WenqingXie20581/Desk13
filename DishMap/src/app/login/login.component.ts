@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/User';
 import {UserService} from '../user.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { FormBuilder,FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,40 +12,38 @@ import { first } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
 
-  username : string;
-  password : string;
-  user : User;
-  returnUrl: string = '/';
+  loginForm : FormGroup;
+  returnUrl : string ='/'
 
-  constructor(private userService: UserService,  private router: Router) { }
-
-  ngOnInit(): void {
+  constructor(private userService: UserService, 
+     private router: Router,
+     private route: ActivatedRoute,
+     private formBuilder: FormBuilder,
+  ) {
   }
 
-  login(){
-    this.userService.login(this.username, this.password)
+  ngOnInit(): void {
+    if (this.userService.user) {
+      this.router.navigate([this.returnUrl]);
+    }
+    this.loginForm = this.formBuilder.group({
+      username: '',
+      password: ''
+    });
+  }
+
+  get f() { return this.loginForm.controls; }
+
+  onSubmit() {
+    this.userService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
-                });
-  }
-
-
-
-  register(){
-    this.userService.register(this.form.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.alertService.success('Registration successful', { keepAfterRouteChange: true });
-                    this.router.navigate(['../login'], { relativeTo: this.route });
                 },
                 error => {
-                    this.alertService.error(error);
-                    this.loading = false;
+                  console.warn('Invalid username or password.');
                 });
   }
-
-
+  
 }
