@@ -26,6 +26,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { RecipeService } from './recipe.service';
 import { UploadComponent } from './upload/upload.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LoginComponent } from './login/login.component';
     FeedbackComponent,
     UploadComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
