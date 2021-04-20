@@ -14,7 +14,6 @@ USER node
 
 # Run the command inside your image filesystem.
 RUN npm install 
-RUN npm install nodemon --save-dev
 
 COPY --chown=node:node . .
 
