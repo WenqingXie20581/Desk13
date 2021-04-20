@@ -27,6 +27,7 @@ import { RecipeService } from './recipe.service';
 import { UploadComponent } from './upload/upload.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RegisterComponent } from './register/register.component';
     UploadComponent,
     LoginComponent,
     RegisterComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
