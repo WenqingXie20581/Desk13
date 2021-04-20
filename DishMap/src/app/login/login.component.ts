@@ -23,9 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.userService.user) {
-      this.router.navigate([this.returnUrl]);
-    }
     this.loginForm = this.formBuilder.group({
       username: '',
       password: ''
