@@ -5,12 +5,18 @@
       </button>
       <span>Dish Map</span>
       <span class="toolbar-seprator"></span>
-      <button mat-icon-button>
-        <mat-icon>message</mat-icon>
+
+      <!-- <button type="button" mat-icon-button ng-click="window.location.href='/feedback'">
+        <mat-icon>login</mat-icon>
       </button>
-      <button mat-icon-button>
+      <button  type="button" mat-icon-button ng-click="window.location='/register'">
+        <mat-icon>user</mat-icon>
+      </button>
+      <button type="button" mat-icon-button>
         <mat-icon>exit_to_app</mat-icon>
-      </button>
+      </button> -->
+      <a routerLink="/login" mat-icon-button><mat-icon>perm_identity_icon</mat-icon></a>
+      <a routerLink="/user" mat-icon-button><mat-icon>home</mat-icon></a>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container class="container">
