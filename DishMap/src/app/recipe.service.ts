@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { RECIPES } from './data/recipe-data'
 import { Recipe } from './models/Recipe';
 import { NATIONS } from './data/nation-data'
 import { Observable, of } from 'rxjs';
@@ -15,7 +15,8 @@ export class RecipeService {
   private recipeUrl = 'api/recipe';
 
   constructor(
-    private http: HttpClient){
+    // private http: HttpClient
+    ){
   }
 
   getNations() : Observable<string[]> {
@@ -23,12 +24,26 @@ export class RecipeService {
   }
 
   getRecipes() : Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(this.recipeUrl);
+    return of(RECIPES);
   } 
 
-  getRecipe(id: number): Observable<Recipe> {
-    const url = `${this.recipeUrl}/${id}`;
-    return this.http.get<Recipe>(url);
+  getRecipeById(id: number): Observable<Recipe> {
+     return of(RECIPES.find(recipe => recipe.id === id));
   }
+
+  getRecipesByNation(nation: string): Observable<Recipe[]> {
+    return of(RECIPES.filter(
+      (recipe)=>{
+        if (recipe.nationality === nation) return true;
+      return false}));
+    }
+  // getRecipes() : Observable<Recipe[]> {
+  //   return this.http.get<Recipe[]>(this.recipeUrl);
+  // } 
+
+  // getRecipe(id: number): Observable<Recipe> {
+  //   const url = `${this.recipeUrl}/${id}`;
+  //   return this.http.get<Recipe>(url);
+  // }
 
 }

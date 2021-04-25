@@ -12,7 +12,7 @@ export class CookbookComponent implements OnInit {
 
   recipes : Recipe[];
 
-  nation : String;
+  nation : string;
 
   constructor(private recipeService: RecipeService, private route: ActivatedRoute) {
 
@@ -20,7 +20,7 @@ export class CookbookComponent implements OnInit {
 
    getRecipes(): void {
       this.nation = this.route.snapshot.paramMap.get('nation');
-      this.recipeService.getRecipes()
+      this.recipeService.getRecipesByNation(this.nation)
         .subscribe(recipes => this.recipes = recipes)
    }
 

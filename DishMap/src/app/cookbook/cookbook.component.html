@@ -1,8 +1,12 @@
 <h2>Cookbook</h2>
-<ul class="cookbook">
-  <div *ngFor="let recipe of recipes">
-      <a routerLink="/recipe/{{recipe.id}}"  *ngIf="recipe.nationality == nation">
-    <span>{{recipe.title}}</span>
-    </a>
-  </div>
-</ul>
+<div class="grid">
+  <div *ngFor="let recipe of recipes" >
+    <div class="recipeItem">
+      <a routerLink="/recipe/{{recipe.id}}"  >
+        <p><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/defaul.gif'}}" alt="image"></p>
+        <p class="title">{{recipe.title}}</p>
+        <p>{{recipe.introduction}}</p>
+     </a>
+    </div>
+</div>
+</div>

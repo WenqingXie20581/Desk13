@@ -36,6 +36,15 @@ export class UploadComponent implements OnInit {
     e.target.value = '';
   }
 
+  addIntroduction(e) : void {
+    const direction = e.target.value;
+    if (!direction.length) {
+      return;
+    }
+    this.recipe.introduction = direction;
+    e.target.value = '';
+  }
+
   saveIngredient() {
     if (!(this.ingredient.name.length && this.ingredient.quantity.length && this.ingredient.treatment.length)) {
       return;
@@ -68,8 +77,10 @@ class Ulrecipe implements Recipe {
   id: number;
   title: string;
   nationality: string;
+  introduction: string;
   ingredients : Ingredient[];
   directions : string[];
+  imgUrl = null;
 
   constructor(){
     this.ingredients = new Array();

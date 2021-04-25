@@ -21,6 +21,22 @@
         </mat-select>
       </mat-form-field>
       </div>
+
+      <div>   
+        <ng-template>
+          <u>introduction</u>
+        </ng-template>
+      <mat-form-field>
+        <mat-label>introduction</mat-label>
+        <input
+        matInput
+        placeholder="Introduction"
+        autofocus
+        (onblur)="addDirection($event)"
+        >
+      </mat-form-field>
+      </div> 
+
       <div>
         <ol class="ingredientList">
           <li *ngFor="let ig of recipe.ingredients; let i = index;">
@@ -102,7 +118,7 @@
           <mat-label>directions</mat-label>
           <input
           matInput
-          placeholder="Direction"
+          placeholder="Direction(press enter to save)"
           autofocus
           (keyup.enter)="addDirection($event)"
           >
