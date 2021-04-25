@@ -6,5 +6,5 @@ export interface Recipe {
     nationality: string;
     ingredients : Ingredient[];
     directions : string[];
-    // imgUrl: string;
+    imgUrl: string;
 }
