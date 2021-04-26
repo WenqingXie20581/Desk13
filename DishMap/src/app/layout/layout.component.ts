@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-layout',
@@ -12,12 +13,17 @@ export class LayoutComponent implements OnInit {
 
   showNations : boolean = true;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService,
+    private location: Location) { }
 
   getNations(): void {
     this.recipeService.getNations()
       .subscribe(nations => this.nations = nations)
  }
+
+ goBack(): void {
+  this.location.back();
+}
 
 
 

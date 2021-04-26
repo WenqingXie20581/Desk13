@@ -14,7 +14,7 @@
       </button> -->
       <a routerLink="/login" mat-icon-button><mat-icon>perm_identity_icon</mat-icon></a>
       <a routerLink="/user" mat-icon-button><mat-icon>home</mat-icon></a>
-      <button type="button" mat-icon-button>
+      <button type="button" mat-icon-button (click)="goBack()">
         <mat-icon>exit_to_app</mat-icon>
       </button>
     </mat-toolbar-row>
