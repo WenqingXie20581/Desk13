@@ -1,7 +1,8 @@
 <h2>Choose your nation</h2>
-  <a *ngFor="let nation of nations" class="nations"
+  <!-- <a *ngFor="let nation of nations" class="nations"
    routerLink="/cookbook/{{nation}}">
    <div>
      <h4>{{nation}}</h4>
     </div>
-  </a>
+  </a> -->
+<div echarts [options]="option" class="worldmap" (chartClick)="onChartClick($event)"></div>

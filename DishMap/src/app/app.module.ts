@@ -28,6 +28,8 @@ import { UploadComponent } from './upload/upload.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { UserComponent } from './user/user.component';
     LoginComponent,
     RegisterComponent,
     UserComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,9 @@ import { UserComponent } from './user/user.component';
     ReactiveFormsModule,
     MatSelectModule,
     MatSliderModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]

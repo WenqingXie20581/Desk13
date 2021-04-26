@@ -1,0 +1,26 @@
+.nations {
+  font-size: smaller;
+}
+
+#nationButton {
+  border: none;
+  background-color: white;
+}
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.toolbar-seprator {
+  flex: 1 1 auto;
+}
+
+.container,
+.sidenav {
+  padding-top: 64px;
+  height: calc(100vh - 64px);
+}
+.sidenav {
+  width: 15%;
+}
