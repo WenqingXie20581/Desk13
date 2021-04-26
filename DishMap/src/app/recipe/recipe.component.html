@@ -2,6 +2,8 @@
 <div *ngIf="recipe">
     <h2>{{ recipe.title }}</h2>
     <h3>{{recipe.nationality}}</h3>
+    <p><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/default.gif'}}" alt="image"></p>
+    <h3>{{recipe.introduction}}</h3>
     <h3>ingredients</h3>
         <ul *ngFor="let ingredient of recipe.ingredients">
             <li>{{ingredient.name}}</li>

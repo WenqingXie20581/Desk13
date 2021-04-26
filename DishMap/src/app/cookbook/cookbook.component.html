@@ -1,9 +1,9 @@
 <h2>Cookbook</h2>
 <div class="grid">
-  <div *ngFor="let recipe of recipes" >
+  <div *ngFor="let recipe of currentRecipes" >
     <div class="recipeItem">
       <a routerLink="/recipe/{{recipe.id}}"  >
-        <p><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/defaul.gif'}}" alt="image"></p>
+        <p><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/default.gif'}}" alt="image"></p>
         <p class="title">{{recipe.title}}</p>
         <p>{{recipe.introduction}}</p>
      </a>

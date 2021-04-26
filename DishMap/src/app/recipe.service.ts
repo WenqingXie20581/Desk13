@@ -31,12 +31,12 @@ export class RecipeService {
      return of(RECIPES.find(recipe => recipe.id === id));
   }
 
-  getRecipesByNation(nation: string): Observable<Recipe[]> {
-    return of(RECIPES.filter(
-      (recipe)=>{
-        if (recipe.nationality === nation) return true;
-      return false}));
-    }
+  // getRecipesByNation(nation: string): Observable<Recipe[]> {
+  //   return of(RECIPES.filter(
+  //     (recipe)=>{
+  //       if (recipe.nationality === nation) return true;
+  //     return false}));
+  //   }
   // getRecipes() : Observable<Recipe[]> {
   //   return this.http.get<Recipe[]>(this.recipeUrl);
   // } 
