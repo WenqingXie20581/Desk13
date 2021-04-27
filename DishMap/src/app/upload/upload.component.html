@@ -1,4 +1,5 @@
-<div [hidden]="submitted">
+<div id="container">
+  <div [hidden]="submitted">
     <form (ngSubmit)="onSubmit()" #ulForm="ngForm">
       <div>
         <ng-template>
@@ -96,7 +97,7 @@
             >
           </mat-form-field>
           <button mat-icon-button color="primary" type="button" (click)="saveIngredient()"
-          ><mat-icon>save</mat-icon>save ingredient</button>
+          ><mat-icon>save</mat-icon>save</button>
           </div>
         </div>
         <div>
@@ -132,3 +133,4 @@
     <div *ngIf="submitted">
       <h2>Thanks for your upload</h2>
     </div>
+</div>

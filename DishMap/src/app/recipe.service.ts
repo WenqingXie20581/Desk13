@@ -34,7 +34,7 @@ export class RecipeService {
 
   getTopRecipes(): Observable<Recipe[]>{
     const lengthOfTopRecipes = RECIPES.length >= 10 ? 10 : RECIPES.length;
-    return of(RECIPES.sort((a, b) => { return a.popularity - b.popularity}).slice(0,10));
+    return of(RECIPES.sort((a, b) => { return b.popularity - a.popularity}).slice(0,10));
   }
 
   // getRecipesByNation(nation: string): Observable<Recipe[]> {
