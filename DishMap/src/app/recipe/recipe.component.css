@@ -24,6 +24,10 @@ a {
   float: right;
 }
 
+a {
+  color: black;
+}
+
 #sidebar li {
   list-style: none;
 }
@@ -42,4 +46,7 @@ a {
 }
 button {
   margin-left: 100px;
+}
+mat-icon {
+  color: orangered;
 }

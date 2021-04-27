@@ -1,3 +1,3 @@
 export const NATIONS: string[] = [
-    'China', 'India', 'Japan', 'Russia', 'Germany', 'Thailand', 'Mexico', 'Spain'
+    'China', 'Italy', 'Japan', 'Russia', 'Germany', 'Thailand', 'Mexico', 'Spain'
 ]

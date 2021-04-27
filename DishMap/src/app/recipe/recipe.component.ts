@@ -14,12 +14,17 @@ export class RecipeComponent implements OnInit {
 
     topRecipes : Recipe[];
 
+    fav : boolean = false;
 
   constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
     route.params.subscribe(val => {
       this.getRecipe();
       this.getTop10recipes();
   });
+  }
+
+  addFav() {
+    this.fav = true;
   }
 
   getRecipe(): void {
