@@ -2,3 +2,44 @@ img {
   height: 280px;
   width: 280px;
 }
+mat-icon {
+  color: red;
+}
+a {
+  text-decoration: none;
+}
+#Container {
+}
+#recipeContainer {
+  padding: 25px;
+  margin: 30px;
+  margin-right: 250px;
+}
+#sidebar {
+  border: thin solid #007e7e;
+  width: 200px;
+  padding: 0px 20px 100px 20px;
+  margin-left: 100px;
+  text-align: center;
+  float: right;
+}
+
+#sidebar li {
+  list-style: none;
+}
+
+.index {
+  text-align: left;
+  float: left;
+}
+.name {
+  text-align: center;
+  float: initial;
+}
+.num {
+  text-align: right;
+  float: right;
+}
+button {
+  margin-left: 100px;
+}

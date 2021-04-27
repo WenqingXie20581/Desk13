@@ -4,7 +4,7 @@
     <div class="recipeItem">
       <a routerLink="/recipe/{{recipe.id}}"  >
         <p><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/default.gif'}}" alt="image"></p>
-        <p class="title">{{recipe.title}}</p>
+        <p class="title">{{recipe.title}}<span class="fav">{{recipe.popularity}}&nbsp;<mat-icon [inline]="true" color="warning" >favorite</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
         <p>{{recipe.introduction}}</p>
      </a>
     </div>

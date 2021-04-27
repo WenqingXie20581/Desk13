@@ -81,6 +81,7 @@ class Ulrecipe implements Recipe {
   ingredients : Ingredient[];
   directions : string[];
   imgUrl = null;
+  popularity = 0;
 
   constructor(){
     this.ingredients = new Array();

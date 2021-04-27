@@ -4,6 +4,7 @@ import { Recipe } from './models/Recipe';
 import { NATIONS } from './data/nation-data'
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { number } from 'echarts';
 
 
 
@@ -29,6 +30,11 @@ export class RecipeService {
 
   getRecipeById(id: number): Observable<Recipe> {
      return of(RECIPES.find(recipe => recipe.id === id));
+  }
+
+  getTopRecipes(): Observable<Recipe[]>{
+    const lengthOfTopRecipes = RECIPES.length >= 10 ? 10 : RECIPES.length;
+    return of(RECIPES.sort((a, b) => { return a.popularity - b.popularity}).slice(0,10));
   }
 
   // getRecipesByNation(nation: string): Observable<Recipe[]> {

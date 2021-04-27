@@ -15,11 +15,17 @@
 a {
   text-decoration: none;
 }
-p.title {
+.title {
   font-weight: bold;
   font-size: larger;
   line-height: 60%;
   color: coral;
+}
+.fav {
+  font-size: small;
+  color: red;
+  text-align: right;
+  float: right;
 }
 p {
   color: darkgoldenrod;
