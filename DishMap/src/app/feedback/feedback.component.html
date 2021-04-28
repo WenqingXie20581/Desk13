@@ -1,8 +1,8 @@
 <div id="container">
   <div [hidden]="submitted" >
-    <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" #fdForm="ngForm">
+    <form (ngSubmit)="onSubmit()">
       <mat-vertical-stepper linear>
-        <mat-step formGroupName="basicQuestions" [stepControl]="surveyForm.get('basicQuestions')" linear>
+        <mat-step  linear>
           <ng-template matStepLabel>
             <u>personal information</u>
           </ng-template>
@@ -10,7 +10,7 @@
           <mat-form-field>
             <mat-label>name</mat-label>
             <input name="name" matInput placeholder="name" [(ngModel)]="feedback.name" 
-            formControlName="name" required>
+             required>
           </mat-form-field>
           <br>
           <mat-form-field>
@@ -26,28 +26,30 @@
           <ng-template matStepLabel>
             <u>questions</u>
           </ng-template>
-          <div>
             <h4>1. How do you know us?</h4>
               <mat-form-field>
                 <mat-label>Select</mat-label>
-                <mat-select (ngModel)="feedback.questions[0]" required >
+                <mat-select name="question" [(ngModel)]="feedback.questions[0]" required >
                   <mat-option value="one">Advertising</mat-option>
                   <mat-option value="two">Friends introduce</mat-option>
                   <mat-option value="three">Application store</mat-option>
                   <mat-option value="four">social media</mat-option>
                 </mat-select>
               </mat-form-field>
-          </div>
-          <div>
             <h4>2. How do you rete this app?</h4>
-            <mat-slider  min="0" max="100" step="5" (ngModel)="feedback.questions[1]"
-            thumbLabel [tickInterval]="2" required></mat-slider>
-          </div>
-          <div>
+            <mat-form-field>
+              <mat-label>Select</mat-label>
+              <mat-select  name="question" [(ngModel)]="feedback.questions[1]" required >
+                <mat-option value="one">very good</mat-option>
+                <mat-option value="two">good</mat-option>
+                <mat-option value="three">general</mat-option>
+                <mat-option value="four">bad</mat-option>
+              </mat-select>
+            </mat-form-field>
             <h4>3. Which of the issues below was the biggest problem during your experience with this app?</h4>
               <mat-form-field>
-                <mat-label>multiple</mat-label>
-                <mat-select  multiple required (ngModel)="feedback.questions[2]">
+                <mat-label>select</mat-label>
+                <mat-select  name="question" [(ngModel)]="feedback.questions[2]" required>
                   <mat-option value="one">I experience bugs</mat-option>
                   <mat-option value="two">The app was confusing to use</mat-option>
                   <mat-option value="three">The app was missing feature I needed</mat-option>
@@ -56,12 +58,10 @@
                   <mat-option value="six">Other</mat-option>
                 </mat-select>
               </mat-form-field>
-          </div>
-          <div>
             <h4>4. What do you like most about this app</h4>
               <mat-form-field>
-                <mat-label>multiple</mat-label>
-                <mat-select  multiple required (ngModel)="feedback.questions[3]">
+                <mat-label>select</mat-label>
+                <mat-select  name="question" required [(ngModel)]="feedback.questions[3]">
                   <mat-option value="one">Functionality</mat-option>
                   <mat-option value="two">Look and feel</mat-option>
                   <mat-option value="three">Speed</mat-option>
@@ -71,20 +71,17 @@
                   <mat-option value="seven">Other</mat-option>
                 </mat-select>
               </mat-form-field>
-          </div>
           <button type="button" mat-button matStepperPrevious>back</button>
           <button type="button" mat-button matStepperNext>next</button>
         </mat-step>
         <mat-step label="other" linear>
           <h4>If you have any questions or Suggestions, please let us know.</h4>
-          <div>
             <mat-form-field>
                 <mat-label>Textarea</mat-label>
-                <textarea matInput cols="90" rows="10" MatTextareaAutosize (ngModel)="feedback.advice" ></textarea>
+                <textarea  name="advice" matInput cols="90" rows="10" MatTextareaAutosize [(ngModel)]="feedback.advice" ></textarea>
               </mat-form-field>
-          </div>
           <button type="button" mat-button matStepperPrevious>back</button>
-          <button mat-raised-button color="primary" type="submit" [disabled]="!fdForm.form.valid"
+          <button mat-raised-button color="primary" type="submit" 
           ><mat-icon>upload</mat-icon>submit</button>
         </mat-step>
       </mat-vertical-stepper>
