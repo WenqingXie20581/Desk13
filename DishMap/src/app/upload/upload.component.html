@@ -17,12 +17,11 @@
         </ng-template>
       <mat-form-field>
         <mat-label>Select</mat-label>
-        <mat-select (ngModel)="recipe.nationality" required >
+        <mat-select [(ngModel)]="recipe.nationality" required >
           <mat-option *ngFor="let nation of nations" [value]="nation">{{nation}}</mat-option>
         </mat-select>
       </mat-form-field>
       </div>
-
       <div>   
         <ng-template>
           <u>introduction</u>
@@ -125,6 +124,15 @@
           >
         </mat-form-field>
         </div>  
+        <div>
+          <ng-template>
+            <u>picture</u>
+          </ng-template>
+            <label>Choose food picture &nbsp;</label>
+            <input type="file" name="file" 
+            (change)="handleFileInput($event)" required>
+        </div>
+        <br>
           <button mat-raised-button color="primary" type="submit" [disabled]="!ulForm.form.valid"
           ><mat-icon>upload</mat-icon>submit</button>
           

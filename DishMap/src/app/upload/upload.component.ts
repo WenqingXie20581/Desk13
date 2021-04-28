@@ -22,10 +22,11 @@ export class UploadComponent implements OnInit {
 
   ingredient : Ingredient = new Ulingredient;
 
-  
-  // addIngredients(value : in) {
-  //   this.recipe.ingredients.push()
-  // }
+  handleFileInput(event) {
+
+    this.recipe.pictureFile = event.target.files[0];;
+    
+  }
 
   addDirection(e) : void {
     const direction = e.target.value;
@@ -82,6 +83,7 @@ class Ulrecipe implements Recipe {
   directions : string[];
   imgUrl = null;
   popularity = 0;
+  pictureFile: File;
 
   constructor(){
     this.ingredients = new Array();
