@@ -30,6 +30,8 @@ import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { LayoutComponent } from './layout/layout.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { LayoutComponent } from './layout/layout.component';
     RegisterComponent,
     UserComponent,
     LayoutComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
