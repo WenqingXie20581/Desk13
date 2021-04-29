@@ -1,0 +1,12 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+ abstract class User {
+  private userId : string
+  private email : string
+  private loginStatus : Status
+  public login(email: string, password:string)
+ }
+ class Administrator {
+  private adminName : string
+ }
+ Administrator -g-> User
+}
