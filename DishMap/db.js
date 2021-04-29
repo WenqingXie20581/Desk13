@@ -40,7 +40,7 @@ const RecipeSchema = mongoose.Schema({
     ingredients : [IngredientSchema],
     directions : [String],
     imgUrl: String,
-    popularity: Number, 
+    popularity: Number,
 });
 
 var r = mongoose.model('Recipe', RecipeSchema);
@@ -50,10 +50,12 @@ r.find({}, function(err, doc){
         console.log(err);
         return;
     }
-    console.log(doc);
+    // console.log(doc);
+    console.log(JSON.stringify(doc, undefined, 2));
+
     console.log("find something");
 })
 
 
 //手动插入数据
- //db.recipes.insert({id: 1, title: 'burger', nationality: 'Germany', introduction: 'It is named after the sound of "Gudong" when food is put into boiling water. It is one of the original Chinese delicacies, and it is also a kind of food suitable for all ages',ingredients: [{name: 'beef', quantity: '1 kg', treatment: 'null'}], directions: ['fry' ,'done'], imgUrl: null , popularity: 11}) 
+ //db.recipes.insert({id: 1, title: 'burger', nationality: 'Germany', introduction: 'It is named after the sound of "Gudong" when food is put into boiling water. It is one of the original Chinese delicacies, and it is also a kind of food suitable for all ages',ingredients: [{name: 'beef', quantity: '1 kg', treatment: 'null'}], directions: ['fry' ,'done'], imgUrl: null , popularity: 11})
