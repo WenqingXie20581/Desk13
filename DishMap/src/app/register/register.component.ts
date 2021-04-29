@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/User';
-import {UserService} from '../user.service';
-import { Router,ActivatedRoute } from '@angular/router';
-import { first } from 'rxjs/operators';
-import { FormBuilder,FormGroup } from '@angular/forms';
-
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -13,38 +8,28 @@ import { FormBuilder,FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
+  form: any = {};
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  registerForm : FormGroup;
-  returnUrl : string ='/login'
+  constructor(private authService: AuthService) { }
 
+  ngOnInit(): void {
+  }
 
-
-  constructor(private userService: UserService, 
-    private router: Router,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
- ) {
- }
-
- ngOnInit(): void {
-   this.registerForm = this.formBuilder.group({
-     emailAddress: '',
-     username: '',
-     password: ''
-   });
- }
-
- onSubmit() {
-  this.userService.register(this.registerForm.value)
-  .pipe(first())
-  .subscribe(
+  onSubmit(): void {
+    this.authService.register(this.form).subscribe(
       data => {
-          console.warn('Registration successful.');
-          this.router.navigate([this.returnUrl]);
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
       },
-      error => {
-          console.warn('Registration fail.');
-      });
-}
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
+  }
 
 }

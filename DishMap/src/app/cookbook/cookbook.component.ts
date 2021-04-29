@@ -17,6 +17,11 @@ export class CookbookComponent implements OnInit {
   currentNation : string;
 
   constructor(private recipeService: RecipeService, private route: ActivatedRoute) {
+    route.params.subscribe(val => {
+      this.currentNation = this.route.snapshot.paramMap.get('nation');
+      this.getRecipes();
+      this.getRecipesOfNation();
+  });
 
    }
 
@@ -40,9 +45,9 @@ export class CookbookComponent implements OnInit {
     }
   }
     ngOnInit(): void {
-    this.currentNation = this.route.snapshot.paramMap.get('nation');
-    this.getRecipes();
-    this.getRecipesOfNation();
+    // this.currentNation = this.route.snapshot.paramMap.get('nation');
+    // this.getRecipes();
+    // this.getRecipesOfNation();
   }
 
 }

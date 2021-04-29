@@ -1,21 +1,44 @@
-<h2>Recipe</h2>
-<div *ngIf="recipe">
-    <h2>{{ recipe.title }}</h2>
-    <h3>{{recipe.nationality}}</h3>
-    <p><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/default.gif'}}" alt="image"></p>
-    <h3>{{recipe.introduction}}</h3>
-    <h3>ingredients</h3>
-        <ul *ngFor="let ingredient of recipe.ingredients">
-            <li>{{ingredient.name}}</li>
-            <li>{{ingredient.quantity}}</li>
-            <li>{{ingredient.treatment}}</li>
-        </ul>
-
-    <h3>directions</h3>
-    <ol>
-        <li *ngFor="let direction of recipe.directions">
-            {{direction}}
-        </li>
-    </ol>
-
+<div id="allContainer">
+    <div id="recipeContainer">
+        <h1>Recipe Detail</h1>
+        <div id="sidebar">
+            <h2>Top 10 Most Popular Dishes</h2>
+            <ul *ngFor="let recipe of topRecipes; let i = index">
+                <li>
+                    <a routerLink="/recipe/{{recipe.id}}">
+                        <span class="index">{{i+1}}</span>
+                        <span class="name">{{recipe.title}}</span>
+                        <span class="num">{{recipe.popularity}}<mat-icon [inline]="true">&nbsp;thumb_up</mat-icon></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="recipe">
+            <h2 class="title"> {{ recipe.title }}</h2>
+            <h3 class="nation">{{recipe.nationality}}</h3>
+            <div id="imgContainer"><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/default.gif'}}" alt="image"></div>
+            <br>
+            <h2>Introduction</h2>
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;{{recipe.introduction}}</h3>
+            <h2>ingredients</h2>
+                <ul *ngFor="let ingredient of recipe.ingredients">
+                    <li>{{ingredient.name}}</li>
+                    <li>{{ingredient.quantity}}</li>
+                    <li>{{ingredient.treatment}}</li>
+                </ul>
+        
+            <h2>directions</h2>
+            <ol>
+                <li *ngFor="let direction of recipe.directions">
+                    {{direction}}
+                </li>
+            </ol>   
+        </div>
+        <button mat-raised-button color="primary" (click)="addFav()" type="button">
+           <mat-icon>thumb_up</mat-icon> &nbsp; I LIKE IT
+          </button>
+        <button mat-raised-button color="primary" type="button"
+        >I COMPELETE IT</button>
+    </div>
 </div>
+

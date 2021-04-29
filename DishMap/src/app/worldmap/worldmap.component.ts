@@ -34,6 +34,7 @@ export class WorldmapComponent implements OnInit {
   ngOnInit(): void {
     this.getNations();
     var GeoCoordMap = {
+      'United Kingdom':[-2.5879,51.4545],
       'China': [116.20,39.55],
       'India': [12.29,41.54], 
       'Japan': [141.20,39.55],
@@ -47,6 +48,11 @@ export class WorldmapComponent implements OnInit {
       // 'Australian': [135.209296, -20.86882]
   };
   var Datas: any = [
+    [{
+        name: 'United Kingdom',
+        value: "Bristol is your starting point",
+        num: 0
+    }],
       [{
           name: 'China',
           value: "Chinese Recipes",
@@ -94,7 +100,7 @@ export class WorldmapComponent implements OnInit {
       for (var i = 0; i < data.length; i++) {
           var dataItem = data[i];
           // 			console.log('dataItem',dataItem) //第二个数据
-          var fromCoord = [100.501765, 30.756331];
+          var fromCoord = [-2.5879,51.4545];
           var toCoord = GeoCoordMap[dataItem[0].name];
           // 			console.log('toCoord',toCoord);//第一个地址
           if (fromCoord && toCoord) {
@@ -113,37 +119,37 @@ export class WorldmapComponent implements OnInit {
   var series = [];
   
   var arr = [
-      ['China', Datas]
+      ['United Kingdom', Datas]
   ];
   
   arr.forEach(function(item, i) {
       series.push(
   
-          // {
-          //     type: 'lines',
-          //     zlevel: 0,
-          //     effect: {
-          //         // 括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
-          //         show: true,
-          //         period: 4, //箭头指向速度，值越小速度越快
-          //         trailLength: 0.1, //特效尾迹长度[0,1]值越大，尾迹越长重
-          //         symbol: 'circle', //箭头图标
-          //         symbolSize: 3, //图标大小
-          //         color: "#fff"
-          //     },
-          //     lineStyle: {
-          //         normal: {
-          //             width: .7, //尾迹线条宽度
-          //             opacity: 1, //尾迹线条透明度
-          //             curveness: 0.2, //尾迹线条曲直度
-          //             color: function(params) { //圆环显示文字
-          //                 return '	#359fd1'
-          //             },
-          //         },
-          //         color: 'red'
-          //     },
-          //     data: convertData(item[1])
-          // }, 
+          {
+              type: 'lines',
+              zlevel: 0,
+              effect: {
+                  // 括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                  show: true,
+                  period: 4, //箭头指向速度，值越小速度越快
+                  trailLength: 0.1, //特效尾迹长度[0,1]值越大，尾迹越长重
+                  symbol: 'circle', //箭头图标
+                  symbolSize: 3, //图标大小
+                  color: "#fff"
+              },
+              lineStyle: {
+                  normal: {
+                      width: .7, //尾迹线条宽度
+                      opacity: 1, //尾迹线条透明度
+                      curveness: 0.2, //尾迹线条曲直度
+                      color: function(params) { //圆环显示文字
+                          return '	#359fd1'
+                      },
+                  },
+                  color: 'red'
+              },
+              data: convertData(item[1])
+          }, 
           {
               type: 'effectScatter',
               coordinateSystem: 'geo',
@@ -193,10 +199,10 @@ export class WorldmapComponent implements OnInit {
               symbol: 'circle',
               color: 'rgba(128, 220, 251, .6)',
               symbolSize: 20,
-              // data: [{
-              //     name: item[0],
-              //     value: GeoCoordMap[item[0]].concat(["192.168.0.1"]),
-              // }],
+              data: [{
+                  name: item[0],
+                  value: GeoCoordMap[item[0]],
+              }],
           }
       );
   });
@@ -209,7 +215,7 @@ export class WorldmapComponent implements OnInit {
               if (typeof(e.value)[2] == "undefined" || e.name == "") {
                   return e.name;
               } else {
-                  return 'IP<br>' + e.name + ':' + e.value[2];
+                  return  e.name + ':' + e.value[2];
               }
           }
       },

@@ -12,7 +12,20 @@ export class RecipeComponent implements OnInit {
 
     recipe : Recipe ;
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService) {}
+    topRecipes : Recipe[];
+
+    fav : boolean = false;
+
+  constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
+    route.params.subscribe(val => {
+      this.getRecipe();
+      this.getTop10recipes();
+  });
+  }
+
+  addFav() {
+    this.fav = true;
+  }
 
   getRecipe(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -21,7 +34,13 @@ export class RecipeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getRecipe();
+    // this.getRecipe();
+    // this.getTop10recipes();
+  }
+
+  getTop10recipes():void {
+    this.recipeService.getTopRecipes()
+    .subscribe(recipes => this.topRecipes = recipes);
   }
 
 }

@@ -19,8 +19,20 @@
 .container,
 .sidenav {
   padding-top: 64px;
-  height: calc(100vh - 64px);
+  height: calc(100vh - 0px);
 }
 .sidenav {
   width: 15%;
+  min-width: 150px;
+}
+.nations {
+  line-height: 90%;
+}
+img {
+  display: block;
+  bottom: 70px;
+  left: 0px;
+  position: fixed;
+  border: 1px solid #fff;
+  width: 14%;
 }

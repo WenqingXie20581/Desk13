@@ -8,4 +8,5 @@ export interface Recipe {
     ingredients : Ingredient[];
     directions : string[];
     imgUrl: string;
+    popularity: number;
 }
