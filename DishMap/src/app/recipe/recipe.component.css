@@ -8,8 +8,6 @@ mat-icon {
 a {
   text-decoration: none;
 }
-#Container {
-}
 #recipeContainer {
   padding: 25px;
   margin: 30px;
@@ -18,10 +16,19 @@ a {
 #sidebar {
   border: thin solid #007e7e;
   width: 200px;
-  padding: 0px 20px 100px 20px;
+  padding: 0px 50px 50px 20px;
   margin-left: 100px;
   text-align: center;
   float: right;
+
+  background: #fff;
+  border: 1px solid #fff;
+  box-shadow: #d0d0d0 1px 1px 10px 0px;
+}
+
+#recipeContainer > h1 {
+  text-align: center;
+  color: coral;
 }
 
 a {
@@ -30,6 +37,8 @@ a {
 
 #sidebar li {
   list-style: none;
+  color: #525c66;
+  border-bottom: 1px solid #b8c2cc;
 }
 
 .index {
@@ -49,4 +58,15 @@ button {
 }
 mat-icon {
   color: orangered;
+}
+
+#sidebar h2 {
+  color: lightcoral;
+}
+
+.title {
+  font-weight: bolder;
+}
+.nation {
+  text-indent: 8%;
 }
