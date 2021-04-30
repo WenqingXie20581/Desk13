@@ -24,7 +24,10 @@ export class RecipeComponent implements OnInit {
   }
 
   addFav() {
-    this.fav = true;
+    if (this.fav === false) {
+      this.recipe.popularity++;
+      this.recipeService.addFavour(this.recipe).subscribe(fav => this.fav = true)
+    }   
   }
 
   getRecipe(): void {
@@ -32,10 +35,8 @@ export class RecipeComponent implements OnInit {
       this.recipeService.getRecipeById(id)
       .subscribe(recipe => this.recipe = recipe);
   }
-
+  
   ngOnInit(): void {
-    // this.getRecipe();
-    // this.getTop10recipes();
   }
 
   getTop10recipes():void {

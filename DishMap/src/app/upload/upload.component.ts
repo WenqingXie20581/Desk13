@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../models/Recipe';
+import { UploadRecipe } from '../models/UploadRecipe';
 import { Ingredient} from '../models/Ingredient';
 import { RecipeService } from '../recipe.service';
 
@@ -62,7 +62,10 @@ export class UploadComponent implements OnInit {
     this.recipe.ingredients.splice(index, 1)
   }
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() { 
+    this.recipeService.uploadRecipe(this.recipe).
+    subscribe(submitted => this.submitted = true);
+  }
 
   constructor(private recipeService: RecipeService) { }
 
@@ -73,7 +76,7 @@ export class UploadComponent implements OnInit {
 
 }
 
-class Ulrecipe implements Recipe {
+class Ulrecipe implements UploadRecipe {
 
   id: number;
   title: string;

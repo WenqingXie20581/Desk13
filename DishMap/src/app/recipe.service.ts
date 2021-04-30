@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { RECIPES } from './data/recipe-data'
 import { Recipe } from './models/Recipe';
+import { UploadRecipe } from './models/UploadRecipe'
+import { Feedback} from './models/Feedback'
 import { NATIONS } from './data/nation-data'
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -16,7 +18,7 @@ export class RecipeService {
   private recipeUrl = 'api/recipe';
 
   constructor(
-    // private http: HttpClient
+     private http: HttpClient
     ){
   }
 
@@ -37,19 +39,36 @@ export class RecipeService {
     return of(RECIPES.sort((a, b) => { return b.popularity - a.popularity}).slice(0,10));
   }
 
-  // getRecipesByNation(nation: string): Observable<Recipe[]> {
-  //   return of(RECIPES.filter(
-  //     (recipe)=>{
-  //       if (recipe.nationality === nation) return true;
-  //     return false}));
-  //   }
+
+   uploadRecipe(recipe: UploadRecipe) {
+    return this.http.post<UploadRecipe>('${this.recipeUrl}/upload', recipe)
+   }
+
+   addFeedback(feedback: Feedback) {
+    return this.http.post<Feedback>('${this.recipeUrl}/feedback', feedback)
+   }
+
+   addFavour(recipe: Recipe) {
+      return this.http.post<Recipe>('${this.recipeUrl}/favour', recipe);
+   }
+
+  //  getNations() : Observable<string[]> {
+  //   return this.http.get<string[]>('${this.recipeUrl}/nations');
+  // }
+
   // getRecipes() : Observable<Recipe[]> {
   //   return this.http.get<Recipe[]>(this.recipeUrl);
   // } 
 
-  // getRecipe(id: number): Observable<Recipe> {
+  // getRecipeById(id: number): Observable<Recipe> {
   //   const url = `${this.recipeUrl}/${id}`;
   //   return this.http.get<Recipe>(url);
   // }
+  
+  // getTopRecipes(): Observable<Recipe[]>{
+  //     const url = `${this.recipeUrl}/top`;
+  //   return this.http.get<Recipe[]>(url);
+  // }
+
 
 }
