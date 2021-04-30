@@ -1,0 +1,19 @@
+{
+  "directions" : [
+          "boil",
+          "done"
+  ],
+  "id" : 2,
+  "title" : "burger",
+  "nationality" : "Germany",
+  "introduction" : "food",
+  "ingredients" : [
+          {
+                  "name" : "beef",
+                  "quantity" : "1kg",
+                  "treatment" : "null"
+          }
+  ],
+  "imgUrl" : null,
+  "popularity" : 11,
+}
