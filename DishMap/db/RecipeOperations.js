@@ -25,31 +25,40 @@ var removeById = function removeById(_id) {
   });
 };
 
-//根据id查询
-var findById = function findById(_id) {
-  RecipeModel.findOne({ _id: _id }, function (err, doc) {
-    if (err) {
-      return console.log(err);
-    } else {
-      console.log(JSON.stringify(doc, undefined, 2));
-    }
-  });
+//根据id查询  在其他文件里调用这个方法，没等返回外面就已经执行完了。
+// var findById = function findById(_id) {
+//   RecipeModel.findOne({ _id: _id }, function (err, doc) {
+//     if (err) {
+//       return console.log(err);
+//     } else {
+//       return JSON.stringify(doc, undefined, 2);
+//       // console.log(JSON.stringify(doc, undefined, 2));
+//     }
+//   });
+// };
+
+var findById = function findById(_id, done) {
+  RecipeModel.findOne({ _id: _id }, done);
 };
 
-//根据title查询
-var findByTitle = function findByTitle(title) {
-  //find返回的是数组，findOne返回的是单条数据
-  RecipeModel.find({ title: title }, function (err, doc) {
-    if (err) {
-      return console.log(err);
-    } else {
-      console.log(JSON.stringify(doc, undefined, 2));
-    }
-  });
+var findByTitle = function findByTitle(title, done) {
+  RecipeModel.find({ title: title }, done);
 };
+
+// //根据title查询
+// var findByTitle = function findByTitle(title) {
+//   //find返回的是数组，findOne返回的是单条数据
+//   RecipeModel.find({ title: title }, function (err, doc) {
+//     if (err) {
+//       return console.log(err);
+//     } else {
+//       console.log(JSON.stringify(doc, undefined, 2));
+//     }
+//   });
+// };
 
 // 根据Id查询popularity;
-var findPopularity = function findPopularity(id) {
+var findPopularity = function findPopularity(_id) {
   RecipeModel.findOne({ _id: _id }, function (err, doc) {
     if (err) {
       return console.log(err);
@@ -57,8 +66,8 @@ var findPopularity = function findPopularity(id) {
       //没有这一句会出现undefined。得把doc结果转换位JavaScript对象、
       //Converts this document into a plain javascript object, ready for storage in MongoDB.
       doc.toObject({ getters: true });
-      console.log(typeof doc.popularity);
-      console.log(doc.popularity);
+      // console.log(typeof doc.popularity);
+      // console.log(doc.popularity);
       return doc.popularity;
     }
   });
@@ -66,7 +75,7 @@ var findPopularity = function findPopularity(id) {
 
 //根据id增加popularity; 因为node的回调函数是异步的，不能直接调用findPopularity函数
 //需要在find的回调函数中执行增加逻辑。
-//同样的，如果调用这个函数，也调用findPopularity函数，没办法哪个先返回。
+//同样的，如果调用这个函数，也调用findPopularity函数，是不能确定哪个函数先返回的。
 var increasePopularity = function increasePopularity(id) {
   RecipeModel.findOne({ _id: _id }, function (err, doc) {
     if (err) {
