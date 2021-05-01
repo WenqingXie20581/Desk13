@@ -14,8 +14,9 @@ var insert = function insert(data) {
 };
 
 //根据id删除
-var removeById = function removeById(id) {
-  RecipeModel.remove({ id: id }, function (err, doc) {
+var removeById = function removeById(_id) {
+  // mongoose用 JSON 文档的格式指定查询条件
+  RecipeModel.remove({ _id: _id }, function (err, doc) {
     if (err) {
       return console.log(err);
     } else {
@@ -25,8 +26,8 @@ var removeById = function removeById(id) {
 };
 
 //根据id查询
-var findById = function findById(id) {
-  RecipeModel.findOne({ id: id }, function (err, doc) {
+var findById = function findById(_id) {
+  RecipeModel.findOne({ _id: _id }, function (err, doc) {
     if (err) {
       return console.log(err);
     } else {
@@ -49,7 +50,7 @@ var findByTitle = function findByTitle(title) {
 
 // 根据Id查询popularity;
 var findPopularity = function findPopularity(id) {
-  RecipeModel.findOne({ id: id }, function (err, doc) {
+  RecipeModel.findOne({ _id: _id }, function (err, doc) {
     if (err) {
       return console.log(err);
     } else {
@@ -67,7 +68,7 @@ var findPopularity = function findPopularity(id) {
 //需要在find的回调函数中执行增加逻辑。
 //同样的，如果调用这个函数，也调用findPopularity函数，没办法哪个先返回。
 var increasePopularity = function increasePopularity(id) {
-  RecipeModel.findOne({ id: id }, function (err, doc) {
+  RecipeModel.findOne({ _id: _id }, function (err, doc) {
     if (err) {
       console.log(err);
     } else {
