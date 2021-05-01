@@ -20,7 +20,10 @@ var RecipeSchema = new mongoose.Schema({
   ingredients: [IngredientSchema],
   directions: [String],
   imgUrl: String,
-  popularity: Number,
+  popularity: {
+    type: Number,
+    default : 1
+  }
 });
 
 /**

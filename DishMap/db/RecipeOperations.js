@@ -25,15 +25,57 @@ var removeById = function removeById(id) {
 };
 
 //根据id查询
-var findById = function findById(id) {
-  RecipeModel.findOne({ id: id }, function (err, doc) {
+// var findById = function findById(id) {
+//   RecipeModel.findOne({ id: id }, function (err, doc) {
+//     if (err) {
+//       return console.log(err);
+//     } else {
+//       console.log(JSON.stringify(doc, undefined, 2));
+//       doc.toObject({ getters: true });
+//       console.log('find success');
+//       return doc;
+//     }
+//   });
+// };
+
+var findById = function findById(id, callback) {
+  RecipeModel.findOne({id: id}, callback);
+};
+
+
+
+var getIdNum = function getIdNum() {
+  // Exec() 方法，可能是由于异步的原因，返回的值都是 undefined
+  RecipeModel.find({}).sort({_id:-1}).limit(1).exec(async function (err, doc) {
     if (err) {
       return console.log(err);
     } else {
-      console.log(JSON.stringify(doc, undefined, 2));
+      // doc.toObject({ getters: true });
+      console.log('typdof doc.id: ' + typeof doc.id);
+      console.log('doc: ' + doc)
+      console.log('doc.id: ' + doc.id);
+      return await doc.id;
     }
   });
-};
+
+  // Promise 方法
+  // return new Promise((resolve, reject) => {
+  //   RecipeModel.findOne({}, {}, {sort:{'_id':-1}}, function(err, obj) {
+  //     resolve(obj)
+  //   });
+  // })
+
+  // return RecipeModel.findOne().sort({_id:-1}).limit(1);
+
+  // 直接读取数据库中记录条数
+  // RecipeModel.find({}).count( function(err, number) {
+  //   if (err) {
+  //     return console.log(err);
+  //   }
+  //   console.log('db count ' + number);
+  //   return number;
+  // });
+}
 
 //根据title查询
 var findByTitle = function findByTitle(title) {
@@ -91,6 +133,7 @@ var increasePopularity = function increasePopularity(id) {
 module.exports = {
   insert,
   removeById,
+  getIdNum,
   findById,
   findByTitle,
   findPopularity,

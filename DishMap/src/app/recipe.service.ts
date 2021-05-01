@@ -9,7 +9,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { number } from 'echarts';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -28,11 +27,11 @@ export class RecipeService {
 
   getRecipes() : Observable<Recipe[]> {
     return of(RECIPES);
-  } 
-
-  getRecipeById(id: number): Observable<Recipe> {
-     return of(RECIPES.find(recipe => recipe.id === id));
   }
+
+  // getRecipeById(id: number): Observable<Recipe> {
+  //    return of(RECIPES.find(recipe => recipe.id === id));
+  // }
 
   getTopRecipes(): Observable<Recipe[]>{
     const lengthOfTopRecipes = RECIPES.length >= 10 ? 10 : RECIPES.length;
@@ -41,30 +40,35 @@ export class RecipeService {
 
 
    uploadRecipe(recipe: UploadRecipe) {
-    return this.http.post<UploadRecipe>('${this.recipeUrl}/upload', recipe)
+    return this.http.post<UploadRecipe>(`${this.recipeUrl}/upload`, recipe)
    }
 
+  //  deleteRecipe(id: id) {
+  //  return this.http.delete<UploadRecipe>(`${this.recipeUrl}/delete`, id)
+  // }
+
+
    addFeedback(feedback: Feedback) {
-    return this.http.post<Feedback>('${this.recipeUrl}/feedback', feedback)
+    return this.http.post<Feedback>(`${this.recipeUrl}/feedback`, feedback)
    }
 
    addFavour(recipe: Recipe) {
-      return this.http.post<Recipe>('${this.recipeUrl}/favour', recipe);
+      return this.http.post<Recipe>(`${this.recipeUrl}/favour`, recipe);
    }
 
   //  getNations() : Observable<string[]> {
-  //   return this.http.get<string[]>('${this.recipeUrl}/nations');
+  //   return this.http.get<string[]>(`${this.recipeUrl}/nations`);
   // }
 
   // getRecipes() : Observable<Recipe[]> {
   //   return this.http.get<Recipe[]>(this.recipeUrl);
-  // } 
-
-  // getRecipeById(id: number): Observable<Recipe> {
-  //   const url = `${this.recipeUrl}/${id}`;
-  //   return this.http.get<Recipe>(url);
   // }
-  
+
+  getRecipeById(id: number): Observable<Recipe> {
+    const url = `${this.recipeUrl}/${id}`;
+    return this.http.get<Recipe>(url);
+  }
+
   // getTopRecipes(): Observable<Recipe[]>{
   //     const url = `${this.recipeUrl}/top`;
   //   return this.http.get<Recipe[]>(url);
