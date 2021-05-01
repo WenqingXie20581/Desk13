@@ -1,7 +1,6 @@
 const recipe = require("./RecipeOperations.js");
-//新增
+// // 新增;
 // recipe.insert({
-//   id: 1,
 //   title: "xxx",
 //   nationality: "Germany",
 //   introduction:
@@ -16,7 +15,21 @@ const recipe = require("./RecipeOperations.js");
 // recipe.removeById(1);
 // recipe.findById(3);
 
-// recipe.findByTitle("burger");
+// recipe.increasePopularity(1);
 
-recipe.increasePopularity(1);
-recipe.findPopularity(1);
+recipe.findById("608d588dab2b643c64689fee", function (err, doc) {
+  if (err) {
+    return console.log(err);
+  } else {
+    console.log(JSON.stringify(doc, undefined, 2));
+  }
+});
+
+// recipe.findByTitle("burger"); 这种写法获取不到结果，结果得在回调函数里获取
+recipe.findByTitle("xxx", function (err, doc) {
+  if (err) {
+    return console.log(err);
+  } else {
+    console.log(JSON.stringify(doc, undefined, 2));
+  }
+});

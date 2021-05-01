@@ -14,8 +14,9 @@ var insert = function insert(data) {
 };
 
 //根据id删除
-var removeById = function removeById(id) {
-  RecipeModel.remove({ id: id }, function (err, doc) {
+var removeById = function removeById(_id) {
+  // mongoose用 JSON 文档的格式指定查询条件
+  RecipeModel.remove({ _id: _id }, function (err, doc) {
     if (err) {
       return console.log(err);
     } else {
@@ -24,6 +25,7 @@ var removeById = function removeById(id) {
   });
 };
 
+<<<<<<< HEAD
 //根据id查询
 // var findById = function findById(id) {
 //   RecipeModel.findOne({ id: id }, function (err, doc) {
@@ -34,10 +36,21 @@ var removeById = function removeById(id) {
 //       doc.toObject({ getters: true });
 //       console.log('find success');
 //       return doc;
+=======
+//根据id查询  在其他文件里调用这个方法，没等返回外面就已经执行完了。
+// var findById = function findById(_id) {
+//   RecipeModel.findOne({ _id: _id }, function (err, doc) {
+//     if (err) {
+//       return console.log(err);
+//     } else {
+//       return JSON.stringify(doc, undefined, 2);
+//       // console.log(JSON.stringify(doc, undefined, 2));
+>>>>>>> 9a4542ddc8353edffb3f1fbbd94e1ba553b75e43
 //     }
 //   });
 // };
 
+<<<<<<< HEAD
 var findById = function findById(id, callback) {
   RecipeModel.findOne({id: id}, callback);
 };
@@ -76,30 +89,39 @@ var getIdNum = function getIdNum() {
   //   return number;
   // });
 }
+=======
+var findById = function findById(_id, done) {
+  RecipeModel.findOne({ _id: _id }, done);
+};
+>>>>>>> 9a4542ddc8353edffb3f1fbbd94e1ba553b75e43
 
-//根据title查询
-var findByTitle = function findByTitle(title) {
-  //find返回的是数组，findOne返回的是单条数据
-  RecipeModel.find({ title: title }, function (err, doc) {
-    if (err) {
-      return console.log(err);
-    } else {
-      console.log(JSON.stringify(doc, undefined, 2));
-    }
-  });
+var findByTitle = function findByTitle(title, done) {
+  RecipeModel.find({ title: title }, done);
 };
 
+// //根据title查询
+// var findByTitle = function findByTitle(title) {
+//   //find返回的是数组，findOne返回的是单条数据
+//   RecipeModel.find({ title: title }, function (err, doc) {
+//     if (err) {
+//       return console.log(err);
+//     } else {
+//       console.log(JSON.stringify(doc, undefined, 2));
+//     }
+//   });
+// };
+
 // 根据Id查询popularity;
-var findPopularity = function findPopularity(id) {
-  RecipeModel.findOne({ id: id }, function (err, doc) {
+var findPopularity = function findPopularity(_id) {
+  RecipeModel.findOne({ _id: _id }, function (err, doc) {
     if (err) {
       return console.log(err);
     } else {
       //没有这一句会出现undefined。得把doc结果转换位JavaScript对象、
       //Converts this document into a plain javascript object, ready for storage in MongoDB.
       doc.toObject({ getters: true });
-      console.log(typeof doc.popularity);
-      console.log(doc.popularity);
+      // console.log(typeof doc.popularity);
+      // console.log(doc.popularity);
       return doc.popularity;
     }
   });
@@ -107,9 +129,9 @@ var findPopularity = function findPopularity(id) {
 
 //根据id增加popularity; 因为node的回调函数是异步的，不能直接调用findPopularity函数
 //需要在find的回调函数中执行增加逻辑。
-//同样的，如果调用这个函数，也调用findPopularity函数，没办法哪个先返回。
+//同样的，如果调用这个函数，也调用findPopularity函数，是不能确定哪个函数先返回的。
 var increasePopularity = function increasePopularity(id) {
-  RecipeModel.findOne({ id: id }, function (err, doc) {
+  RecipeModel.findOne({ _id: _id }, function (err, doc) {
     if (err) {
       console.log(err);
     } else {
