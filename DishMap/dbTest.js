@@ -1,28 +1,23 @@
-var RecipeModel = require('./model/collection/RecipeModel.js');
-var dbOperation = require('./model/dbOperation.js');
+require("./db.js");
+var RecipeModel = require("./db/RecipeSchema.js");
 
-
-RecipeModel.find({}, (err, doc)=>{
+RecipeModel.find({}, (err, doc) => {
   if (err) {
     throw err;
   }
   console.log(JSON.stringify(doc, undefined, 2));
-})
+});
 
-
-RecipeModel.findByTitle('burger', (err, doc)=>{
+RecipeModel.findByTitle("burger", (err, doc) => {
   if (err) {
     throw err;
   }
   console.log(JSON.stringify(doc, undefined, 2));
-})
+});
 
-RecipeModel.findByRecipeId(1, (err, doc)=>{
+RecipeModel.findByRecipeId(1, (err, doc) => {
   if (err) {
     throw err;
   }
   console.log(JSON.stringify(doc, undefined, 2));
-})
-
-
-
+});

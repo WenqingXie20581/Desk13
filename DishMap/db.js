@@ -1,4 +1,3 @@
-const { Db } = require("mongodb");
 const mongoose = require("mongoose");
 
 // const {
@@ -28,77 +27,67 @@ mongoose
     console.log(err);
   });
 
-const IngredientSchema = new mongoose.Schema({
-  name: String,
-  quantity: String,
-  treatment: String,
+mongoose.connection.on("connected", () => {
+  console.log("MongoDB connect success!");
 });
 
-const RecipeSchema = mongoose.Schema({
-  id: Number,
-  title: String,
-  nationality: String,
-  introduction: String,
-  ingredients: [IngredientSchema],
-  directions: [String],
-  imgUrl: String,
-  popularity: Number,
+mongoose.connection.on("disconnected", () => {
+  console.log("MongoDB disconnect success!");
 });
 
-var r = mongoose.model("Recipe", RecipeSchema);
-
-// 1. Query
-r.find({}, function (err, doc) {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  // console.log(doc);
-  console.log(JSON.stringify(doc, undefined, 2));
-
-  console.log("find something");
+mongoose.connection.on("error", () => {
+  console.log("MongoDB connect throw an exception!");
 });
 
-//手动插入数据
-//db.recipes.insert({id: 1, title: 'burger', nationality: 'Germany', introduction: 'It is named after the sound of "Gudong" when food is put into boiling water. It is one of the original Chinese delicacies, and it is also a kind of food suitable for all ages',ingredients: [{name: 'beef', quantity: '1 kg', treatment: 'null'}], directions: ['fry' ,'done'], imgUrl: null , popularity: 11})
+// // 1. Query
+// r.find({}, function (err, doc) {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
+//   // console.log(doc);
+//   console.log(JSON.stringify(doc, undefined, 2));
 
-// var rInsert = new r({
-//   id: 2,
-//   title: "paris",
-//   nationality: "France",
-//   introduction: "Capital of France",
-//   ingredients: [
-//     {
-//       name: "beef",
-//       quantity: "0.5kg",
-//       treatment: null,
-//     },
-//   ],
-//   directions: ["fry", "done"],
-//   imgUrl: null,
-//   popularity: 13,
+//   console.log("find something");
 // });
 
-// rInsert.save((err) => {
+// //手动插入数据
+// //db.recipes.insert({id: 1, title: 'burger', nationality: 'Germany', introduction: 'It is named after the sound of "Gudong" when food is put into boiling water. It is one of the original Chinese delicacies, and it is also a kind of food suitable for all ages',ingredients: [{name: 'beef', quantity: '1 kg', treatment: 'null'}], directions: ['fry' ,'done'], imgUrl: null , popularity: 11})
+
+// // var rInsert = new r({
+// //   id: 2,
+// //   title: "paris",
+// //   nationality: "France",
+// //   introduction: "Capital of France",
+// //   ingredients: [
+// //     {
+// //       name: "beef",
+// //       quantity: "0.5kg",
+// //       treatment: null,
+// //     },
+// //   ],
+// //   directions: ["fry", "done"],
+// //   imgUrl: null,
+// //   popularity: 13,
+// // });
+
+// // rInsert.save((err) => {
+// //   if (err) {
+// //     throw err;
+// //   }
+// //   console.log("Insert successfully");
+// // });
+
+// // r.updateOne({"_id":"608bd921a1dc702a3c557057"}, {"id":1}, (err, doc)=>{
+// //   if (err) {
+// //     throw err;
+// //   }
+// //   console.log('Update one successfully');
+// // })
+
+// r.deleteOne({ id: 2 }, (err, doc) => {
 //   if (err) {
 //     throw err;
 //   }
-//   console.log("Insert successfully");
+//   console.log("Delete success");
 // });
-
-
-
-// r.updateOne({"_id":"608bd921a1dc702a3c557057"}, {"id":1}, (err, doc)=>{
-//   if (err) {
-//     throw err;
-//   }
-//   console.log('Update one successfully');
-// })
-
-
-r.deleteOne({"id": 2}, (err, doc) =>{
-  if (err) {
-    throw err;
-  }
-  console.log('Delete success');
-})
