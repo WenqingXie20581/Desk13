@@ -1,0 +1,21 @@
+SequenceDiagram{
+  
+  lifeline user as "User"
+  lifeline account as "Account"
+  lifeline cookbook as "Cookbook"
+  lifeline recipe as "Recipe"
+ 
+  user --> account "register"
+  user --> account "login"
+  user --> account "edit profile"
+  
+  user --> cookbook "choose region"
+  cookbook --> user "show recipes"
+  account --> cookbook "upload recipe"
+  
+  account --> recipe "like"
+  account --> recipe "complete"
+
+  
+  
+}

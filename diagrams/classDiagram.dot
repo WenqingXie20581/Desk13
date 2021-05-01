@@ -1,0 +1,32 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+	class User {
+  	private id : int
+  	private username : string
+  	private email : string
+		private likedRecipeIds : "int[]" 
+		private accomplishedRecipeIds : "int[]"
+  	private uploadedRecipeIds : "int[]"
+  	public login(email: string, password:string)
+  	public likeRecipe(recipe : Recipe)
+  	public completeRecipe(recipe : Recipe)
+  	public uploadRecipe(recipe : Recipe)
+		}
+	class Recipe {
+  	private id : int
+  	private title : string
+    private description : string
+  	private region : string
+   	private ingredients : "Ingredient[]"
+    private directions : "string[]"
+    private likedNumber : int
+    public liked()
+ 	}
+  class Ingredient {
+    private id : int
+    private name : string
+    private quantity : string
+    private treatment : string 
+  }
+ 	Recipe <-- "\n like \n complete \n upload " User ;
+ 	Ingredient -a-> Recipe;
+}
