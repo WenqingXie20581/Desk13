@@ -19,7 +19,7 @@ export class RecipeComponent implements OnInit {
   constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
     route.params.subscribe(val => {
       this.getRecipe();
-      this.getTop10recipes();
+      // this.getTop10recipes();
   });
   }
 
@@ -31,7 +31,7 @@ export class RecipeComponent implements OnInit {
   }
 
   getRecipe(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
       this.recipeService.getRecipeById(id)
       .subscribe(recipe => this.recipe = recipe);
   }
@@ -39,9 +39,9 @@ export class RecipeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getTop10recipes():void {
-    this.recipeService.getTopRecipes()
-    .subscribe(recipes => this.topRecipes = recipes);
-  }
+  // getTop10recipes():void {
+  //   this.recipeService.getTopRecipes()
+  //   .subscribe(recipes => this.topRecipes = recipes);
+  // }
 
 }

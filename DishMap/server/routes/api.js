@@ -1,3 +1,5 @@
+//todo 把error恰当地返回
+
 const { number } = require("echarts");
 const express = require("express");
 const router = express.Router();
@@ -25,41 +27,51 @@ const NATIONS = [
   "Spain",
 ];
 
-const RECIPES = [
-  {
-    id: 1,
-    title: "burgerTest",
-    nationality: "Germany",
-    ingredients: [{ name: "beef", quantity: "1 kg", treatment: "null" }],
-    directions: ["fry", "done"],
-  },
-  {
-    id: 2,
-    title: "hot potTest",
-    nationality: "China",
-    ingredients: [
-      { name: "beef", quantity: "1 kg", treatment: "null" },
-      { name: "chili", quantity: "200 g", treatment: "null" },
-    ],
-    directions: ["boil", "done"],
-  },
-];
+// const RECIPES = [
+//   {
+//     id: 1,
+//     title: "burgerTest",
+//     nationality: "Germany",
+//     ingredients: [{ name: "beef", quantity: "1 kg", treatment: "null" }],
+//     directions: ["fry", "done"],
+//   },
+//   {
+//     id: 2,
+//     title: "hot potTest",
+//     nationality: "China",
+//     ingredients: [
+//       { name: "beef", quantity: "1 kg", treatment: "null" },
+//       { name: "chili", quantity: "200 g", treatment: "null" },
+//     ],
+//     directions: ["boil", "done"],
+//   },
+// ];
 
 router.get("/recipe", (req, res) => {
-  const recipe = RECIPES.find((r) => r.id === 1);
-  res.send(recipe);
+  findAll(function (err, doc) {
+    if (err) {
+      throw err;
+    } else {
+      res.send(doc);
+      console.log(doc);
+    }
+  });
 });
 
-var findById = function findById(id, callback) {
-  RecipeModel.findOne({ id, id }, callback);
+var findAll = function findAll(callback) {
+  RecipeModel.find({}, callback);
+};
+
+var findById = function findById(_id, callback) {
+  RecipeModel.findOne({ _id, _id }, callback);
 };
 
 router.get("/recipe/:id", (req, res) => {
   // const recipe = RECIPES.find(r => (r.id === parseInt(req.params.id)));
   // const recipe = RecipeOperation.findById(parseInt(req.params.id));
-  const recipe = findById(req.params.id, function (err, doc) {
+  findById(req.params.id, function (err, doc) {
     if (err) {
-      throw err;
+      console.log(err);
     }
     res.send(doc);
   });
@@ -75,9 +87,10 @@ router.post("/recipe/upload", (req, res) => {
   // } else {
   //   var idNum = idObj.id + 1;
   // }
-  const recipe = {
+  var recipe = {
     // id: idNum,
     title: req.body.title,
+    //introduction没存上？
     introduction: req.body.introduction,
     nationality: req.body.nationality,
     ingredients: req.body.ingredients,

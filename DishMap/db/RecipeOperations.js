@@ -37,8 +37,12 @@ var removeById = function removeById(_id) {
 //   });
 // };
 
-var findById = function findById(id, callback) {
-  RecipeModel.findOne({ id: id }, callback);
+// var findById = function findById(id, callback) {
+//   RecipeModel.findOne({ id: id }, callback);
+// };
+
+var findById = function findById(_id, done) {
+  RecipeModel.findOne({ _id: _id }, done);
 };
 
 var getIdNum = function getIdNum() {
@@ -75,10 +79,6 @@ var getIdNum = function getIdNum() {
   //   console.log('db count ' + number);
   //   return number;
   // });
-};
-
-var findById = function findById(_id, done) {
-  RecipeModel.findOne({ _id: _id }, done);
 };
 
 var findByTitle = function findByTitle(title, done) {

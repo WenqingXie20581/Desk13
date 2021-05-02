@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RECIPES } from './data/recipe-data'
+// import { RECIPES } from './data/recipe-data'
 import { Recipe } from './models/Recipe';
 import { UploadRecipe } from './models/UploadRecipe'
 import { Feedback} from './models/Feedback'
@@ -25,18 +25,18 @@ export class RecipeService {
     return of(NATIONS);
   }
 
-  getRecipes() : Observable<Recipe[]> {
-    return of(RECIPES);
-  }
+  // getRecipes() : Observable<Recipe[]> {
+  //   return of(RECIPES);
+  // }
 
   // getRecipeById(id: number): Observable<Recipe> {
   //    return of(RECIPES.find(recipe => recipe.id === id));
   // }
 
-  getTopRecipes(): Observable<Recipe[]>{
-    const lengthOfTopRecipes = RECIPES.length >= 10 ? 10 : RECIPES.length;
-    return of(RECIPES.sort((a, b) => { return b.popularity - a.popularity}).slice(0,10));
-  }
+  // getTopRecipes(): Observable<Recipe[]>{
+  //   const lengthOfTopRecipes = RECIPES.length >= 10 ? 10 : RECIPES.length;
+  //   return of(RECIPES.sort((a, b) => { return b.popularity - a.popularity}).slice(0,10));
+  // }
 
 
    uploadRecipe(recipe: UploadRecipe) {
@@ -60,11 +60,11 @@ export class RecipeService {
   //   return this.http.get<string[]>(`${this.recipeUrl}/nations`);
   // }
 
-  // getRecipes() : Observable<Recipe[]> {
-  //   return this.http.get<Recipe[]>(this.recipeUrl);
-  // }
+  getRecipes() : Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(this.recipeUrl);
+  }
 
-  getRecipeById(id: number): Observable<Recipe> {
+  getRecipeById(id: string): Observable<Recipe> {
     const url = `${this.recipeUrl}/${id}`;
     return this.http.get<Recipe>(url);
   }
