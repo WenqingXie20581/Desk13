@@ -25,18 +25,6 @@ var removeById = function removeById(_id) {
   });
 };
 
-<<<<<<< HEAD
-//根据id查询
-// var findById = function findById(id) {
-//   RecipeModel.findOne({ id: id }, function (err, doc) {
-//     if (err) {
-//       return console.log(err);
-//     } else {
-//       console.log(JSON.stringify(doc, undefined, 2));
-//       doc.toObject({ getters: true });
-//       console.log('find success');
-//       return doc;
-=======
 //根据id查询  在其他文件里调用这个方法，没等返回外面就已经执行完了。
 // var findById = function findById(_id) {
 //   RecipeModel.findOne({ _id: _id }, function (err, doc) {
@@ -45,31 +33,30 @@ var removeById = function removeById(_id) {
 //     } else {
 //       return JSON.stringify(doc, undefined, 2);
 //       // console.log(JSON.stringify(doc, undefined, 2));
->>>>>>> 9a4542ddc8353edffb3f1fbbd94e1ba553b75e43
 //     }
 //   });
 // };
 
-<<<<<<< HEAD
 var findById = function findById(id, callback) {
-  RecipeModel.findOne({id: id}, callback);
+  RecipeModel.findOne({ id: id }, callback);
 };
-
-
 
 var getIdNum = function getIdNum() {
   // Exec() 方法，可能是由于异步的原因，返回的值都是 undefined
-  RecipeModel.find({}).sort({_id:-1}).limit(1).exec(async function (err, doc) {
-    if (err) {
-      return console.log(err);
-    } else {
-      // doc.toObject({ getters: true });
-      console.log('typdof doc.id: ' + typeof doc.id);
-      console.log('doc: ' + doc)
-      console.log('doc.id: ' + doc.id);
-      return await doc.id;
-    }
-  });
+  RecipeModel.find({})
+    .sort({ _id: -1 })
+    .limit(1)
+    .exec(async function (err, doc) {
+      if (err) {
+        return console.log(err);
+      } else {
+        // doc.toObject({ getters: true });
+        console.log("typdof doc.id: " + typeof doc.id);
+        console.log("doc: " + doc);
+        console.log("doc.id: " + doc.id);
+        return await doc.id;
+      }
+    });
 
   // Promise 方法
   // return new Promise((resolve, reject) => {
@@ -88,12 +75,11 @@ var getIdNum = function getIdNum() {
   //   console.log('db count ' + number);
   //   return number;
   // });
-}
-=======
+};
+
 var findById = function findById(_id, done) {
   RecipeModel.findOne({ _id: _id }, done);
 };
->>>>>>> 9a4542ddc8353edffb3f1fbbd94e1ba553b75e43
 
 var findByTitle = function findByTitle(title, done) {
   RecipeModel.find({ title: title }, done);

@@ -51,20 +51,19 @@ router.get("/recipe", (req, res) => {
 });
 
 var findById = function findById(id, callback) {
-  RecipeModel.findOne({id, id}, callback);
-}
+  RecipeModel.findOne({ id, id }, callback);
+};
 
 router.get("/recipe/:id", (req, res) => {
   // const recipe = RECIPES.find(r => (r.id === parseInt(req.params.id)));
   // const recipe = RecipeOperation.findById(parseInt(req.params.id));
-  const recipe = findById(req.params.id, function(err, doc) {
+  const recipe = findById(req.params.id, function (err, doc) {
     if (err) {
       throw err;
     }
     res.send(doc);
-  })
+  });
 });
-
 
 /**
  * 因为数据结构改变，因此不需要再进行 id 自增
@@ -84,7 +83,7 @@ router.post("/recipe/upload", (req, res) => {
     ingredients: req.body.ingredients,
     directions: req.body.directions,
     imgUrl: req.body.imgUrl,
-    popularity: req.body.popularity
+    popularity: req.body.popularity,
   };
   RecipeOperation.insert(recipe);
 });
@@ -98,7 +97,5 @@ router.post("/user/register", (req, res) => {});
 router.post("/user/login", (req, res) => {});
 
 router.post("/user/logout", (req, res) => {});
-
-
 
 module.exports = router;
