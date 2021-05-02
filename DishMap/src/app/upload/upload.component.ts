@@ -65,7 +65,7 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit() { 
-    this.recipeService.uploadRecipe(this.recipe);
+    this.recipeService.uploadRecipe(this.recipe).subscribe();
     this.submitted = true;
   }
 

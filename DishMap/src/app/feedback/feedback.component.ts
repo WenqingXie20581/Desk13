@@ -17,8 +17,8 @@ export class FeedbackComponent implements OnInit {
   constructor(private recipeServe: RecipeService) {}
 
   onSubmit() { 
-    this.recipeServe.addFeedback(this.feedback).
-    subscribe(sumbitted => this.submitted = true)}
+    this.recipeServe.addFeedback(this.feedback).subscribe();
+    this.submitted = true;}
 
 
   ngOnInit(): void {
