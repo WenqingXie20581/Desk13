@@ -81,6 +81,7 @@ router.get("/recipe/:id", (req, res) => {
  * 因为数据结构改变，因此不需要再进行 id 自增
  */
 router.post("/recipe/upload", (req, res) => {
+  console.log(req.body.nationality);
   // var idObj = RecipeOperation.getIdNum();
   // if (!idObj) {
   //   var idNum = 1;

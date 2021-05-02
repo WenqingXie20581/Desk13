@@ -18,6 +18,8 @@ export class UploadComponent implements OnInit {
 
   recipe : Ulrecipe = new Ulrecipe;
 
+  direction : string = "";
+
   // Uldirection : string;
 
   ingredient : Ingredient = new Ulingredient;
@@ -28,21 +30,21 @@ export class UploadComponent implements OnInit {
     
   }
 
-  addDirection(e) : void {
-    const direction = e.target.value;
-    if (!direction.length) {
-      return;
+  addDirection() : void {
+    console.log(this.direction);
+    if (!this.direction.length) {
+        return;
     }
-    this.recipe.directions.push(direction);
-    e.target.value = '';
+    this.recipe.directions.push(this.direction);
+    this.direction = "";
   }
 
   addIntroduction(e) : void {
-    const direction = e.target.value;
-    if (!direction.length) {
+    const introduction = e.target.value;
+    if (!introduction.length) {
       return;
     }
-    this.recipe.introduction = direction;
+    this.recipe.introduction = introduction;
     e.target.value = '';
   }
 
@@ -63,8 +65,8 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit() { 
-    this.recipeService.uploadRecipe(this.recipe).
-    subscribe(submitted => this.submitted = true);
+    this.recipeService.uploadRecipe(this.recipe);
+    this.submitted = true;
   }
 
   constructor(private recipeService: RecipeService) { }

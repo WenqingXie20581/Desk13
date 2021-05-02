@@ -45,9 +45,9 @@ export class CookbookComponent implements OnInit {
     }
   }
     ngOnInit(): void {
-    // this.currentNation = this.route.snapshot.paramMap.get('nation');
-    // this.getRecipes();
-    // this.getRecipesOfNation();
+  //   this.currentNation = this.route.snapshot.paramMap.get('nation');
+  //   this.getRecipes();
+  //   this.getRecipesOfNation();
   }
 
 }
