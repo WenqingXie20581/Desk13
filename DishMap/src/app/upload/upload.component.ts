@@ -86,7 +86,6 @@ class Ulrecipe implements UploadRecipe {
   introduction: string;
   ingredients : Ingredient[];
   directions : string[];
-  imgUrl = null;
   popularity = 0;
   pictureFile: File;
 

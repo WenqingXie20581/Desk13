@@ -18,7 +18,7 @@
       <mat-form-field>
         <mat-label>Select</mat-label>
         <mat-select name="nation"
-          [(ngModel)]="recipe.nationality" required >
+         [(ngModel)]="recipe.nationality" required >
           <mat-option *ngFor="let nation of nations" [value]="nation">{{nation}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -32,7 +32,6 @@
         <input
         matInput
         placeholder="Introduction"
-        autofocus
         (blur)="addIntroduction($event)"
         >
       </mat-form-field>
@@ -111,25 +110,25 @@
             </li>
           </ol>
         </div>
-        <div>   
+        <div>   
           <ng-template>
-          <u>directions</u>
+            <u>directions</u>
           </ng-template>
-          <mat-form-field>
+        <mat-form-field>
           <mat-label>directions</mat-label>
-            <input
-              name="direction"
-              matInput
-              placeholder="Direction"
-              [(ngModel)]="direction"
-            >
-          </mat-form-field>
-          <button  
-            mat-icon-button 
-            color="primary"
-            type="button" 
-            (click)="addDirection()"><mat-icon>save</mat-icon>save</button>
-        </div> 
+          <input
+          name="direction"
+          matInput
+          placeholder="Direction"
+          [(ngModel)]="direction"
+          >
+        </mat-form-field>
+        <button  
+        mat-icon-button 
+        color="primary"
+         type="button" 
+         (click)="addDirection()"><mat-icon>save</mat-icon>save</button>
+        </div>  
         <div>
           <ng-template>
             <u>picture</u>
