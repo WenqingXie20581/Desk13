@@ -1,7 +1,7 @@
 import { Ingredient } from './Ingredient';
 
 export interface UploadRecipe {
-    id: number;
+    // id: number;
     title: string;
     nationality: string;
     introduction: string;

@@ -77,8 +77,8 @@ var getIdNum = function getIdNum() {
   // });
 };
 
-var findById = function findById(_id, done) {
-  RecipeModel.findOne({ _id: _id }, done);
+var findById = function findById(id, done) {
+  RecipeModel.findOne({ id: id }, done);
 };
 
 var findByTitle = function findByTitle(title, done) {

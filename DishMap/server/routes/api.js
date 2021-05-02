@@ -1,11 +1,18 @@
 const { number } = require("echarts");
 const express = require("express");
 const router = express.Router();
+const fs = require('fs');
+const path = require('path');
+var multer = require('multer');
+
 
 const RecipeOperation = require("../../db/RecipeOperations");
 const RecipeModel = require("../../db/RecipeSchema");
 
 router.use(express.json());
+var upload = multer({dest:'./uploadImg/'});
+var imgServer = express();
+imgServer.use(upload.any());
 
 /* GET api listing. */
 router.get("/", (req, res) => {
@@ -51,7 +58,7 @@ router.get("/recipe", (req, res) => {
 });
 
 var findById = function findById(id, callback) {
-  RecipeModel.findOne({ id, id }, callback);
+  RecipeModel.find({ id: id }, callback);
 };
 
 router.get("/recipe/:id", (req, res) => {
@@ -61,6 +68,23 @@ router.get("/recipe/:id", (req, res) => {
     if (err) {
       throw err;
     }
+    console.log(req.params.id);
+    console.log(doc);
+    res.send(doc);
+  });
+});
+
+var findByTitle = function findByTitle(title, callback) {
+  RecipeModel.find({ title: title }, callback);
+};
+
+router.get("/recipe/:title", (req, res) => {
+  const recipe = findByTitle(req.params.title, function (err, doc) {
+    if (err) {
+      throw err;
+    }
+    console.log(req.params.title);
+    console.log(doc);
     res.send(doc);
   });
 });
@@ -76,17 +100,71 @@ router.post("/recipe/upload", (req, res) => {
   //   var idNum = idObj.id + 1;
   // }
   const recipe = {
-    // id: idNum,
+    // id: 1,
     title: req.body.title,
     introduction: req.body.introduction,
     nationality: req.body.nationality,
     ingredients: req.body.ingredients,
     directions: req.body.directions,
-    imgUrl: req.body.imgUrl,
+    // imgUrl: req.body.imgUrl,
     popularity: req.body.popularity,
+    // pictureFile : req.body.pictureFile
   };
   RecipeOperation.insert(recipe);
+  var pathName = "./uploadImg";
+  var data = req.body.pictureFile;
+  console.log('pictureFile:' + data);
+  fs.writeFileSync(pathName + '/' + '1.jpg', data);
 });
+
+// router.post("/recipe/upload", upload.single('uploadRecipe'), (req, res) => {
+//     const recipe = {
+//     title: req.body.title,
+//     introduction: req.body.introduction,
+//     nationality: req.body.nationality,
+//     ingredients: req.body.ingredients,
+//     directions: req.body.directions,
+//     popularity: req.body.popularity,
+//     };
+//     RecipeOperation.insert(recipe);
+
+//     console.log('pictureFile: ' + req.body.pictureFile);
+
+//     let name = '1.jpg';
+//     fs.writeFile(path.join(__dirname, '../../uploadImg/' + name),req.body.pictureFile, (err)=> {
+//       if(err) {
+//         throw err;
+//       }
+//     })
+
+//   //   fs.readFile(req.file.path, (err, data)=> {
+//   //   if (err) {
+//   //     return res.send('upload failed');
+//   //   }
+//   //   let name = '1.' + req.file.mimetype.split('/')[1];
+//   //   fs.writeFile(path.join(__dirname, '../../uploadImg/' + name), data, (err)=> {
+//   //     if(err) {
+//   //       throw err;
+//   //     }
+//   //   })
+//   // })
+
+// });
+
+// router.post("/recipe/upload/img", uploadImg.single('img'), (req, res) => {
+//   fs.readFile(req.file.path, (err, data)=> {
+//     if (err) {
+//       return res.send('upload failed');
+//     }
+//     let name = '1.' + req.file.mimetype.split('/')[1];
+//     fs.writeFile(path.join(__dirname, '../../uploadImg/' + name), data, (err)=> {
+//       if(err) {
+//         throw err;
+//       }
+//     })
+//   })
+// })
+
 
 router.post("/recipe/feedback", (req, res) => {});
 

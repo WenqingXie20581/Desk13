@@ -25,9 +25,9 @@ export class RecipeService {
     return of(NATIONS);
   }
 
-  getRecipes() : Observable<Recipe[]> {
-    return of(RECIPES);
-  }
+  // getRecipes() : Observable<Recipe[]> {
+  //   return of(RECIPES);
+  // }
 
   // getRecipeById(id: number): Observable<Recipe> {
   //    return of(RECIPES.find(recipe => recipe.id === id));
@@ -60,12 +60,17 @@ export class RecipeService {
   //   return this.http.get<string[]>(`${this.recipeUrl}/nations`);
   // }
 
-  // getRecipes() : Observable<Recipe[]> {
-  //   return this.http.get<Recipe[]>(this.recipeUrl);
-  // }
+  getRecipes() : Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(this.recipeUrl);
+  }
 
   getRecipeById(id: number): Observable<Recipe> {
     const url = `${this.recipeUrl}/${id}`;
+    return this.http.get<Recipe>(url);
+  }
+
+  getRecipeByTitle(title: string): Observable<Recipe> {
+    const url = `${this.recipeUrl}/${title}`;
     return this.http.get<Recipe>(url);
   }
 

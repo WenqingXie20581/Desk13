@@ -25,7 +25,7 @@ export class UploadComponent implements OnInit {
   handleFileInput(event) {
 
     this.recipe.pictureFile = event.target.files[0];;
-    
+
   }
 
   addDirection(e) : void {
@@ -62,7 +62,7 @@ export class UploadComponent implements OnInit {
     this.recipe.ingredients.splice(index, 1)
   }
 
-  onSubmit() { 
+  onSubmit() {
     this.recipeService.uploadRecipe(this.recipe).
     subscribe(submitted => this.submitted = true);
   }
@@ -78,13 +78,13 @@ export class UploadComponent implements OnInit {
 
 class Ulrecipe implements UploadRecipe {
 
-  id: number;
+  // id: number;
   title: string;
   nationality: string;
   introduction: string;
   ingredients : Ingredient[];
   directions : string[];
-  imgUrl = null;
+  // imgUrl = null;
   popularity = 0;
   pictureFile: File;
 
