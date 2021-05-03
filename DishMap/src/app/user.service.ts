@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserAccomplishment } from './models/UserAccomplishment';
 
-const API_URL = 'http://localhost:8080/api/test/';
+const API_URL = 'http://localhost:8080/api/accomplishment/';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +12,30 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
+
+  getUserAccomplishment(): Observable<UserAccomplishment>{
+    return this.http.get<UserAccomplishment>(API_URL);
   }
 
-  getUserApp(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
+
+  likeRecipe(recipeId : number) : Observable<any>{
+    return this.http.post(API_URL + 'like', {
+      likedRecipeId : recipeId
+    });
   }
 
-  getModeratorApp(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
+  completeRecipe(recipeId : number) : Observable<any>{
+    return this.http.post(API_URL + 'complete', {
+      completedRecipeId : recipeId
+    });
   }
 
-  getAdminApp(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
+
+  uploadRecipe(recipeId : number) : Observable<any>{
+    return this.http.post(API_URL + 'upload', {
+      uploadedRecipeId : recipeId
+    });
   }
+
+
 }

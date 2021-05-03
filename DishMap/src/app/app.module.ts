@@ -32,6 +32,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { LayoutComponent } from './layout/layout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './auth.interceptor';
+import { AccomplishmentComponent } from './accomplishment/accomplishment.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { authInterceptorProviders } from './auth.interceptor';
     UserComponent,
     LayoutComponent,
     ProfileComponent,
+    AccomplishmentComponent,
   ],
   imports: [
     BrowserModule,
