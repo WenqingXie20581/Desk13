@@ -12,8 +12,16 @@
       <button  type="button" mat-icon-button ng-click="window.location='/register'">
         <mat-icon>user</mat-icon>
       </button> -->
-      <a routerLink="/login" mat-icon-button><mat-icon>perm_identity_icon</mat-icon></a>
-      <a routerLink="/user" mat-icon-button><mat-icon>home</mat-icon></a>
+      <span *ngIf ="!isLoggedIn">
+        <a routerLink="/login" mat-icon-button><mat-icon>perm_identity_icon</mat-icon></a>
+        <a routerLink="/register" mat-icon-button><mat-icon>perm_identity_icon</mat-icon></a> 
+      </span>
+      
+      <span *ngIf ="isLoggedIn" >
+        <a routerLink="/user" mat-icon-button><mat-icon>home</mat-icon></a>
+        <a href class="nav-link" id="logout-link" (click)="logOut()">LogOut</a>
+      </span>
+      
       <button type="button" mat-icon-button (click)="goBack()">
         <mat-icon>exit_to_app</mat-icon>
       </button>
