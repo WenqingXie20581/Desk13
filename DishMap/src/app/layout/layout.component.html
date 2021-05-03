@@ -13,18 +13,18 @@
         <mat-icon>user</mat-icon>
       </button> -->
       <span *ngIf ="!isLoggedIn">
-        <a routerLink="/login" mat-icon-button><mat-icon>perm_identity_icon</mat-icon></a>
-        <a routerLink="/register" mat-icon-button><mat-icon>perm_identity_icon</mat-icon></a> 
+        <a class="navbar-text" routerLink="/login" mat-button color="Basic">Login</a>
+        <a routerLink="/register" mat-button color="Basic">Register</a> 
       </span>
       
       <span *ngIf ="isLoggedIn" >
-        <a routerLink="/profile" mat-icon-button><mat-icon>profile</mat-icon></a>
-        <a href class="nav-link" id="logout-link" (click)="logOut()">LogOut</a>
+        <a  routerLink="/profile" mat-icon-button><mat-icon>perm_identity_icon</mat-icon></a>
+        <a  href class="nav-link" id="logout-link" (click)="logOut()" mat-icon-button><mat-icon>exit_to_app</mat-icon></a>
       </span>
       
-      <button type="button" mat-icon-button (click)="goBack()">
-        <mat-icon>exit_to_app</mat-icon>
-      </button>
+      <button mat-icon-button color="Basic" class="navbar-text" type="button"  (click)="goBack()">
+        <mat-icon>keyboard_backspace</mat-icon>
+</button>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container class="container">

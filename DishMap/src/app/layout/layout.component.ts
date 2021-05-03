@@ -13,7 +13,7 @@ export class LayoutComponent implements OnInit {
   nations : string[];
 
   showNations : boolean = true;
-  isLoggedIn : boolean =false;
+  isLoggedIn : boolean = false;
 
   constructor(
     private recipeService: RecipeService,
