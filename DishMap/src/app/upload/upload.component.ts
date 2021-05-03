@@ -69,8 +69,14 @@ export class UploadComponent implements OnInit {
   onSubmit() { 
     const formData = new FormData(); 
     const recipeJson = JSON.stringify(this.recipe);
-    formData.append('picture',this.pictureFile)
-    formData.append('recipe', recipeJson);
+    // const recipeJson = JSON.stringify(this.recipe, undefined, 2);
+    formData.append('file',this.pictureFile)
+    formData.append('recipeJson', recipeJson);
+    // formData.append('title', this.recipe.title);
+    // formData.append('introduction', this.recipe.introduction);
+    // formData.append('nationality', this.recipe.nationality);
+    // formData.append('ingredients', JSON.stringify(this.recipe.ingredients));
+    // formData.append('directions', this.recipe.directions.toString());
     this.recipeService.uploadRecipe(formData).subscribe();
     this.submitted = true;
   }
@@ -94,7 +100,6 @@ export class UploadComponent implements OnInit {
 }
 
 class Ulrecipe implements Recipe {
-
   id: string = "";
   title: string;
   nationality: string;
@@ -102,8 +107,7 @@ class Ulrecipe implements Recipe {
   ingredients : Ingredient[];
   directions : string[];
   popularity = 0;
-  imgUrl = null;
-
+  imgUrl = "";
   constructor(){
     this.ingredients = new Array();
     this.directions = new Array();

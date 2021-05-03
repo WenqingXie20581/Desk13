@@ -30,7 +30,7 @@ const NATIONS = [
 ];
 
 router.get("/recipe", (req, res) => {
-  findAll(function (err, doc) {
+  RecipeModel.find({}, function (err, doc) {
     if (err) {
       throw err;
     } else {
@@ -40,18 +40,19 @@ router.get("/recipe", (req, res) => {
   });
 });
 
-var findAll = function findAll(callback) {
-  RecipeModel.find({}, callback);
-};
+// var findAll = function findAll(callback) {
+//   RecipeModel.find({}, callback);
+// };
 
-var findById = function findById(_id, callback) {
-  RecipeModel.findOne({ _id, _id }, callback);
-};
+// var findById = function findById(_id, callback) {
+//   RecipeModel.findOne({ _id, _id }, callback);
+// };
 
 router.get("/recipe/:id", (req, res) => {
   // const recipe = RECIPES.find(r => (r.id === parseInt(req.params.id)));
   // const recipe = RecipeOperation.findById(parseInt(req.params.id));
-  findById(req.params.id, function (err, doc) {
+  const _id = req.params.id;
+  RecipeModel.findOne({ _id, _id }, function (err, doc) {
     if (err) {
       console.log(err);
     }
@@ -63,24 +64,39 @@ router.get("/recipe/:id", (req, res) => {
  * 因为数据结构改变，因此不需要再进行 id 自增
  */
 router.post("/recipe/upload", tools.multer().single("file"), (req, res) => {
-  res.send({
-    body: req.body,
-    file: req.file,
-  });
+  // var recipe = JSON.parse(req.body);
+  // console.log(req.body.recipeJSON);
 
-  // var recipe = {
-  //   // id: idNum,
-  //   title: req.body.title,
-  //   //introduction没存上？
-  //   introduction: req.body.introduction,
-  //   nationality: req.body.nationality,
-  //   ingredients: req.body.ingredients,
-  //   directions: req.body.directions,
-  //   imgUrl: req.body.imgUrl,
-  //   popularity: req.body.popularity,
-  // };
-  // RecipeOperation.insert(recipe);
+  const recipeStr = req.body.recipeJson;
+  const recipe = JSON.parse(recipeStr);
+  handleUpdate(recipe, function (err, doc) {
+    if (err) {
+      // console.log(err);
+      res.send({
+        body: req.body,
+      });
+    } else {
+      res.send({
+        body: "successful",
+      });
+    }
+  });
 });
+
+var handleUpdate = function handleUpdate(recipeData, done) {
+  var recipe = {
+    title: recipeData.title,
+    introduction: recipeData.introduction,
+    nationality: recipeData.nationality,
+    ingredients: recipeData.ingredients,
+    directions: recipeData.directions,
+    popularity: 0,
+    imgUrl: "",
+  };
+  // console.log(recipe);
+  var instance = new RecipeModel(recipe);
+  instance.save(done);
+};
 
 router.post("/recipe/feedback", (req, res) => {});
 

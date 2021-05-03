@@ -18,8 +18,8 @@ var RecipeSchema = new mongoose.Schema({
   imgUrl: String,
   popularity: {
     type: Number,
-    default : 1
-  }
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("Recipe", RecipeSchema);

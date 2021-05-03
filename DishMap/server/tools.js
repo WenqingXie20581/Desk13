@@ -7,7 +7,7 @@ let tools = {
     var storage = multer.diskStorage({
       //配置上传的目录，必须存在
       destination: function (req, file, cb) {
-        cb(null, "../../src/app/data/upload-images");
+        cb(null, "./upload_images");
       },
       //修改上传后文件名
       filename: function (req, file, cb) {
