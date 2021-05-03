@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 // import { RECIPES } from './data/recipe-data'
 import { Recipe } from './models/Recipe';
-import { UploadRecipe } from './models/UploadRecipe'
 import { Feedback} from './models/Feedback'
 import { NATIONS } from './data/nation-data'
-import { Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { number } from 'echarts';
 
@@ -39,8 +38,8 @@ export class RecipeService {
   // }
 
 
-   uploadRecipe(recipe: UploadRecipe) {
-    return this.http.post<UploadRecipe>(`${this.recipeUrl}/upload`, recipe)
+   uploadRecipe(formdata: FormData) {
+    return this.http.post<FormData>(`${this.recipeUrl}/upload`, formdata)
    }
 
   //  deleteRecipe(id: id) {

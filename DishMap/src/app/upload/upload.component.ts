@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UploadRecipe } from '../models/UploadRecipe';
+import { Recipe } from '../models/Recipe';
 import { Ingredient} from '../models/Ingredient';
 import { RecipeService } from '../recipe.service';
 
@@ -20,13 +20,15 @@ export class UploadComponent implements OnInit {
 
   direction : string = "";
 
+  pictureFile : File;
+
   // Uldirection : string;
 
   ingredient : Ingredient = new Ulingredient;
 
   handleFileInput(event) {
 
-    this.recipe.pictureFile = event.target.files[0];;
+    this.pictureFile = event.target.files[0];;
     
   }
 
@@ -65,9 +67,22 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit() { 
-    this.recipeService.uploadRecipe(this.recipe).subscribe();
+    const formData = new FormData(); 
+    const recipeJson = JSON.stringify(this.recipe);
+    formData.append('picture',this.pictureFile)
+    formData.append('recipe', recipeJson);
+    this.recipeService.uploadRecipe(formData).subscribe();
     this.submitted = true;
   }
+
+  // id: number;
+  // title: string;
+  // nationality: string;
+  // introduction: string;
+  // ingredients : Ingredient[];
+  // directions : string[];
+  // popularity = 0;
+  // pictureFile: File;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -78,16 +93,16 @@ export class UploadComponent implements OnInit {
 
 }
 
-class Ulrecipe implements UploadRecipe {
+class Ulrecipe implements Recipe {
 
-  id: number;
+  id: string = "";
   title: string;
   nationality: string;
   introduction: string;
   ingredients : Ingredient[];
   directions : string[];
   popularity = 0;
-  pictureFile: File;
+  imgUrl = null;
 
   constructor(){
     this.ingredients = new Array();
