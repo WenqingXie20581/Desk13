@@ -1,5 +1,5 @@
 export interface UserAccomplishment {
-    likedRecipeIds : number[];
-    completedRecipeIds: number[];
-    uploadedRecipeIds: number[];
+    likedRecipeIds : string[];
+    completedRecipeIds: string[];
+    uploadedRecipeIds: string[];
 }

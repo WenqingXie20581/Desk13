@@ -19,13 +19,13 @@ export class UserService {
 
   getUserAccomplishment(): Observable<UserAccomplishment>{
     let id =  this.tokenStorageService.getUser().id;
-    const URL = API_URL+'accomplishment'+id;
+    const URL = API_URL+'accomplishment/'+id;
     return this.http.get<UserAccomplishment>(URL);
   }
 
   getUserProfile(): Observable<UserAccomplishment>{
     let id =  this.tokenStorageService.getUser().id;
-    const URL = API_URL+'profile'+id;
+    const URL = API_URL+'profile/'+id;
     return this.http.get<UserAccomplishment>(API_URL);
   }
 

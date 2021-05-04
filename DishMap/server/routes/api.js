@@ -98,19 +98,10 @@ var handleUpdate = function handleUpdate(recipeData, done) {
   instance.save(done);
 };
 
-router.post("/recipe/feedback", (req, res) => {});
-
-router.post("/recipe/favour", (req, res) => {});
-
-router.post("/user/register", (req, res) => {});
-
-router.post("/user/login", (req, res) => {});
-
-router.post("/user/logout", (req, res) => {});
 
 
-
-router.get('/users/authenticate', (req,res)=>{
+// login
+router.get('/auth/signin', (req,res)=>{
   const { username, password } = req.body;
   const user = users.find(x => x.username === username && x.password === password);
   if (!user) return error('Username or password is incorrect');
@@ -120,6 +111,13 @@ router.get('/users/authenticate', (req,res)=>{
   })
 });
 
+// register
+router.get('/auth/signup', (req,res)=>{});
+
+
+router.get('/user/profile/:id', (req,res)=>{});
+
+router.get('/user/accomplishment/:id', (req,res)=>{});
 
 
 module.exports = router;
@@ -147,5 +145,17 @@ module.exports = router;
 
 
 
+/*
 
 
+router.post("/recipe/feedback", (req, res) => {});
+
+router.post("/recipe/favour", (req, res) => {});
+
+router.post("/user/register", (req, res) => {});
+
+router.post("/user/login", (req, res) => {});
+
+router.post("/user/logout", (req, res) => {});
+
+*/
