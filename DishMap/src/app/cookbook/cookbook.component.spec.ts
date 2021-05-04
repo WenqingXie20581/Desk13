@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { CookbookComponent } from './cookbook.component';
+
+const fakeActivatedRoute = {
+  snapshot: { data: {  } }
+} as ActivatedRoute;
 
 describe('CookbookComponent', () => {
   let component: CookbookComponent;
@@ -8,7 +13,8 @@ describe('CookbookComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CookbookComponent ]
+      declarations: [ CookbookComponent ],
+      providers: [/*ActivatedRoute*/{provide: ActivatedRoute, useValue: fakeActivatedRoute}]
     })
     .compileComponents();
   });
