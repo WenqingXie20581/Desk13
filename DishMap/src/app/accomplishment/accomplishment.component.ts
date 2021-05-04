@@ -13,9 +13,10 @@ export class AccomplishmentComponent implements OnInit {
 
 
   private accomplishment : UserAccomplishment;
-  private likedRecipes : Recipe[];
-  private completedRecipes : Recipe[];
-  private uploadedRecipes : Recipe[]; 
+
+   likedRecipes : Recipe[];
+   completedRecipes : Recipe[];
+   uploadedRecipes : Recipe[]; 
 
   constructor(
     private userService : UserService,
