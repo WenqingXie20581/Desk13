@@ -31,6 +31,8 @@ import { UserComponent } from './user/user.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { LayoutComponent } from './layout/layout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { authInterceptorProviders } from './auth.interceptor';
+import { AccomplishmentComponent } from './accomplishment/accomplishment.component';
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { ProfileComponent } from './profile/profile.component';
     UserComponent,
     LayoutComponent,
     ProfileComponent,
+    AccomplishmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,7 @@ import { ProfileComponent } from './profile/profile.component';
       echarts: () => import('echarts')
     })
   ],
-  providers: [RecipeService],
+  providers: [RecipeService,authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

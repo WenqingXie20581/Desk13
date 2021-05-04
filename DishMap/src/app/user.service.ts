@@ -1,46 +1,53 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
-import {User} from './models/User';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { UserAccomplishment } from './models/UserAccomplishment';
+import { TokenStorageService } from './token-storage.service';
+
+const API_URL = 'http://localhost:8080/api/user/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private userUrl = 'api/user';
-  private userSubject: BehaviorSubject<User>;
-  public user: Observable<User>;
+  constructor(
+    private http: HttpClient, 
+    private tokenStorageService : TokenStorageService
+  ) { }
 
-  constructor(private http: HttpClient, private router: Router,){
-      this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
-      this.user = this.userSubject.asObservable();
+
+  getUserAccomplishment(): Observable<UserAccomplishment>{
+    let id =  this.tokenStorageService.getUser().id;
+    const URL = API_URL+'accomplishment'+id;
+    return this.http.get<UserAccomplishment>(URL);
+  }
+
+  getUserProfile(): Observable<UserAccomplishment>{
+    let id =  this.tokenStorageService.getUser().id;
+    const URL = API_URL+'profile'+id;
+    return this.http.get<UserAccomplishment>(API_URL);
   }
 
 
+  likeRecipe(recipeId : number) : Observable<any>{
+    return this.http.post(API_URL + 'like', {
+      likedRecipeId : recipeId
+    });
+  }
+
+  completeRecipe(recipeId : number) : Observable<any>{
+    return this.http.post(API_URL + 'complete', {
+      completedRecipeId : recipeId
+    });
+  }
 
 
-login(username, password) {
-  return this.http.post<User>(`${this.userUrl}/login`, { username, password })
-      .pipe(map(user => {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('user', JSON.stringify(user));
-          this.userSubject.next(user);
-          return user;
-      }));
-}
+  uploadRecipe(recipeId : number) : Observable<any>{
+    return this.http.post(API_URL + 'upload', {
+      uploadedRecipeId : recipeId
+    });
+  }
 
-logout() {
-    // remove user from local storage and set current user to null
-    localStorage.removeItem('user');
-    this.userSubject.next(null);
-    this.router.navigate(['/login']);
-}
-
-register(user: User) {
-    return this.http.post(`${this.userUrl}/register`, user);
-}
 
 }

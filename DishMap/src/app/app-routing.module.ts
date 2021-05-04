@@ -8,7 +8,9 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { UploadComponent } from './upload/upload.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { ProfileComponent } from './profile/profile.component';
+import { AccomplishmentComponent} from './accomplishment/accomplishment.component'
+import { from } from 'rxjs';
 const routes: Routes = [
   { path: '', redirectTo: '/worldmap', pathMatch: 'full' },
   { path: 'worldmap', component: WorldmapComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'feedback', component: FeedbackComponent},
   { path: 'upload', component: UploadComponent},
+  { path: 'profile', component: ProfileComponent },
+  { path: 'accomplishment', component: AccomplishmentComponent}
   
   
 ];
