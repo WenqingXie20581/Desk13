@@ -2,18 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserAccomplishment } from './models/UserAccomplishment';
+import { TokenStorageService } from './token-storage.service';
 
-const API_URL = 'http://localhost:8080/api/accomplishment/';
+const API_URL = 'http://localhost:8080/api/user/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient, 
+    private tokenStorageService : TokenStorageService
+  ) { }
 
 
   getUserAccomplishment(): Observable<UserAccomplishment>{
+    let id =  this.tokenStorageService.getUser().id;
+    const URL = API_URL+'accomplishment'+id;
+    return this.http.get<UserAccomplishment>(URL);
+  }
+
+  getUserProfile(): Observable<UserAccomplishment>{
+    let id =  this.tokenStorageService.getUser().id;
+    const URL = API_URL+'profile'+id;
     return this.http.get<UserAccomplishment>(API_URL);
   }
 

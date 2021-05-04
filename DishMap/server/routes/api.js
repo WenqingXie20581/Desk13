@@ -44,4 +44,31 @@ router.post('/recipe',(req,res)=>{
 
 
 
+
+
+router.get('/users/authenticate', (req,res)=>{
+  const { username, password } = req.body;
+  const user = users.find(x => x.username === username && x.password === password);
+  if (!user) return error('Username or password is incorrect');
+  return ok({
+    ...basicDetails(user),
+    token: 'fake-jwt-token'
+  })
+});
+
+router.get('/users/authenticate', (req,res)=>{
+});
+
+router.get('/users/authenticate', (req,res)=>{
+});
+
+router.get('/users/authenticate', (req,res)=>{
+});
+
+
+router.get('/users/authenticate', (req,res)=>{
+});
+
+
+
 module.exports = router;
