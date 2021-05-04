@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserAccomplishment } from './models/UserAccomplishment';
 import { TokenStorageService } from './token-storage.service';
+import { UserProfile} from './models/UserProfile'
+import { UserInfo } from './models/UserInfo'
 
 // 端口号重新指定 808 吗?还是按照之前的 3000 端口?
 // const API_URL = 'http://localhost:8080/api/user/';

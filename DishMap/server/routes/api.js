@@ -128,13 +128,6 @@ router.post('/auth/signin', (req,res)=>{
       // res.send({status: 200, msg: 'Username or password is incorrect.'});
     }
   });
-
-  // const user = users.find(x => x.username === username && x.password === password);
-  // if (!user) return error('Username or password is incorrect');
-  // return ok({
-  //   ...basicDetails(user),
-  //   token: 'fake-jwt-token'
-  // })
 });
 
 // register
@@ -170,7 +163,16 @@ router.post('/auth/signup', (req,res)=>{
 });
 
 
-router.get('/user/profile/:id', (req,res)=>{});
+router.get('/user/profile/:id', (req,res)=>{
+  UserInfoModel.find({id : id}, (err, doc) => {
+    if (err) {
+      return err;
+    }
+    console.log('req.body' + req.body);
+    console.log(doc);
+    res.send(doc);
+  })
+});
 
 router.get('/user/accomplishment/:id', (req,res)=>{});
 
