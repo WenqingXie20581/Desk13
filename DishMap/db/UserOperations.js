@@ -6,6 +6,7 @@ require("../db.js");
 const UserModel = require("./UserSchema.js");
 
 //注册时插入User数据
+// /auth/signup
 var insert = function insert(data) {
   var instance = new UserModel(data);
   instance.save(function (err, doc) {
@@ -43,7 +44,7 @@ var findById = function findById(_id) {
   });
 };
 
-//根据id查询
+//根据 Email 查询
 var findByEmailAddress = function findByEmailAddress(emailAddress) {
   UserModel.findOne({ emailAddress: emailAddress }, function (err, doc) {
     if (err) {

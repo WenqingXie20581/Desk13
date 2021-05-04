@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { UserAccomplishment } from './models/UserAccomplishment';
 import { TokenStorageService } from './token-storage.service';
 
-const API_URL = 'http://localhost:8080/api/user/';
+// 端口号重新指定 808 吗?还是按照之前的 3000 端口?
+// const API_URL = 'http://localhost:8080/api/user/';
+const API_URL = 'http://localhost:3000/api/user/';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ const API_URL = 'http://localhost:8080/api/user/';
 export class UserService {
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private tokenStorageService : TokenStorageService
   ) { }
 

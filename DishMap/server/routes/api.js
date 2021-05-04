@@ -7,6 +7,13 @@ const router = express.Router();
 const RecipeOperation = require("../../db/RecipeOperations");
 const RecipeModel = require("../../db/RecipeSchema");
 
+const UserOperation = require("../../db/UserOperations");
+const UserModel = require("../../db/UserSchema");
+const UserInfoModel = require("../../db/UserInfoSchema");
+const UserDataModel = require("../../db/UserDataSchema");
+
+const JwtUtil = require('../jwt');
+
 const tools = require("../tools.js");
 
 router.use(express.json());
@@ -101,18 +108,66 @@ var handleUpdate = function handleUpdate(recipeData, done) {
 
 
 // login
-router.get('/auth/signin', (req,res)=>{
+// username or password 错误的时候返回错误信息?
+// TODO: login.component.ts, 只要返回携带 data，就认为登陆成功
+// TODO: token 校验，server.js 30-47
+router.post('/auth/signin', (req,res)=>{
   const { username, password } = req.body;
-  const user = users.find(x => x.username === username && x.password === password);
-  if (!user) return error('Username or password is incorrect');
-  return ok({
-    ...basicDetails(user),
-    token: 'fake-jwt-token'
-  })
+  UserInfoModel.findOne({'username': username, 'password': password}, (err, doc) => {
+    if (err) {
+      console.log('err: ' + err);
+      return err;
+    } else if (doc){
+      let jwt = new JwtUtil(username);
+      let token = jwt.generateToken();
+      console.log('login username: ' + req.body.username + 'password: ' + req.body.password);
+      res.send({status: 200, msg: 'Log in success!', token: token});
+    } else {
+      console.log('Incorrect: username: ' + req.body.username + 'password: ' + req.body.password);
+      return err;
+      // res.send({status: 200, msg: 'Username or password is incorrect.'});
+    }
+  });
+
+  // const user = users.find(x => x.username === username && x.password === password);
+  // if (!user) return error('Username or password is incorrect');
+  // return ok({
+  //   ...basicDetails(user),
+  //   token: 'fake-jwt-token'
+  // })
 });
 
 // register
-router.get('/auth/signup', (req,res)=>{});
+router.post('/auth/signup', (req,res)=>{
+  const {username, email, password} = req.body;
+  UserInfoModel.findOne({$or: [{'username': username}, {'email': email}]}, (err, doc) => {
+    if (err) {
+      console.log(err);
+      return err;
+    } else if (doc) {
+      // console.log('Duplicate user: ' + doc);
+      res.send(doc);
+      return;
+    } else {
+      var userinfo = {
+        username : req.body.username,
+        email : req.body.email,
+        password : req.body.password,
+      };
+      var userdata = {
+        username : req.body.username,
+        accomplishment : req.body.accomplishment,
+      }
+      var instanceUserInfo = new UserInfoModel(userinfo);
+      instanceUserInfo.save();
+      var instanceUserData = new UserDataModel(userdata);
+      instanceUserData.save();
+      console.log('username: ' + req.body.username + ', email: ' + req.body.email + ', password: ' + req.body.password);
+      console.log('accomplishment: ' + req.body.accomplishment);
+    }
+  });
+
+});
 
 
 router.get('/user/profile/:id', (req,res)=>{});
