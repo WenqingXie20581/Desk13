@@ -15,6 +15,8 @@ export class UploadComponent implements OnInit {
   submitted : boolean = false;
 
   nations : string[];
+  
+  direction : string = '';
 
   recipe : Ulrecipe = new Ulrecipe;
 
@@ -28,13 +30,13 @@ export class UploadComponent implements OnInit {
     
   }
 
-  addDirection(e) : void {
-    const direction = e.target.value;
-    if (!direction.length) {
-      return;
+  addDirection() : void {
+    console.log(this.direction);
+    if (!this.direction.length) {
+        return;
     }
-    this.recipe.directions.push(direction);
-    e.target.value = '';
+    this.recipe.directions.push(this.direction);
+    this.direction = "";
   }
 
   addIntroduction(e) : void {

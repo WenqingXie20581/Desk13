@@ -17,7 +17,8 @@
         </ng-template>
       <mat-form-field>
         <mat-label>Select</mat-label>
-        <mat-select [(ngModel)]="recipe.nationality" required >
+        <mat-select name="nation"
+         [(ngModel)]="recipe.nationality" required >
           <mat-option *ngFor="let nation of nations" [value]="nation">{{nation}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -31,8 +32,7 @@
         <input
         matInput
         placeholder="Introduction"
-        autofocus
-        (onblur)="addDirection($event)"
+        (blur)="addIntroduction($event)"
         >
       </mat-form-field>
       </div> 
@@ -117,19 +117,24 @@
         <mat-form-field>
           <mat-label>directions</mat-label>
           <input
+          name="direction"
           matInput
-          placeholder="Direction(press enter to save)"
-          autofocus
-          (keyup.enter)="addDirection($event)"
+          placeholder="Direction"
+          [(ngModel)]="direction"
           >
         </mat-form-field>
+        <button  
+        mat-icon-button 
+        color="primary"
+         type="button" 
+         (click)="addDirection()"><mat-icon>save</mat-icon>save</button>
         </div>  
         <div>
           <ng-template>
             <u>picture</u>
           </ng-template>
             <label>Choose food picture &nbsp;</label>
-            <input type="file" name="file" 
+            <input type="file" name="pic" 
             (change)="handleFileInput($event)" required>
         </div>
         <br>
