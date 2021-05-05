@@ -2,7 +2,7 @@
 //查询结果不存在(mongoose判断查询结果为空)，或者输入id错误，应该抛出异常，在上层捕获后显示在前端
 //待确认：不需要删除完成，取消喜欢吧？
 
-require("../db.js");
+require("../../db.js");
 const UserModel = require("./UserSchema.js");
 
 //注册时插入User数据

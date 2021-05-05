@@ -6,23 +6,17 @@ var AccomplishmentSchema = new mongoose.Schema({
   uploadRecipeIds: [String],
 });
 
-// 自增 userid 还有 bug
 var UserDataSchema = new mongoose.Schema({
   userid: {
-    type: Number,
-    unique: true,
-    default: 1,
-  },
-  username: {
     type: String,
-    unique: true,
+    required: true,
   },
   accomplishment: AccomplishmentSchema,
 });
 
-var entitySchema = mongoose.Schema({
-  testValue: { type: String },
-});
+// var entitySchema = mongoose.Schema({
+//   testValue: { type: String },
+// });
 
 // var counter = mongoose.model("UserData", UserDataSchema, "userdata");
 

@@ -4,15 +4,15 @@ const { number } = require("echarts");
 const express = require("express");
 const router = express.Router();
 
-const RecipeOperation = require("../../db/RecipeOperations");
-const RecipeModel = require("../../db/RecipeSchema");
+const RecipeOperation = require("../db/RecipeOperations");
+const RecipeModel = require("../db/RecipeSchema");
 
-const UserOperation = require("../../db/UserOperations");
-const UserModel = require("../../db/UserSchema");
-const UserInfoModel = require("../../db/UserInfoSchema");
-const UserDataModel = require("../../db/UserDataSchema");
+const UserOperation = require("../db/UserOperations");
+const UserModel = require("../db/UserSchema");
+const UserInfoModel = require("../db/UserInfoSchema");
+const UserDataModel = require("../db/UserDataSchema");
 
-const JwtUtil = require('../jwt');
+const JwtUtil = require("../jwt");
 
 const tools = require("../tools.js");
 
@@ -105,77 +105,73 @@ var handleUpdate = function handleUpdate(recipeData, done) {
   instance.save(done);
 };
 
+// // login
+// // username or password 错误的时候返回错误信息?
+// // TODO: login.component.ts, 只要返回携带 data，就认为登陆成功
+// // TODO: token 校验，server.js 30-47
+// router.post('/auth/signin', (req,res)=>{
+//   const { username, password } = req.body;
+//   UserInfoModel.findOne({'username': username, 'password': password}, (err, doc) => {
+//     if (err) {
+//       console.log('err: ' + err);
+//       return err;
+//     } else if (doc){
+//       let jwt = new JwtUtil(username);
+//       let token = jwt.generateToken();
+//       console.log('login username: ' + req.body.username + 'password: ' + req.body.password);
+//       res.send({status: 200, msg: 'Log in success!', token: token});
+//     } else {
+//       console.log('Incorrect: username: ' + req.body.username + 'password: ' + req.body.password);
+//       return err;
+//       // res.send({status: 200, msg: 'Username or password is incorrect.'});
+//     }
+//   });
+// });
 
+// // register
+// router.post('/auth/signup', (req,res)=>{
+//   const {username, email, password} = req.body;
+//   UserInfoModel.findOne({$or: [{'username': username}, {'email': email}]}, (err, doc) => {
+//     if (err) {
+//       console.log(err);
+//       return err;
+//     } else if (doc) {
+//       // console.log('Duplicate user: ' + doc);
+//       res.send(doc);
+//       return;
+//     } else {
+//       var userinfo = {
+//         username : req.body.username,
+//         email : req.body.email,
+//         password : req.body.password,
+//       };
+//       var userdata = {
+//         username : req.body.username,
+//         accomplishment : req.body.accomplishment,
+//       }
+//       var instanceUserInfo = new UserInfoModel(userinfo);
+//       instanceUserInfo.save();
+//       var instanceUserData = new UserDataModel(userdata);
+//       instanceUserData.save();
+//       console.log('username: ' + req.body.username + ', email: ' + req.body.email + ', password: ' + req.body.password);
+//       console.log('accomplishment: ' + req.body.accomplishment);
+//     }
+//   });
 
-// login
-// username or password 错误的时候返回错误信息?
-// TODO: login.component.ts, 只要返回携带 data，就认为登陆成功
-// TODO: token 校验，server.js 30-47
-router.post('/auth/signin', (req,res)=>{
-  const { username, password } = req.body;
-  UserInfoModel.findOne({'username': username, 'password': password}, (err, doc) => {
-    if (err) {
-      console.log('err: ' + err);
-      return err;
-    } else if (doc){
-      let jwt = new JwtUtil(username);
-      let token = jwt.generateToken();
-      console.log('login username: ' + req.body.username + 'password: ' + req.body.password);
-      res.send({status: 200, msg: 'Log in success!', token: token});
-    } else {
-      console.log('Incorrect: username: ' + req.body.username + 'password: ' + req.body.password);
-      return err;
-      // res.send({status: 200, msg: 'Username or password is incorrect.'});
-    }
-  });
-});
+// });
 
-// register
-router.post('/auth/signup', (req,res)=>{
-  const {username, email, password} = req.body;
-  UserInfoModel.findOne({$or: [{'username': username}, {'email': email}]}, (err, doc) => {
-    if (err) {
-      console.log(err);
-      return err;
-    } else if (doc) {
-      // console.log('Duplicate user: ' + doc);
-      res.send(doc);
-      return;
-    } else {
-      var userinfo = {
-        username : req.body.username,
-        email : req.body.email,
-        password : req.body.password,
-      };
-      var userdata = {
-        username : req.body.username,
-        accomplishment : req.body.accomplishment,
-      }
-      var instanceUserInfo = new UserInfoModel(userinfo);
-      instanceUserInfo.save();
-      var instanceUserData = new UserDataModel(userdata);
-      instanceUserData.save();
-      console.log('username: ' + req.body.username + ', email: ' + req.body.email + ', password: ' + req.body.password);
-      console.log('accomplishment: ' + req.body.accomplishment);
-    }
-  });
-
-});
-
-
-router.get('/user/profile/:id', (req,res)=>{
-  UserInfoModel.find({id : id}, (err, doc) => {
+router.get("/user/profile/:id", (req, res) => {
+  UserInfoModel.find({ id: id }, (err, doc) => {
     if (err) {
       return err;
     }
-    console.log('req.body' + req.body);
+    console.log("req.body" + req.body);
     console.log(doc);
     res.send(doc);
-  })
+  });
 });
 
-router.get('/user/accomplishment/:id', (req,res)=>{});
-
+router.get("/user/accomplishment/:id", (req, res) => {});
 
 module.exports = router;
 
@@ -198,9 +194,6 @@ module.exports = router;
 //     directions: ["boil", "done"],
 //   },
 // ];
-
-
-
 
 /*
 

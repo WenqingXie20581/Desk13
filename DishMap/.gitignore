@@ -48,3 +48,6 @@ Thumbs.db
 
 # env
 .env
+
+#上传的图片
+upload_images

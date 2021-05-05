@@ -1,4 +1,4 @@
-require("../db.js");
+require("../../db.js");
 const RecipeModel = require("./RecipeSchema.js");
 
 //插入Recipe数据

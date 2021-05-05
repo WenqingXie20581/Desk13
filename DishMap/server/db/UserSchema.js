@@ -1,28 +1,32 @@
 const mongoose = require("mongoose");
 
 var AccomplishmentSchema = new mongoose.Schema({
-  likedRecipeIds : [String],
+  likedRecipeIds: [String],
   completedRecipeIds: [String],
-  uploadRecipeIds : [String]
+  uploadRecipeIds: [String],
 });
 
 var ProfileSchema = new mongoose.Schema({
-  email: String
+  email: String,
 });
 
 var CredentialSchema = new mongoose.Schema({
-  username: String,
-  password: String
+  username: {
+    type: String,
+    required: true,
+    // min:6,
+    // max:16
+  },
+  password: String,
 });
 
-
 var UserSchema = new mongoose.Schema({
-  email : {
-    type : ProfileSchema,
-    unique : true,
+  email: {
+    type: ProfileSchema,
+    unique: true,
   },
-  Credential : CredentialSchema,
-  Accomplishment : AccomplishmentSchema
+  Credential: CredentialSchema,
+  Accomplishment: AccomplishmentSchema,
 });
 
 // var UserSchema = new mongoose.Schema({
