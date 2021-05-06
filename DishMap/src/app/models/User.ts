@@ -4,7 +4,7 @@ import { UserProfile } from "./UserProfile";
 
 export interface User {
 
-    id: number;
+    id: string;
     token : string;
     credential : UserCredential;
     profile : UserProfile;

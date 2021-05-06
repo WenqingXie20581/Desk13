@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = function auth(req, res, next) {
-  const token = req.header("auth-token");
+  const token = req.header("x-access-token");
   if (!token) {
     return res.status(401).send("Access Denied"); //没登陆
   }
