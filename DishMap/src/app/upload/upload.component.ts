@@ -100,7 +100,7 @@ export class UploadComponent implements OnInit {
 }
 
 class Ulrecipe implements Recipe {
-  id: string = "";
+  _id: string = "";
   title: string;
   nationality: string;
   introduction: string;

@@ -5,7 +5,7 @@
             <h2>Top 10 Most Popular Dishes</h2>
             <ul *ngFor="let recipe of topRecipes; let i = index">
                 <li>
-                    <a routerLink="/recipe/{{recipe.id}}">
+                    <a routerLink="/recipe/{{recipe._id}}">
                         <span class="index">{{i+1}}</span>
                         <span class="name">{{recipe.title}}</span>
                         <span class="num">{{recipe.popularity}}<mat-icon [inline]="true">&nbsp;thumb_up</mat-icon></span>

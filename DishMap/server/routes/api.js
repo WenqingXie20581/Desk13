@@ -36,7 +36,18 @@ const NATIONS = [
   "Spain",
 ];
 
-router.get("/recipe", verify, (req, res) => {
+// router.get("/recipe", verify, (req, res) => {
+//     // res.send(req.userid); 能提取出来userid
+//   RecipeModel.find({}, function (err, doc) {
+//     if (err) {
+//       res.status(400).send("db error");
+//     } else {
+//       res.send(doc);
+//     }
+//   });
+// });
+
+router.get("/recipe", (req, res) => {
     // res.send(req.userid); 能提取出来userid
   RecipeModel.find({}, function (err, doc) {
     if (err) {
@@ -46,6 +57,15 @@ router.get("/recipe", verify, (req, res) => {
     }
   });
 });
+
+// router.get("recipes/:nation", (req, res) => {
+//   RecipeModel.find({"nationality":req.params.nation}, function (err, doc) {
+//     if (err) {
+//       console.log(err);
+//     }
+//     res.send(doc);
+//   });
+// })
 
 // var findAll = function findAll(callback) {
 //   RecipeModel.find({}, callback);

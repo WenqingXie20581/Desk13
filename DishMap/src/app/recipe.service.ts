@@ -63,6 +63,11 @@ export class RecipeService {
     return this.http.get<Recipe[]>(this.recipeUrl);
   }
 
+//   getRecipesByNation(nation:string) : Observable<Recipe[]> {
+//     const url = `api/recipes/${nation}`;
+//     return this.http.get<Recipe[]>(url);
+//   }
+
   getRecipeById(id: string): Observable<Recipe> {
     const url = `${this.recipeUrl}/${id}`;
     return this.http.get<Recipe>(url);
