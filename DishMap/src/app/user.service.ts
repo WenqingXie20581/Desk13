@@ -34,20 +34,20 @@ export class UserService {
   }
 
 
-  likeRecipe(recipeId : number) : Observable<any>{
+  likeRecipe(recipeId : string) : Observable<any>{
     return this.http.post(API_URL + 'like', {
       likedRecipeId : recipeId
     });
   }
 
-  completeRecipe(recipeId : number) : Observable<any>{
+  completeRecipe(recipeId : string) : Observable<any>{
     return this.http.post(API_URL + 'complete', {
       completedRecipeId : recipeId
     });
   }
 
 
-  uploadRecipe(recipeId : number) : Observable<any>{
+  uploadRecipe(recipeId : string) : Observable<any>{
     return this.http.post(API_URL + 'upload', {
       uploadedRecipeId : recipeId
     });
