@@ -17,6 +17,12 @@ The MEAN stack is a full-stack, JavaScript-based framework for developing web ap
 
 
 
+### System Design
+
+The data model we use is relatively simple. 
+
+
+
 ## Back End - database implementation
 
 ## Middle Tier - express, Node, the RESTful API
