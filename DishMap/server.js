@@ -27,6 +27,9 @@ app.use("/api", authRoute);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist/DishMap/index.html"));
 });
+
+
+
 // 5.04 新增，暂未测试
 app.use(function (req, res, next) {
   // 把登陆和注册请求去掉了，其他的多有请求都需要进行token校验

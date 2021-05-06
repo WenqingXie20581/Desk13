@@ -13,8 +13,8 @@ const UserInfoModel = require("../db/UserInfoSchema");
 const UserDataModel = require("../db/UserDataSchema");
 
 const JwtUtil = require("../jwt");
-
-const tools = require("../tools.js");
+const verify = require("./verifyToken");
+const tools = require("../tools");
 
 router.use(express.json());
 
@@ -36,13 +36,13 @@ const NATIONS = [
   "Spain",
 ];
 
-router.get("/recipe", (req, res) => {
+router.get("/recipe", verify, (req, res) => {
+    // res.send(req.userid); 能提取出来userid
   RecipeModel.find({}, function (err, doc) {
     if (err) {
-      throw err;
+      res.status(400).send("db error");
     } else {
       res.send(doc);
-      console.log(doc);
     }
   });
 });

@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const JwtUtil = require("../jwt");
+const fs = require("fs");
+const path = require("path");
+const jwt = require("jsonwebtoken");
 
 const UserInfoModel = require("../db/UserInfoSchema");
 const UserDataModel = require("../db/UserDataSchema");
@@ -67,8 +69,17 @@ router.post("/auth/signin", async (req, res) => {
   if (!validPassword) {
     return res.status(400).send("Password is wrong");
   }
+  // let cert = key.encrypt('test', '');
+  let token = jwt.sign(
+    {
+      userid: user._id,
+    },
+    fs.readFileSync(path.join(__dirname, "../privatekey.pem")),
+    { algorithm: "RS256", expiresIn: 20 }
+  );
+  res.header("auth-token", token).send(token);
 
-  res.send("login success");
+  //   res.send("login success");
   //   const { username, password } = req.body;
   //   UserInfoModel.findOne(
   //     { username: username, password: password },
