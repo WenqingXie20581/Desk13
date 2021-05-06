@@ -55,6 +55,10 @@ export class RecipeService {
       return this.http.post<Recipe>(`${this.recipeUrl}/favour`, recipe);
    }
 
+   addComplete(recipe: Recipe){
+    return this.http.post<Recipe>(`${this.recipeUrl}/complete`, recipe);
+   }
+
   //  getNations() : Observable<string[]> {
   //   return this.http.get<string[]>(`${this.recipeUrl}/nations`);
   // }
@@ -63,10 +67,6 @@ export class RecipeService {
     return this.http.get<Recipe[]>(this.recipeUrl);
   }
 
-//   getRecipesByNation(nation:string) : Observable<Recipe[]> {
-//     const url = `api/recipes/${nation}`;
-//     return this.http.get<Recipe[]>(url);
-//   }
 
   getRecipeById(id: string): Observable<Recipe> {
     const url = `${this.recipeUrl}/${id}`;

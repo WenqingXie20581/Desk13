@@ -75,9 +75,9 @@ router.post("/auth/signin", async (req, res) => {
       userid: user._id,
     },
     fs.readFileSync(path.join(__dirname, "../privatekey.pem")),
-    { algorithm: "RS256", expiresIn: 60*60 }
+    { algorithm: "RS256", expiresIn: 60 * 60 }
   );
-  res.header("auth-token", token).send({token: token, userid: user._id});
+  res.header("auth-token", token).send({ token: token, userid: user._id });
 
   //   res.send("login success");
   //   const { username, password } = req.body;

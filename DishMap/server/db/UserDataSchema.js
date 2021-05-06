@@ -1,17 +1,14 @@
 const mongoose = require("mongoose");
 
-var AccomplishmentSchema = new mongoose.Schema({
-  likedRecipeIds: [String],
-  completedRecipeIds: [String],
-  uploadRecipeIds: [String],
-});
-
 var UserDataSchema = new mongoose.Schema({
   userid: {
     type: String,
     required: true,
+    index: true,
   },
-  accomplishment: AccomplishmentSchema,
+  likedRecipeIds: [String],
+  completedRecipeIds: [String],
+  uploadRecipeIds: [String],
 });
 
 // var entitySchema = mongoose.Schema({

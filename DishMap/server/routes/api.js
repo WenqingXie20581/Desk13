@@ -36,19 +36,8 @@ const NATIONS = [
   "Spain",
 ];
 
-// router.get("/recipe", verify, (req, res) => {
-//     // res.send(req.userid); 能提取出来userid
-//   RecipeModel.find({}, function (err, doc) {
-//     if (err) {
-//       res.status(400).send("db error");
-//     } else {
-//       res.send(doc);
-//     }
-//   });
-// });
-
 router.get("/recipe", (req, res) => {
-    // res.send(req.userid); 能提取出来userid
+  // res.send(req.userid); 能提取出来userid
   RecipeModel.find({}, function (err, doc) {
     if (err) {
       res.status(400).send("db error");
@@ -67,13 +56,80 @@ router.get("/recipe", (req, res) => {
 //   });
 // })
 
-// var findAll = function findAll(callback) {
-//   RecipeModel.find({}, callback);
-// };
+//favour喜欢
+router.post("/recipe/favour", verify, async (req, res) => {
+  const userid = req.token.userid;
+  const recipeId = req.body._id;
+  //先检查recipe和userdata是否存在
+  const recipe = await RecipeModel.findOne({ _id: recipeId });
+  if (!recipe) {
+    return res.status(400).send("Recipe doesn't exists");
+  }
 
-// var findById = function findById(_id, callback) {
-//   RecipeModel.findOne({ _id, _id }, callback);
-// };
+  var userdata = await UserDataModel.findOne({ userid: userid });
+  if (!userdata) {
+    return res.send("database error, empty userdata");
+  }
+
+  //检查是否重复favour
+  if (userdata.likedRecipeIds.indexOf(recipeId) != -1) {
+    return res.send("duplicate favour request");
+  }
+  //添加recipeId，修改popularity
+  userdata.likedRecipeIds.push(recipeId);
+  const newPopularity = recipe.popularity + 1;
+
+  //添加到db
+  try {
+    await RecipeModel.updateOne(
+      { _id: recipeId },
+      { popularity: newPopularity }
+    );
+
+    await UserDataModel.updateOne(
+      { userid: userid },
+      { likedRecipeIds: userdata.likedRecipeIds }
+    );
+    res.send("favour successfully");
+  } catch (err) {
+    res.send(err);
+  }
+});
+
+//complete完成
+router.post("/recipe/complete", verify, async (req, res) => {
+  const userid = req.token.userid;
+  const recipeId = req.body._id;
+
+  //先检查recipe和userdata是否存在
+  const recipe = await RecipeModel.findOne({ _id: recipeId });
+  if (!recipe) {
+    return res.status(400).send("Recipe doesn't exists");
+  }
+  console.log(userid);
+  var userdata = await UserDataModel.findOne({ userid: userid });
+  if (!userdata) {
+    return res.send("database error, empty userdata");
+  }
+
+  //检查是否重复完成
+  if (userdata.completedRecipeIds.indexOf(recipeId) != -1) {
+    return res.send("duplicate complete request");
+  }
+  //添加recipeId
+  userdata.completedRecipeIds.push(recipeId);
+
+  //添加到db
+  try {
+    await UserDataModel.updateOne(
+      { userid: userid },
+      { completedRecipeIds: userdata.completedRecipeIds }
+    );
+    res.send("complete successfully");
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 router.get("/recipe/:id", (req, res) => {
   // const recipe = RECIPES.find(r => (r.id === parseInt(req.params.id)));
@@ -124,61 +180,6 @@ var handleUpdate = function handleUpdate(recipeData, done) {
   var instance = new RecipeModel(recipe);
   instance.save(done);
 };
-
-// // login
-// // username or password 错误的时候返回错误信息?
-// // TODO: login.component.ts, 只要返回携带 data，就认为登陆成功
-// // TODO: token 校验，server.js 30-47
-// router.post('/auth/signin', (req,res)=>{
-//   const { username, password } = req.body;
-//   UserInfoModel.findOne({'username': username, 'password': password}, (err, doc) => {
-//     if (err) {
-//       console.log('err: ' + err);
-//       return err;
-//     } else if (doc){
-//       let jwt = new JwtUtil(username);
-//       let token = jwt.generateToken();
-//       console.log('login username: ' + req.body.username + 'password: ' + req.body.password);
-//       res.send({status: 200, msg: 'Log in success!', token: token});
-//     } else {
-//       console.log('Incorrect: username: ' + req.body.username + 'password: ' + req.body.password);
-//       return err;
-//       // res.send({status: 200, msg: 'Username or password is incorrect.'});
-//     }
-//   });
-// });
-
-// // register
-// router.post('/auth/signup', (req,res)=>{
-//   const {username, email, password} = req.body;
-//   UserInfoModel.findOne({$or: [{'username': username}, {'email': email}]}, (err, doc) => {
-//     if (err) {
-//       console.log(err);
-//       return err;
-//     } else if (doc) {
-//       // console.log('Duplicate user: ' + doc);
-//       res.send(doc);
-//       return;
-//     } else {
-//       var userinfo = {
-//         username : req.body.username,
-//         email : req.body.email,
-//         password : req.body.password,
-//       };
-//       var userdata = {
-//         username : req.body.username,
-//         accomplishment : req.body.accomplishment,
-//       }
-//       var instanceUserInfo = new UserInfoModel(userinfo);
-//       instanceUserInfo.save();
-//       var instanceUserData = new UserDataModel(userdata);
-//       instanceUserData.save();
-//       console.log('username: ' + req.body.username + ', email: ' + req.body.email + ', password: ' + req.body.password);
-//       console.log('accomplishment: ' + req.body.accomplishment);
-//     }
-//   });
-
-// });
 
 router.get("/user/profile/:id", (req, res) => {
   UserInfoModel.find({ id: id }, (err, doc) => {

@@ -15,7 +15,7 @@ module.exports = function auth(req, res, next) {
         fs.readFileSync(path.join(__dirname, "../publickey.pem")),
         { algorithms: ["RS256"] }
       ) || {};
-    req.userid = verified;
+    req.token = verified;
     next();
   } catch (err) {
     if (err.name == "TokenExpiredError") {

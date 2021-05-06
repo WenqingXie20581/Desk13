@@ -33,25 +33,9 @@ export class UserService {
     return this.http.get<UserAccomplishment>(API_URL);
   }
 
-
-  likeRecipe(recipeId : string) : Observable<any>{
-    return this.http.post(API_URL + 'like', {
-      likedRecipeId : recipeId
-    });
-  }
-
-  completeRecipe(recipeId : string) : Observable<any>{
-    return this.http.post(API_URL + 'complete', {
-      completedRecipeId : recipeId
-    });
-  }
-
-
   uploadRecipe(recipeId : string) : Observable<any>{
     return this.http.post(API_URL + 'upload', {
       uploadedRecipeId : recipeId
     });
   }
-
-
 }
