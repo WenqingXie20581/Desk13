@@ -1,0 +1,8 @@
+<h2>Cookbook</h2>
+<ul class="cookbook">
+  <li *ngFor="let recipe of recipes" *ngIf="recipe.nationality = nation">
+      <a routerLink="/cookbook/{{recipe.id}}">
+    <span>{{recipe.title}}</span>
+    </a>
+  </li>
+</ul>

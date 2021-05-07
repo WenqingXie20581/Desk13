@@ -1,0 +1,39 @@
+.nations {
+  font-size: smaller;
+}
+
+#nationButton {
+  border: none;
+  background-color: white;
+}
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.toolbar-seprator {
+  flex: 1 1 auto;
+}
+
+.container,
+.sidenav {
+  padding-top: 64px;
+  height: calc(100vh - 0px);
+}
+.sidenav {
+  width: 15%;
+  min-width: 150px;
+}
+.nations {
+  line-height: 90%;
+}
+img {
+  display: block;
+  position: fixed;
+  border: 1px solid #fff;
+  width: 14%;
+}
+.navbar-text {
+  font-size: medium;
+}

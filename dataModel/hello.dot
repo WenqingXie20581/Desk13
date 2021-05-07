@@ -1,0 +1,46 @@
+digraph {
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+    User [label="{
+        User
+        |
+        - id : int\l
+        - username : string\l
+        - password : string\l
+        - email : string\l
+        - likedRecipeIds : int[]\l
+        - accomplishedRecipeIds : int[]\l
+        - uploadedRecipeIds : int[]\l 
+        |
+        + uploadRecipe(recipe : Recipe)\l
+        + likeRecipe(recipe : Recipe)\l
+        + accomplishRecipe(recipe:Recipe)\l
+    }"]
+
+    Recipe [label="{
+        Recipe
+        |
+        + id : int\l
+        + title : string\l
+        + nation : string\l
+        + ingredients : Ingredient[]\l
+        + directions : string[]\l
+        + likedNumber : int\l
+    }"]
+
+    Ingredient [label="{
+        Ingredient
+        |
+        + id : int\l
+        + name : string\l
+        + quantity : string\l
+        + treatment : string\l
+    }"]
+
+
+    User -> Recipe
+    Recipe -> Ingredient
+    
+
+
+}
