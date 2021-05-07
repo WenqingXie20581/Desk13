@@ -134,6 +134,7 @@ router.post("/recipe/complete", verify, async (req, res) => {
 router.get("/recipe/:id", (req, res) => {
   // const recipe = RECIPES.find(r => (r.id === parseInt(req.params.id)));
   // const recipe = RecipeOperation.findById(parseInt(req.params.id));
+  console.log("获取recipe");
   const _id = req.params.id;
   RecipeModel.findOne({ _id, _id }, function (err, doc) {
     if (err) {

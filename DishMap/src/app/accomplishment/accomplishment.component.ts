@@ -7,69 +7,63 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-accomplishment',
   templateUrl: './accomplishment.component.html',
-  styleUrls: ['./accomplishment.component.css']
+  styleUrls: ['./accomplishment.component.css'],
 })
 export class AccomplishmentComponent implements OnInit {
+  private accomplishment: UserAccomplishment;
 
-
-  private accomplishment : UserAccomplishment;
-
-   likedRecipes : Recipe[];
-   completedRecipes : Recipe[];
-   uploadedRecipes : Recipe[]; 
+  likedRecipes: Recipe[] = [];
+  completedRecipes: Recipe[] = [];
+  uploadedRecipes: Recipe[] = [];
 
   constructor(
-    private userService : UserService,
-    private recipeService : RecipeService
-    ) { }
+    private userService: UserService,
+    private recipeService: RecipeService
+  ) {}
 
   ngOnInit(): void {
-    this.getUserAccomplishment;
-    this.getLikedRecipes;
-    this.getCompletedRecipes;
-    this.getUploadedRecipes;
+    this.getUserAccomplishment();
   }
 
-
-  getUserAccomplishment() :void {
+  getUserAccomplishment(): void {
+      console.log(this.likedRecipes);
     this.userService.getUserAccomplishment().subscribe(
-      data => {this.accomplishment=data},
-      err => {console.log(err)}
-    )
-  }
-
-  getLikedRecipes(){
-    this.accomplishment.likedRecipeIds.forEach(
-      (id) => {
-        this.recipeService.getRecipeById(id).subscribe(
-          (recipe) => this.likedRecipes.push(),
-          (err) => console.log(err)
-        ) 
+      (data) => {
+        this.accomplishment = data;
+        this.getLikedRecipes();
+        this.getCompletedRecipes();
+        this.getUploadedRecipes();
+      },
+      (err) => {
+        console.log(err);
       }
-    )
+    );
   }
 
-  getCompletedRecipes(){
-    this.accomplishment.completedRecipeIds.forEach(
-      (id) => {
-        this.recipeService.getRecipeById(id).subscribe(
-          (recipe) => this.likedRecipes.push(),
-          (err) => console.log(err)
-        ) 
-      }
-    )
+  getLikedRecipes() {
+    this.accomplishment.likedRecipeIds.forEach((id) => {
+      this.recipeService.getRecipeById(id).subscribe(
+        (recipe) => this.likedRecipes.push(recipe),
+        (err) => console.log(err)
+      );
+    });
   }
 
-  getUploadedRecipes(){
-    this.accomplishment.uploadedRecipeIds.forEach(
-      (id) => {
-        this.recipeService.getRecipeById(id).subscribe(
-          (recipe) => this.likedRecipes.push(),
-          (err) => console.log(err)
-        ) 
-      }
-    )
+  getCompletedRecipes() {
+    this.accomplishment.completedRecipeIds.forEach((id) => {
+      this.recipeService.getRecipeById(id).subscribe(
+        (recipe) => this.likedRecipes.push(recipe),
+        (err) => console.log(err)
+      );
+    });
   }
 
-
+  getUploadedRecipes() {
+    this.accomplishment.uploadedRecipeIds.forEach((id) => {
+      this.recipeService.getRecipeById(id).subscribe(
+        (recipe) => this.likedRecipes.push(recipe),
+        (err) => console.log(err)
+      );
+    });
+  }
 }

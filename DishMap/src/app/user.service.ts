@@ -8,7 +8,7 @@ import { UserInfo } from './models/UserInfo'
 
 // 端口号重新指定 808 吗?还是按照之前的 3000 端口?
 // const API_URL = 'http://localhost:8080/api/user/';
-const API_URL = 'http://localhost:3000/api/user/';
+const API_URL = 'http://localhost:3000/user/';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,8 @@ export class UserService {
 
 
   getUserAccomplishment(): Observable<UserAccomplishment>{
-    let id =  this.tokenStorageService.getUser().id;
-    const URL = API_URL+'accomplishment/'+id;
+    // let id =  this.tokenStorageService.getUser().id;
+    const URL = API_URL+'accomplishment';
     return this.http.get<UserAccomplishment>(URL);
   }
 
