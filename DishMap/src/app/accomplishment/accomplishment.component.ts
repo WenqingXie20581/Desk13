@@ -12,6 +12,10 @@ import { UserService } from '../user.service';
 export class AccomplishmentComponent implements OnInit {
   private accomplishment: UserAccomplishment;
 
+  showLinkedRecipes: boolean = true;
+  showUploadeRecipes: boolean = false;
+  showCompletedRecipes: boolean = false;
+
   likedRecipes: Recipe[] = [];
   completedRecipes: Recipe[] = [];
   uploadedRecipes: Recipe[] = [];
@@ -38,6 +42,32 @@ export class AccomplishmentComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  showRecipes(event) {
+    console.log(event);
+    
+    switch(event.value){
+      case "LinkedRecipes":
+        this.showLinkedRecipes = true;
+        this.showUploadeRecipes = false;
+        this.showCompletedRecipes = false;
+        break;
+      case "UploadeRecipes":
+        this.showLinkedRecipes = false;
+        this.showUploadeRecipes = true;
+        this.showCompletedRecipes = false;
+      break;
+      case "CompletedRecipes":
+        this.showLinkedRecipes = false;
+        this.showUploadeRecipes = false;
+        this.showCompletedRecipes = true;
+      break;
+      default:
+        this.showLinkedRecipes = false;
+        this.showUploadeRecipes = false;
+        this.showCompletedRecipes = false;
+    }
   }
 
   getLikedRecipes() {
