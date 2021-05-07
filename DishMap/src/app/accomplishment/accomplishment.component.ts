@@ -46,8 +46,8 @@ export class AccomplishmentComponent implements OnInit {
 
   showRecipes(event) {
     console.log(event);
-    
-    switch(event.value){
+  
+    switch(event.target.value){
       case "LinkedRecipes":
         this.showLinkedRecipes = true;
         this.showUploadeRecipes = false;
