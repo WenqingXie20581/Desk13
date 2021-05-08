@@ -15,8 +15,12 @@ const options = {
   connectTimeoutMS: 10000,
 };
 
- const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+// 连接docker
+// const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+//连接本地mongodb
 // const url = `mongodb://localhost:27017/DishMap`;
+//连接罗哥服务器
+const url = `mongodb://desk13:dishmap@175.24.233.195:27017/dishmap?authSource=admin`
 mongoose.connect(url, {useNewUrlParser: true});
 
 mongoose
