@@ -1,0 +1,21 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor user
+  lifeline "World Map" as map
+  lifeline "Cookbook" as cookbook
+  lifeline "Recipe" as recipe
+ 
+  
+  map --> user "show the world map"
+  user --> map "select a region on the map"
+  
+  map --> cookbook "find the cookbook of the region"
+  user <-- cookbook "show recipes of that region"
+  user --> cookbook "upload a new recipe"
+  user --> cookbook "select a receipe"
+ 	cookbook --> recipe "find detail info of recipe"
+  recipe --> user "show detailed info to user"
+  user --> recipe "like recipe"
+  user --> recipe "complete recipe"
+
+  
+}
