@@ -260,7 +260,7 @@ In wechat group, we often encounter unclear descriptions, such as API deployment
 | ---------- | --------------- | ------------------------------------------------------------ |
 |            |                 |                                                              |
 | HaoLong Li | Designer, Coder | He focus on the front end. He designed the web page style and developed part of fucntions in front end. More importantly, he drew an amazing dynamic world map in the home page. |
-|            |                 |                                                              |
+| Wei Wei    | Product Manager | He is responsible for collecting product information, analyzing product requirements, organizing group meetings, testing project functions and writing product analysis reports |
 |            |                 |                                                              |
 |            |                 |                                                              |
 
