@@ -1,32 +1,54 @@
 ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
 	class User {
-  	private id : int
-  	private username : string
-  	private email : string
-		private likedRecipeIds : "int[]" 
-		private accomplishedRecipeIds : "int[]"
-  	private uploadedRecipeIds : "int[]"
+  	private id : string
+		private profile : UserProfile
+    private credential : UserCredential
+    private Accomplishment : UserAccomplishment
   	public login(email: string, password:string)
   	public likeRecipe(recipe : Recipe)
   	public completeRecipe(recipe : Recipe)
   	public uploadRecipe(recipe : Recipe)
-		}
+	}
+
+	class UserProfile{
+		private email : string
+	}
+
+	class UserCredential{
+		private username : string
+		private password : string
+	}
+
+	class UserAccomplishment{
+		private likedRecipeIds : "string[]" 
+		private accomplishedRecipeIds : "string[]"
+  		private uploadedRecipeIds : "string[]"	
+	}
+
 	class Recipe {
-  	private id : int
+  	private id : string
   	private title : string
     private description : string
   	private region : string
    	private ingredients : "Ingredient[]"
     private directions : "string[]"
     private likedNumber : int
-    public liked()
+	private completedNumber : int
  	}
-  class Ingredient {
-    private id : int
+
+  	class Ingredient {
+    private id : string
     private name : string
     private quantity : string
     private treatment : string 
-  }
+  	}
+
+
  	Recipe <-- "\n like \n complete \n upload " User ;
  	Ingredient -a-> Recipe;
+  UserProfile -c-> User;
+  UserCredential -c-> User;
+  UserAccomplishment -c-> User;
+  
+  
 }
