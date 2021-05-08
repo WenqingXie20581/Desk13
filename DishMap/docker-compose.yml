@@ -19,7 +19,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/home/node/app
-      - node_modules:/home/node/app/node_modules
+      - ./node_modules:/home/node/app/node_modules
     networks:
       - app-network
     command: ./wait-for.sh db:27017 -- /home/node/app/node_modules/.bin/nodemon server.js
@@ -33,7 +33,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
       - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
     volumes:
-      - dbdata:/data/db
+      - ./dbdata:/data/db
     networks:
       - app-network
 
@@ -41,6 +41,4 @@ networks:
   app-network:
     driver: bridge
 
-volumes:
-  dbdata:
-  node_modules:
+
