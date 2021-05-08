@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
-// const {
-//   MONGO_USERNAME,
-//   MONGO_PASSWORD,
-//   MONGO_HOSTNAME,
-//   MONGO_PORT,
-//   MONGO_DB
-// } = process.env;
+const {
+  MONGO_USERNAME,
+  MONGO_PASSWORD,
+  MONGO_HOSTNAME,
+  MONGO_PORT,
+  MONGO_DB
+} = process.env;
 
 const options = {
   useNewUrlParser: true,
@@ -15,8 +15,9 @@ const options = {
   connectTimeoutMS: 10000,
 };
 
-//  const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
-const url = `mongodb://localhost:27017/DishMap`;
+ const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+// const url = `mongodb://localhost:27017/DishMap`;
+mongoose.connect(url, {useNewUrlParser: true});
 
 mongoose
   .connect(url, options)
@@ -27,17 +28,17 @@ mongoose
     console.log(err);
   });
 
-mongoose.connection.on("connected", () => {
-  console.log("MongoDB connect success!");
-});
+// mongoose.connection.on("connected", () => {
+//   console.log("MongoDB connect success!");
+// });
 
-mongoose.connection.on("disconnected", () => {
-  console.log("MongoDB disconnect success!");
-});
+// mongoose.connection.on("disconnected", () => {
+//   console.log("MongoDB disconnect success!");
+// });
 
-mongoose.connection.on("error", () => {
-  console.log("MongoDB connect throw an exception!");
-});
+// mongoose.connection.on("error", () => {
+//   console.log("MongoDB connect throw an exception!");
+// });
 
 // // 1. Query
 // r.find({}, function (err, doc) {
