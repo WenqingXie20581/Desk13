@@ -34,6 +34,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './auth.interceptor';
 import { AccomplishmentComponent } from './accomplishment/accomplishment.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { errorInterceptorProviders } from './error.interceptor';
 
 
 @NgModule({
@@ -73,7 +74,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
       echarts: () => import('echarts')
     })
   ],
-  providers: [RecipeService,authInterceptorProviders],
+  providers: [RecipeService,authInterceptorProviders,errorInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
