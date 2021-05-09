@@ -2,9 +2,9 @@
 
 ## Stack architecture and system design
 
-### Mean Stack
+[Mean]: https://www.mongodb.com/mean-stack:
 
-[https://www.mongodb.com/mean-stack]: 
+
 
 ![Mean Stack Diagram](https://webassets.mongodb.com/_com_assets/cms/mean-stack-0qy07j83ah.png)
 
@@ -21,7 +21,7 @@ The MEAN stack is a full-stack, JavaScript-based framework for developing web ap
 
 Our data models are relatively simple. Below is our class diagram. 
 
-![classDiagram (2)](images/System_Implementation/classDiagram (2).png)
+![Class Diagram](images/System_Implementation/classDiagram (2).png)
 
 The fundamental part of our data model are User class and Recipe class, each of which contains basic information like id as a string ( in order to be compatible with database) and so on. After getting and reading the recipes from the cookbook , Users can interact with Recipes by liking, completing and uploading recipes.
 
