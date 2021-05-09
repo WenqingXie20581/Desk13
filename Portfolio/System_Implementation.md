@@ -4,9 +4,11 @@
 
 ### Mean Stack
 
-[https://www.mongodb.com/mean-stack]: 
+Our system apply the 
 
-Our system apply the MEAN
+[MEAN]: https://www.mongodb.com/mean-stack
+
+Stack.
 
 ![Mean Stack Diagram](https://webassets.mongodb.com/_com_assets/cms/mean-stack-0qy07j83ah.png)
 
@@ -98,6 +100,13 @@ To sum up, the use case of our app is like below:
 
 ## Deployment and integration
 
+### Docker
+
+We use 
+
 [Docker]: https://docs.docker.com/get-started/overview/
 
+ containers to implement continuous integration and continuous delivery (CI/CD) workflows. 
+
 ![Docker Container](images/System_Implementation/docker-container-20170625-1.png)
+
