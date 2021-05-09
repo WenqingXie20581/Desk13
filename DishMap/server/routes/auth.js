@@ -3,7 +3,6 @@ const router = express.Router();
 const fs = require("fs");
 const path = require("path");
 const jwt = require("jsonwebtoken");
-
 const UserInfoModel = require("../db/UserInfoSchema");
 const UserDataModel = require("../db/UserDataSchema");
 //参数校验
