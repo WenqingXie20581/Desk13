@@ -77,38 +77,13 @@ router.post("/auth/signin", async (req, res) => {
     fs.readFileSync(path.join(__dirname, "../privatekey.pem")),
     { algorithm: "RS256", expiresIn: 60 * 60 }
   );
-  res.header("auth-token", token).send({ token: token, userid: user._id });
-
-  //   res.send("login success");
-  //   const { username, password } = req.body;
-  //   UserInfoModel.findOne(
-  //     { username: username, password: password },
-  //     (err, doc) => {
-  //       if (err) {
-  //         console.log("err: " + err);
-  //         return err;
-  //       } else if (doc) {
-  //         let jwt = new JwtUtil(username);
-  //         let token = jwt.generateToken();
-  //         console.log(
-  //           "login username: " +
-  //             req.body.username +
-  //             "password: " +
-  //             req.body.password
-  //         );
-  //         res.send({ status: 200, msg: "Log in success!", token: token });
-  //       } else {
-  //         console.log(
-  //           "Incorrect: username: " +
-  //             req.body.username +
-  //             "password: " +
-  //             req.body.password
-  //         );
-  //         return err;
-  //         // res.send({status: 200, msg: 'Username or password is incorrect.'});
-  //       }
-  //     }
-  //   );
+  const profile = {
+    username: user.username,
+    email: user.email,
+  };
+  res
+    .header("auth-token", token)
+    .send({ token: token, profile: profile });
 });
 
 module.exports = router;

@@ -17,7 +17,7 @@ export class UserService {
 
   constructor(
     private http: HttpClient,
-    private tokenStorageService : TokenStorageService
+    // private tokenStorageService : TokenStorageService
   ) { }
 
 
@@ -28,14 +28,7 @@ export class UserService {
   }
 
   getUserProfile(): Observable<UserAccomplishment>{
-    let id =  this.tokenStorageService.getUser().id;
-    const URL = API_URL+'profile/'+id;
-    return this.http.get<UserAccomplishment>(API_URL);
-  }
-
-  uploadRecipe(recipeId : string) : Observable<any>{
-    return this.http.post(API_URL + 'upload', {
-      uploadedRecipeId : recipeId
-    });
+    const URL = API_URL+'profile';
+    return this.http.get<UserAccomplishment>(URL);
   }
 }

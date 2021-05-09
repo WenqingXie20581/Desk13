@@ -24,28 +24,9 @@ export class RecipeService {
     return of(NATIONS);
   }
 
-  // getRecipes() : Observable<Recipe[]> {
-  //   return of(RECIPES);
-  // }
-
-  // getRecipeById(id: number): Observable<Recipe> {
-  //    return of(RECIPES.find(recipe => recipe.id === id));
-  // }
-
-  // getTopRecipes(): Observable<Recipe[]>{
-  //   const lengthOfTopRecipes = RECIPES.length >= 10 ? 10 : RECIPES.length;
-  //   return of(RECIPES.sort((a, b) => { return b.popularity - a.popularity}).slice(0,10));
-  // }
-
-
    uploadRecipe(formdata: FormData) {
     return this.http.post<FormData>(`${this.recipeUrl}/upload`, formdata)
    }
-
-  //  deleteRecipe(id: id) {
-  //  return this.http.delete<UploadRecipe>(`${this.recipeUrl}/delete`, id)
-  // }
-
 
    addFeedback(feedback: Feedback) {
     return this.http.post<Feedback>(`${this.recipeUrl}/feedback`, feedback)
@@ -58,10 +39,6 @@ export class RecipeService {
    addComplete(recipe: Recipe){
     return this.http.post<Recipe>(`${this.recipeUrl}/complete`, recipe);
    }
-
-  //  getNations() : Observable<string[]> {
-  //   return this.http.get<string[]>(`${this.recipeUrl}/nations`);
-  // }
 
   getRecipes() : Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.recipeUrl);
@@ -76,6 +53,11 @@ export class RecipeService {
   // getTopRecipes(): Observable<Recipe[]>{
   //     const url = `${this.recipeUrl}/top`;
   //   return this.http.get<Recipe[]>(url);
+  // }
+
+    // getTopRecipes(): Observable<Recipe[]>{
+  //   const lengthOfTopRecipes = RECIPES.length >= 10 ? 10 : RECIPES.length;
+  //   return of(RECIPES.sort((a, b) => { return b.popularity - a.popularity}).slice(0,10));
   // }
 
 
