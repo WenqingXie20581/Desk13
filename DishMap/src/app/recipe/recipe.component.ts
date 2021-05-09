@@ -12,6 +12,8 @@ export class RecipeComponent implements OnInit {
 
     recipe : Recipe ;
 
+    recipes : Recipe[];
+
     topRecipes : Recipe[];
 
     fav : boolean = false;
@@ -44,6 +46,15 @@ export class RecipeComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.getRecipes();
+  }
+
+  getRecipes(): void {
+    this.recipeService.getRecipes().subscribe(
+      recipes => {this.recipes = recipes ;
+     this.topRecipes =  this.recipes.sort((a, b) => { return b.popularity - a.popularity}).slice(0,10);
+      }
+      );
   }
 
   // getTop10recipes():void {
