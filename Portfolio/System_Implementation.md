@@ -4,11 +4,7 @@
 
 ### Mean Stack
 
-Our system apply the 
-
-[MEAN]: https://www.mongodb.com/mean-stack
-
-Stack.
+Our system apply the [MEAN](https://docs.docker.com/get-started/overview/) Stack.
 
 ![Mean Stack Diagram](https://webassets.mongodb.com/_com_assets/cms/mean-stack-0qy07j83ah.png)
 
@@ -25,7 +21,7 @@ The MEAN stack is a full-stack, JavaScript-based framework for developing web ap
 
 #### Data Model
 
-![Class Diagram](images/System_Implementation/classDiagram (2)-1620528230912.png)
+<img src="images/System_Implementation/classDiagram (2)-1620528230912.png" alt="Class Diagram" style="zoom: 33%;" />
 
 The fundamental part of our data model are **User** class and **Recipe** class. The **id** field of both classes are string type, compatible with database setting.
 
@@ -65,7 +61,7 @@ The basic operations are like below:
 
 
 
-![Account Sequence](images/System_Implementation/accountSequence.png)
+<img src="images/System_Implementation/accountSequence.png" alt="Account Sequence" style="zoom:33%;" />
 
 After signing in, account-relevant operations are unlocked, including:
 
@@ -81,7 +77,7 @@ After signing in, account-relevant operations are unlocked, including:
 
 To sum up, the use case of our app is like below:
 
-![Use Case](images/System_Implementation/useCase.png)
+<img src="images/System_Implementation/useCase.png" alt="Use Case" style="zoom:33%;" />
 
 - View recipes on web
 - Upload recipes
@@ -102,11 +98,37 @@ To sum up, the use case of our app is like below:
 
 ### Docker
 
-We use 
+We use [Docker](https://docs.docker.com/get-started/overview/) containers to implement continuous integration and continuous delivery (CI/CD) workflows. 
 
-[Docker]: https://docs.docker.com/get-started/overview/
+Docker enables us to separate our applications from your infrastructure so that we can deliver software quickly, and the containers provided by Docker are more lightweight than virtual machines.
 
- containers to implement continuous integration and continuous delivery (CI/CD) workflows. 
+<img src="images/System_Implementation/docker-container-20170625-1.png" alt="Docker Container" style="zoom: 50%;" />
 
-![Docker Container](images/System_Implementation/docker-container-20170625-1.png)
+
+
+When you use Docker, you are creating and using images, containers, networks, volumes, plugins, and other objects. This section is a brief overview of some of those objects.
+
+[Docker Documentary]: https://docs.docker.com/get-started/overview/
+
+
+
+#### Images
+
+An *image* is a read-only template with instructions for creating a Docker container. Often, an image is *based on* another image, with some additional customization. For example, you may build an image which is based on the `ubuntu` image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.
+
+You might create your own images or you might only use those created by others and published in a registry. To build your own image, you create a *Dockerfile* with a simple syntax for defining the steps needed to create the image and run it. Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies.
+
+#### Containers
+
+A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.
+
+By default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container’s network, storage, or other underlying subsystems are from other containers or from the host machine.
+
+A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that are not stored in persistent storage disappear.
+
+
+
+Our project uses 2 Docker Containers, container for server.js and container for mongoDB database.
+
+<img src="images/System_Implementation/DockerContainer.png" alt="Docker Container" style="zoom:150%;" />
 
