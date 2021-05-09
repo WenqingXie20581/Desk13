@@ -147,12 +147,15 @@ router.get("/recipe/:id", (req, res) => {
 /**
  * 因为数据结构改变，因此不需要再进行 id 自增
  */
-router.post("/recipe/upload", tools.multer().single("file"), (req, res) => {
+router.post("/recipe/upload", verify, tools.multer().single("file"), (req, res) => {
   // var recipe = JSON.parse(req.body);
+  const filepath = req.filepath;
+  console.log(filepath);
   // console.log(req.body.recipeJSON);
 
   const recipeStr = req.body.recipeJson;
   const recipe = JSON.parse(recipeStr);
+  recipe.imgUrl = filepath;
   handleUpdate(recipe, function (err, doc) {
     if (err) {
       // console.log(err);
@@ -175,7 +178,7 @@ var handleUpdate = function handleUpdate(recipeData, done) {
     ingredients: recipeData.ingredients,
     directions: recipeData.directions,
     popularity: 0,
-    imgUrl: "",
+    imgUrl: recipeData.imgUrl,
   };
   // console.log(recipe);
   var instance = new RecipeModel(recipe);
