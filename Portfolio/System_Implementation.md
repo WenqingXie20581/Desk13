@@ -2,9 +2,11 @@
 
 ## Stack architecture and system design
 
-[Mean]: https://www.mongodb.com/mean-stack:
+### Mean Stack
 
+[https://www.mongodb.com/mean-stack]: 
 
+Our system apply the MEAN
 
 ![Mean Stack Diagram](https://webassets.mongodb.com/_com_assets/cms/mean-stack-0qy07j83ah.png)
 
@@ -19,15 +21,72 @@ The MEAN stack is a full-stack, JavaScript-based framework for developing web ap
 
 ### System Design
 
-Our data models are relatively simple. Below is our class diagram. 
+#### Data Model
 
-![Class Diagram](images/System_Implementation/classDiagram (2).png)
+![Class Diagram](images/System_Implementation/classDiagram (2)-1620528230912.png)
 
-The fundamental part of our data model are User class and Recipe class, each of which contains basic information like id as a string ( in order to be compatible with database) and so on. After getting and reading the recipes from the cookbook , Users can interact with Recipes by liking, completing and uploading recipes.
+The fundamental part of our data model are **User** class and **Recipe** class. The **id** field of both classes are string type, compatible with database setting.
 
-In order to separate functions and gain security, the User class is made to contain three component classes:
+**User** class stores all information of users.
 
-Class UserProfile is user information which can be edited by user, while UserCredential class is used mainly in authentication.   
+Field **Token** is an access token. It is used in authentication. After signing in, the user client can get an access token from the server. Whenever users want to access private data, the token will be added into header of HTTP Request, and the server will verify users' identification. 
+
+For the sake of function separation and security, the User class contains three component classes:
+
+| Class              | content                                            | function                   |
+| ------------------ | -------------------------------------------------- | -------------------------- |
+| UserProfile        | email                                              | Basic user information     |
+| UserAccomplishment | likedRecipeId, completedRecipeId, uploadedRecipeId | User accomplishment system |
+| UserCredential     | username, password                                 | Authentication             |
+
+ **UserProfile** class stores basic user information. For the time being, it only contains email of users. Other profile like address, phone number and portrait can be added in the future.
+
+**UserAccomplishment** class is designed for accomplishment system, the "playing" part of this app. Users can try achieving all kinds of accomplishment and getting rewards. These accomplishment records are stored in this class.
+
+**UserCredential** class is for Authentication. Data in this class will normally not be directly sent to client for security. It will mainly be use when users sign in their accounts.
+
+**Recipe** Class contains all information to be shown in the Recipe Component and provide a guidance.  **ingredients** and **directions** will tell users what ingredients to prepare and how to deal with them. The **region** field provides a way to classify recipes by region, making the "Dish Map" available.
+
+In order to realize a rank function, **likedNumber** and **completedNumber** fields are added.
+
+#### Sequences
+
+Without signing in, users can find and view recipes. 
+
+![Simple Sequence](images/System_Implementation/recipeSimpleSequence.png)
+
+The basic operations are like below:
+
+1. **Open the web app:** a huge world map is displayed
+2. **Click to select a specific region on the map** or **Click to select a region on the left navigation bar**: the webpage will jump to a cookbook, listing  recipes of that region
+3. **click to select a recipe**: The detailed information of recipe (ingredients, directions and so on) will be shown 
+
+
+
+![Account Sequence](images/System_Implementation/accountSequence.png)
+
+After signing in, account-relevant operations are unlocked, including:
+
+- **view and updating user profile**
+-  **view accomplishment**
+- **upload new recipes**
+- **click "favor" button to like a recipe**
+- **click "complete" button to complete a recipe**
+
+
+
+#### Use Case
+
+To sum up, the use case of our app is like below:
+
+![Use Case](images/System_Implementation/useCase.png)
+
+- View recipes on web
+- Upload recipes
+- Search recipes of a region
+- Create user profile on web
+- Like a recipe
+- Complete a recipe
 
 ## Back End - database implementation
 

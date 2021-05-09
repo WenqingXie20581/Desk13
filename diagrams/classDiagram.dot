@@ -1,7 +1,8 @@
 ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
 	class User {
   	private id : string
-		private profile : UserProfile
+	private token : string
+	private profile : UserProfile
     private credential : UserCredential
     private Accomplishment : UserAccomplishment
   	public login(email: string, password:string)

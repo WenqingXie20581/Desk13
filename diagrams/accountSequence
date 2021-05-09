@@ -1,0 +1,18 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor user
+  lifeline "Account" as account
+
+  lifeline "Recipe" as recipe
+ 
+  user --> account "sign in"
+  
+  account --> user "display profile"
+  user --> account "update profile"
+ 
+  account --> user "display accomplishment" 
+  
+  account --> recipe "upload recipe"
+  account --> recipe "like recipe"
+  account --> recipe "complete recipe"
+  
+}
