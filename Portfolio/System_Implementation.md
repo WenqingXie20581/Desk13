@@ -98,3 +98,6 @@ To sum up, the use case of our app is like below:
 
 ## Deployment and integration
 
+[Docker]: https://docs.docker.com/get-started/overview/
+
+![Docker Container](images/System_Implementation/docker-container-20170625-1.png)
