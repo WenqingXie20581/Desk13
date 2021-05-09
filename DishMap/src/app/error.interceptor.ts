@@ -8,17 +8,24 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { TokenStorageService } from './token-storage.service';
+import { Router } from '@angular/router';
+
+const URL = 'login'
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor(private tokenStorageService : TokenStorageService) {}
+  constructor(
+    private tokenStorageService : TokenStorageService,
+    private router: Router
+  ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(catchError(
       (err) => {
         if([401, 403].includes(err.status) && this.tokenStorageService.getUser){
           this.tokenStorageService.signOut;
+          this.router.navigate([URL]);
         }
         const error = err.error?.message || err.statusText;
         console.error(err);
