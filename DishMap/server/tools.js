@@ -8,6 +8,9 @@ let tools = {
       //配置上传的目录，必须存在
       destination: function (req, file, cb) {
         cb(null, "./src/assets/images");
+
+        // 最终改成这个，不然需要重新ng build才能加载出来图片。但因为gitignore了dist目录，因此先用上面这个目录
+        // cb(null, "./dist/DishMap/assets/images"); 
       },
       //修改上传后文件名
       filename: function (req, file, cb) {
