@@ -246,6 +246,8 @@ Wechat 是一个非常受欢迎的聊天软件. 他也是我们团队成员日�
 
 Wechat is a very popular chat software. It is also a daily chat tool used by our team members, so we will see wechat notice in time. We have created a wechat group with 5 people. We  discussed some temporary problems or issue meeting notices. And when we completes the child items, we will publish the summary in our wechat group.
 
+<img src="images/Sprints%20&%20Project%20Management/wechat.gif" style="zoom:80%;" />
+
 ##### 3.Personal vedio chat
 
 我们在Wechat group中常常会遇到通过文字描述不清楚的情况, 例如api的部署和前后端的数据传递. 这时我们在Microsoft  Teams 中进行veido chat. 我们通常会在Desk 13中发起会议或者在聊天栏中呼叫其他成员.  投射屏幕和语音沟通是我们最喜欢的解决问题的方式.
