@@ -106,9 +106,7 @@ Docker enables us to separate our applications from your infrastructure so that 
 
 
 
-When you use Docker, you are creating and using images, containers, networks, volumes, plugins, and other objects. This section is a brief overview of some of those objects.
-
-[Docker Documentary]: https://docs.docker.com/get-started/overview/
+When we use Docker, we are creating and using images, containers, networks, volumes, plugins, and other objects. Below is a brief overview of some of those objects from [Docker documentary](https://docs.docker.com/get-started/overview/ ).
 
 
 
@@ -128,7 +126,48 @@ A container is defined by its image as well as any configuration options you pro
 
 
 
-Our project uses 2 Docker Containers, container for server.js and container for mongoDB database.
+Our project uses 2 Docker Containers, a container for server.js and another container for MongoDB database.
 
 <img src="images/System_Implementation/DockerContainer.png" alt="Docker Container" style="zoom:150%;" />
 
+The MongoDB container is directly provided by Docker, and it is based on Ubuntu xenial. The container for server.js is based on 10-alpine. The Dockerfile to build image for server.js is like below: 
+
+```
+# We use the official image as a parent image.
+FROM node:10-alpine
+
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+
+# Set the working directory.
+WORKDIR /home/node/app
+
+# Copy the file(s) from your host to your current location.
+COPY package*.json ./
+
+# Change the user to node. This will apply to both the runtime user and the following commands.
+USER node
+
+# Run the command inside your image filesystem.
+RUN npm install
+
+COPY --chown=node:node . .
+
+# Add metadata to the image to describe which port the container is listening on at runtime.
+EXPOSE 3000
+
+# Run the specified command within the container.
+CMD [ "node", "server.js" ]
+```
+
+
+
+#### Volumes and Bind mounts
+
+When a **container** runs, no changes are stored in **image** layer. So when the **container** is deleted, the data will not be kept and move to the new container built on the same **image**. In order to persist the data, either   **Volumes** or **Bind mounts** are needed.
+
+![types-of-mounts](images/System_Implementation/types-of-mounts.png)
+
+- **Volumes** are stored in a part of the host filesystem which is *managed by Docker* (`/var/lib/docker/volumes/` on Linux). Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
+- **Bind mounts** may be stored *anywhere* on the host system. They may even be important system files or directories. Non-Docker processes on the Docker host or a Docker container can modify them at any time.
+
+In order to persist the recipe data in the database
