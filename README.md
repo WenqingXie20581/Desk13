@@ -11,10 +11,10 @@ Our product is called **A Bite of World**, it's a single page app (SPA), designe
 ## Team Member
 
 * Wei Wei       : <fb20165@bristol.ac.uk>
-* **Haolong Li(single)**   : <fr20938@bristol.ac.uk>
+* Haolong Li  : <fr20938@bristol.ac.uk>
 * Yifan Luo : <jp20469@bristol.ac.uk>
 * Wenqing xie : <es20581@bristol.ac.uk>
-* **Kaixiang Ma(single)** : <da20468@bristol.ac.uk>
+* Kaixiang Ma : <da20468@bristol.ac.uk>
 
 
 ## Table of contents
@@ -86,7 +86,8 @@ This section is comprised of the following subsections:
 * Social and ethical implications
 * Future work
 
-
 ## Acknowledgments
+
+![201610241720298258](images/README/thank.gif)
 
 A big thank you to everyone whose code and libraries we used during this project, referenced above. We are also incredibly thankful for the support and guidance of our lecturers: Stuart Gray, Tom Bale, Pete Bennett, and Marcile Wac. We have learn so much from them, and are excited to implement the skills that they have taught us in our future careers.
