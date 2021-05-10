@@ -261,7 +261,7 @@ In wechat group, we often encounter unclear descriptions, such as API deployment
 | Wenqing Xie | System Designer, Coder | He designs the framework of the project, including data model, sequence and use case. He takes part in front end development, focusing on authentication and Angular services. He also participate in Docker deployment and unit tests. |
 | HaoLong Li  | Designer, Coder        | He focus on the front end. He designed the web page style and developed part of fucntions in front end. More importantly, he drew an amazing dynamic world map in the home page. |
 | Wei Wei     | Product Manager        | He is responsible for collecting product information, analyzing product requirements, organizing group meetings, testing project functions and writing product analysis reports |
-|             |                        |                                                              |
+| Yifan Luo   | Coder, Creative        | He collaborated with group members on the backend realization, which includes User, Receipe and Database, etc. Moreover, he banded with teammates on final report and editted the project video to acquire a better performance. |
 |             |                        |                                                              |
 
 
