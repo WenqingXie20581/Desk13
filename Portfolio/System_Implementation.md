@@ -92,7 +92,29 @@ To sum up, the use case of our app is like below:
 
 ## Front End - Angular
 
+### Dependency injection (DI)
+
+Angular distinguishes **components** from **services** to increase modularity and reusability. 
+
+Ideally, a **component**'s job is to enable the user experience and nothing more. A **component** should present properties and methods for data binding, in order to mediate between the view (rendered by the template) and the application logic (which often includes some notion of a *model*). 
+
+**Services** are injected into **components** to provide data and other services
+
+![injector-injects](images/System_Implementation/injector-injects.png)
+
+
+
 ## Authentication
+
+Authentication of our project follows the [given example]([segp/9_User_Authentication.md at main · segp-uob/segp (github.com)](https://github.com/segp-uob/segp/blob/main/dev/Worksheets/9_User_Authentication.md)).
+
+![authentication](images/System_Implementation/auth.png)
+
+When users register, 
+
+### Token
+
+### Interceptor
 
 ## Deployment and integration
 
@@ -130,34 +152,7 @@ Our project uses 2 Docker Containers, a container for server.js and another cont
 
 <img src="images/System_Implementation/DockerContainer.png" alt="Docker Container" style="zoom:150%;" />
 
-The MongoDB container is directly provided by Docker, and it is based on Ubuntu xenial. The container for server.js is based on 10-alpine. The Dockerfile to build image for server.js is like below: 
-
-```
-# We use the official image as a parent image.
-FROM node:10-alpine
-
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
-
-# Set the working directory.
-WORKDIR /home/node/app
-
-# Copy the file(s) from your host to your current location.
-COPY package*.json ./
-
-# Change the user to node. This will apply to both the runtime user and the following commands.
-USER node
-
-# Run the command inside your image filesystem.
-RUN npm install
-
-COPY --chown=node:node . .
-
-# Add metadata to the image to describe which port the container is listening on at runtime.
-EXPOSE 3000
-
-# Run the specified command within the container.
-CMD [ "node", "server.js" ]
-```
+The MongoDB container is directly provided by Docker, and it is based on Ubuntu xenial. The container for server.js is based on 10-alpine. 
 
 
 
@@ -170,4 +165,6 @@ When a **container** runs, no changes are stored in **image** layer. So when the
 - **Volumes** are stored in a part of the host filesystem which is *managed by Docker* (`/var/lib/docker/volumes/` on Linux). Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
 - **Bind mounts** may be stored *anywhere* on the host system. They may even be important system files or directories. Non-Docker processes on the Docker host or a Docker container can modify them at any time.
 
-In order to persist the recipe data in the database
+In order to persist the recipe and user data in the database, we apply the **bind mounts**.
+
+****
