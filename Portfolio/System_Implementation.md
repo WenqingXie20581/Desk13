@@ -92,17 +92,33 @@ To sum up, the use case of our app is like below:
 
 ## Front End - Angular
 
-### Dependency injection (DI)
+### Components and Services: Dependency injection
 
 Angular distinguishes **components** from **services** to increase modularity and reusability. 
 
 Ideally, a **component**'s job is to enable the user experience and nothing more. A **component** should present properties and methods for data binding, in order to mediate between the view (rendered by the template) and the application logic (which often includes some notion of a *model*). 
 
-**Services** are injected into **components** to provide data and other services
+**Services** are injected into **components** to provide data and other services.
 
 ![injector-injects](images/System_Implementation/injector-injects.png)
 
+Following the sequence diagram above, we have **World Map Component,** **Cookbook Component** and **Recipe Component**. To add features of users, we have extra **User Profile Component** and **User Accomplishment Component**.  Actually we also have other components like **Login Component** and **Register Component** .
 
+Corresponding to our data model, services in our project include **Recipe Service** and **User Service** .
+
+Our components and services are listed below: 
+
+| Components                                                   | Services                                    |
+| ------------------------------------------------------------ | ------------------------------------------- |
+| World Map, Cookbook, Recipe, User Profile, User Accomplishment, Login, Register, Upload, Layout | Recipe, User, Token-storage, Authentication |
+
+
+
+**Recipe Service** get data of recipes from the back end through HTTP Requests, and then give it to the **Cookbook component** and **Recipe Component**. Also, on **Cookbook Component** and **Recipe Component** users can post recipe-relevant data. They can upload new recipes and click "favor" button to like a recipe. 
+
+Similarly, **User Service** can help User **Profile Component** and **User Accomplishment** with data operations concerning user data.
+
+![injected Diagram](images/System_Implementation/injected Diagram.png)
 
 ## Authentication
 
@@ -110,11 +126,13 @@ Authentication of our project follows the [given example]([segp/9_User_Authentic
 
 ![authentication](images/System_Implementation/auth.png)
 
-When users register, 
+### Authentication Services
+
+### Interceptors
 
 ### Token
 
-### Interceptor
+### 
 
 ## Deployment and integration
 
