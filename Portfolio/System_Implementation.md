@@ -118,7 +118,7 @@ Our components and services are listed below:
 
 Similarly, **User Service** can help User **Profile Component** and **User Accomplishment** with data operations concerning user data.
 
-![injected Diagram](images/System_Implementation/injected Diagram.png)
+![Injected Diagram](images/System_Implementation/injected Diagram-1620724302794.png)
 
 
 
