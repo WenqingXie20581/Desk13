@@ -21,11 +21,7 @@ export class RecipeComponent implements OnInit {
     complete : boolean = true;
 
   constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
-    route.params.subscribe(
-      (val) => {
-      this.getRecipe();
-      // this.getTop10recipes();
-  });
+    
   }
 
   addFav() {
@@ -40,13 +36,24 @@ export class RecipeComponent implements OnInit {
         this.recipeService.addComplete(this.recipe).subscribe(complete => this.complete = true)
       }
   }
+
   getRecipe(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    this.route.paramMap.subscribe(
+      (val) => {
+      let id =  val.get('id');
       this.recipeService.getRecipeById(id)
       .subscribe(recipe => this.recipe = recipe);
+      },
+      (err) => {
+        console.log(err);
+      }
+
+    );
+      
   }
 
   ngOnInit(): void {
+    this.getRecipe();
     this.getRecipes();
   }
 
