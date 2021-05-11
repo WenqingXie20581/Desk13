@@ -1,10 +1,19 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 import { CookbookComponent } from './cookbook.component';
 
+const paramMap1  = {
+  get( nation : string): string{
+    return 'China';
+  }
+}
+
+
 const fakeActivatedRoute = {
+  paramMap : of(paramMap1),
   snapshot: {
     paramMap : {
       get( id : string): string{
