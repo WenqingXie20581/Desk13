@@ -15,7 +15,7 @@ describe('RegisterComponent', () => {
         HttpClientModule,
         FormsModule
       ],
-      providers: [HttpClient]
+      providers: [ HttpClientModule]
     })
     .compileComponents();
   });
