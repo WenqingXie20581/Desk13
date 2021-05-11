@@ -17,10 +17,13 @@ export class RecipeComponent implements OnInit {
     fav : boolean = false;
 
   constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
-    route.params.subscribe(val => {
+    route.params.subscribe(
+      (val) => {
       this.getRecipe();
       this.getTop10recipes();
-  });
+      },
+      (err) => console.log(err)
+    );
   }
 
   addFav() {

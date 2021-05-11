@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 
 import { RecipeComponent } from './recipe.component';
 
+const fakeActivatedRoute = {
+  snapshot: { data: {  } }
+} as ActivatedRoute;
+
 describe('RecipeComponent', () => {
   let component: RecipeComponent;
   let fixture: ComponentFixture<RecipeComponent>;
@@ -10,7 +14,7 @@ describe('RecipeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ RecipeComponent ],
-      providers : [ActivatedRoute]
+      providers : [{provide: ActivatedRoute, useValue: fakeActivatedRoute}]
     })
     .compileComponents();
   });
