@@ -33,6 +33,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './auth.interceptor';
 import { AccomplishmentComponent } from './accomplishment/accomplishment.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { errorInterceptorProviders } from './error.interceptor';
 
 
 @NgModule({
@@ -67,11 +69,12 @@ import { AccomplishmentComponent } from './accomplishment/accomplishment.compone
     ReactiveFormsModule,
     MatSelectModule,
     MatSliderModule,
+    MatButtonToggleModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })
   ],
-  providers: [RecipeService,authInterceptorProviders],
+  providers: [RecipeService,authInterceptorProviders,errorInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

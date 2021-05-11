@@ -33,7 +33,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
       - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
     volumes:
-      - dbdata:/data/db
+      - ./dbdata/*.bson:/data/db/*.bson
     networks:
       - app-network
 
@@ -41,5 +41,4 @@ networks:
   app-network:
     driver: bridge
 
-volumes:
-  dbdata:
+

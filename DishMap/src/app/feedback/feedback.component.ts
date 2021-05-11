@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from '../models/Feedback'
+import { RecipeService } from '../recipe.service'
 
 @Component({
   selector: 'app-feedback',
@@ -13,9 +14,13 @@ export class FeedbackComponent implements OnInit {
   
   submitted = false;
 
-  constructor() {}
+  constructor(private recipeServe: RecipeService) {}
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() { 
+      console.log(this.feedback);
+    this.recipeServe.addFeedback(this.feedback).subscribe();
+    this.submitted = true;
+}
 
 
   ngOnInit(): void {

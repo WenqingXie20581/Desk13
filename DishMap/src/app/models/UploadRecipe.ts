@@ -1,12 +1,12 @@
 import { Ingredient } from './Ingredient';
 
-export interface Recipe {
-    _id: string;
+export interface UploadRecipe {
+    id: number;
     title: string;
-    introduction: string;
     nationality: string;
+    introduction: string;
     ingredients : Ingredient[];
     directions : string[];
-    imgUrl: string;
-    popularity: number;
+    popularity : number;
+    pictureFile: File;
 }

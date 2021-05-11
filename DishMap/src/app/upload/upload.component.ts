@@ -18,31 +18,35 @@ export class UploadComponent implements OnInit {
 
   recipe : Ulrecipe = new Ulrecipe;
 
+  direction : string = "";
+
+  pictureFile : File;
+
   // Uldirection : string;
 
   ingredient : Ingredient = new Ulingredient;
 
   handleFileInput(event) {
 
-    this.recipe.pictureFile = event.target.files[0];;
+    this.pictureFile = event.target.files[0];;
     
   }
 
-  addDirection(e) : void {
-    const direction = e.target.value;
-    if (!direction.length) {
-      return;
+  addDirection() : void {
+    console.log(this.direction);
+    if (!this.direction.length) {
+        return;
     }
-    this.recipe.directions.push(direction);
-    e.target.value = '';
+    this.recipe.directions.push(this.direction);
+    this.direction = "";
   }
 
   addIntroduction(e) : void {
-    const direction = e.target.value;
-    if (!direction.length) {
+    const introduction = e.target.value;
+    if (!introduction.length) {
       return;
     }
-    this.recipe.introduction = direction;
+    this.recipe.introduction = introduction;
     e.target.value = '';
   }
 
@@ -62,7 +66,30 @@ export class UploadComponent implements OnInit {
     this.recipe.ingredients.splice(index, 1)
   }
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() { 
+    const formData = new FormData(); 
+    const recipeJson = JSON.stringify(this.recipe);
+    // const recipeJson = JSON.stringify(this.recipe, undefined, 2);
+    const name = this.recipe.title;
+    formData.append('file',this.pictureFile, name);
+    formData.append('recipeJson', recipeJson);
+    // formData.append('title', this.recipe.title);
+    // formData.append('introduction', this.recipe.introduction);
+    // formData.append('nationality', this.recipe.nationality);
+    // formData.append('ingredients', JSON.stringify(this.recipe.ingredients));
+    // formData.append('directions', this.recipe.directions.toString());
+    this.recipeService.uploadRecipe(formData).subscribe();
+    this.submitted = true;
+  }
+
+  // id: number;
+  // title: string;
+  // nationality: string;
+  // introduction: string;
+  // ingredients : Ingredient[];
+  // directions : string[];
+  // popularity = 0;
+  // pictureFile: File;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -74,17 +101,14 @@ export class UploadComponent implements OnInit {
 }
 
 class Ulrecipe implements Recipe {
-
-  id: number;
+  _id: string = "";
   title: string;
   nationality: string;
   introduction: string;
   ingredients : Ingredient[];
   directions : string[];
-  imgUrl = null;
   popularity = 0;
-  pictureFile: File;
-
+  imgUrl = "";
   constructor(){
     this.ingredients = new Array();
     this.directions = new Array();

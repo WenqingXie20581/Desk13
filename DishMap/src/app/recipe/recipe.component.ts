@@ -12,38 +12,55 @@ export class RecipeComponent implements OnInit {
 
     recipe : Recipe ;
 
+    recipes : Recipe[];
+
     topRecipes : Recipe[];
 
     fav : boolean = false;
+
+    complete : boolean = true;
 
   constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
     route.params.subscribe(
       (val) => {
       this.getRecipe();
-      this.getTop10recipes();
-      },
-      (err) => console.log(err)
-    );
+      // this.getTop10recipes();
+  });
   }
 
   addFav() {
-    this.fav = true;
+    if (this.fav === false) {
+      this.recipe.popularity++;
+      this.recipeService.addFavour(this.recipe).subscribe(fav => this.fav = true)
+    }
   }
 
+  addComplete(){
+    if (this.fav === false) {
+        this.recipeService.addComplete(this.recipe).subscribe(complete => this.complete = true)
+      }
+  }
   getRecipe(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
       this.recipeService.getRecipeById(id)
       .subscribe(recipe => this.recipe = recipe);
   }
 
   ngOnInit(): void {
-    // this.getRecipe();
-    // this.getTop10recipes();
+    this.getRecipes();
   }
 
-  getTop10recipes():void {
-    this.recipeService.getTopRecipes()
-    .subscribe(recipes => this.topRecipes = recipes);
+  getRecipes(): void {
+    this.recipeService.getRecipes().subscribe(
+      recipes => {this.recipes = recipes ;
+     this.topRecipes =  this.recipes.sort((a, b) => { return b.popularity - a.popularity}).slice(0,10);
+      }
+      );
   }
+
+  // getTop10recipes():void {
+  //   this.recipeService.getTopRecipes()
+  //   .subscribe(recipes => this.topRecipes = recipes);
+  // }
 
 }
