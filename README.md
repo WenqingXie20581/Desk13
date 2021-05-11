@@ -13,7 +13,7 @@ Our product is called **A Bite of World**, it's a single page app (SPA), designe
 * Wei Wei       : <fb20165@bristol.ac.uk>
 * Haolong Li  : <fr20938@bristol.ac.uk>
 * Yifan Luo : <jp20469@bristol.ac.uk>
-* Wenqing xie : <es20581@bristol.ac.uk>
+* Wenqing Xie : <es20581@bristol.ac.uk>
 * Kaixiang Ma : <da20468@bristol.ac.uk>
 
 

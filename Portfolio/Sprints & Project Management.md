@@ -442,43 +442,44 @@ In this sprint, We have implemented all B level features include upload, worldma
 
 #### Aims of the sprint
 
-1.
-
-2.
-
-3.
+1. Build MongoDB database;
+2. Child issues implementation;
+3. Backend and Frontend Intergration
 
 
 
 ####  Done issues
 
-|      | Child issues |
-| ---- | ------------ |
-| 1    |              |
-| 2    |              |
-| 3    |              |
-| 4    |              |
-| 5    |              |
-| 6    |              |
-| 7    |              |
+|      | Child issues                              |
+| ---- | ----------------------------------------- |
+| 1    | Build MongoDB database(A)                 |
+| 2    | Upload receipe (A)                        |
+| 3    | Search receipe by location or id (A)      |
+| 4    | User sign in, log in and verification (A) |
+| 5    | Add a receipe as favourite by user (A)    |
+| 6    | Add a receipe as completed by user (A)    |
+| 7    | Deploy docker (B)                         |
+| 8    | Deploy cloud storage (B)                  |
 
 
-
-#### 
 
 #### User story
 
-| Name     | user story |
-| -------- | ---------- |
-| Harry    |            |
-| Ron      |            |
-| Hermione |            |
+| Name     | user story                                                   |
+| -------- | ------------------------------------------------------------ |
+| Harry    | Your webapp looks great, but why I can't upload my own recipe? I mean, the website content seems like static. |
+| Ron      | The user interaction is so cool! But I'm afraid that my personal account and password is not safe. Maybe you guys can use token for user account certification? |
+| Hermione | I'm planning to take a international graduation travel, and want to prepare so cuisine culture. Can I search the recipes by theie locations? |
 
 ####  
 
 #### Summary and evaluation
 
+In this sprint, we first built a database with refining relatively data structure, such as User and Recipe, to reach the goal of persistence storage and decoupling from front end. Moreover, for the purpose of better usability and accessibility, we both connect the database by the means of Docker and Cloud Storage.
 
+Also, we wrote the server code to receive and process the form results from the front end API. More specifically, we realize the following aspects: First, user account management, such as sign in, log in/out, user token validation. Secondlly, we build the receipe service, including but not limited to: recepie infomation upload, searching by user or location, ranking by favourite amount , comments and feedback, favourite and complete by other users, etc.
+
+With all the works above, we can share our receipe ideas with friends in worldwide, study and follow receipes that uploaded from any countries, and interact with other users by **favourite** or **complete** function.
 
 ## Team use of Git
 

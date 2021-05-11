@@ -118,9 +118,13 @@ Our components and services are listed below:
 
 Similarly, **User Service** can help User **Profile Component** and **User Accomplishment** with data operations concerning user data.
 
-![injected Diagram](images/System_Implementation/injected Diagram.png)
+![injected Diagram](images/System_Implementation/injectedDiagram.png)
+
+
 
 ## Authentication
+
+
 
 Authentication of our project follows the [given example]([segp/9_User_Authentication.md at main · segp-uob/segp (github.com)](https://github.com/segp-uob/segp/blob/main/dev/Worksheets/9_User_Authentication.md)).
 
@@ -128,7 +132,41 @@ Authentication of our project follows the [given example]([segp/9_User_Authentic
 
 ### Authentication Services
 
+#### **Auth service**
+
+![authentication service](images/System_Implementation/auth_service.png)
+
+**Auth service** serves register and login. 
+
+When a user signs up a new account in the **Register Component**, the input username, email and password will be sent to the server by **auth service**, and the server will record these information to make a new account. 
+
+When the user enters **Login Component** and tries to login, the **auth service** will send to server a "login" post request and put the input username and password in the body of HTTP request. The server will then verify the credentials. If the username and password are correct, the server will send back an access token to client.
+
+#### Token-storage service
+
+![token-storage](images/System_Implementation/token-storage.png)
+
+**Token-storage service** stores the access token.
+
+After a user succeeded in logging in, a access token will be send back from the server. The **token-storage service** will then save the access token in the local storage. 
+
+Since the access token contains authentication information needed by other private data transform, whenever other services like **User Service** and **Recipe Service** need to get or post private data of users, they need to put the token into the header of HTTP requests. That's why these services depend on **token-storage service** .
+
+Finally, when the access token expires, it will be deleted from the local storage. The app will then routes to **Login Component**.
+
 ### Interceptors
+
+[HttpInterceptor](https://angular.io/api/common/http/HttpInterceptor) provides a way to intercept HTTP requests and responses to transform or handle them before passing them along. 
+
+Angular applies interceptors in the order that you provide them. If you provide interceptors A, then B, then C, requests will flow in A->B->C and responses will flow out C->B->A.
+
+In our app, we use 2 interceptors, **Auth Interceptor** and **Error Interceptor**.
+
+![interceptors](images/System_Implementation/interceptors-1620724142284.png)
+
+**Auth Interceptor** inserts the access token into the header of every Http Request.
+
+**Error Interceptor** records the error message in each response, and if it find access token invalid or expired, it will ask **token-storage Service** to sign-out: delete the token from the local storage.
 
 ### Token
 
@@ -148,7 +186,7 @@ Docker enables us to separate our applications from your infrastructure so that 
 
 When we use Docker, we are creating and using images, containers, networks, volumes, plugins, and other objects. Below is a brief overview of some of those objects from [Docker documentary](https://docs.docker.com/get-started/overview/ ).
 
-
+![Container image](../diagrams/docker/Rbdbff9d34f196edfe91e3eeac78e29d1.png)
 
 #### Images
 
