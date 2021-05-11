@@ -27,13 +27,20 @@ export class RecipeComponent implements OnInit {
   addFav() {
     if (this.fav === false) {
       this.recipe.popularity++;
-      this.recipeService.addFavour(this.recipe).subscribe(fav => this.fav = true)
+      this.recipeService.addFavour(this.recipe).subscribe(
+        fav => {this.fav = true;},
+        err => {console.log(err);}
+        )
+        
     }
   }
 
   addComplete(){
     if (this.fav === false) {
-        this.recipeService.addComplete(this.recipe).subscribe(complete => this.complete = true)
+        this.recipeService.addComplete(this.recipe).subscribe(
+          complete => this.complete = true,
+          err => console.log(err)
+        )
       }
   }
 

@@ -7,7 +7,8 @@ describe('ErrorInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
       ErrorInterceptor,
-      Router
+      Router,
+      Function
       ]
   }));
 
