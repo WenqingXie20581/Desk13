@@ -5,7 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 import { RecipeComponent } from './recipe.component';
 
 const fakeActivatedRoute = {
-  snapshot: { data: {  } }
+  snapshot: {
+    paramMap : {
+      get( id : string): string{
+        return '123';
+      }
+    }
+  }
 } as ActivatedRoute;
 
 describe('RecipeComponent', () => {
