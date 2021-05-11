@@ -49,13 +49,11 @@ This section is comprised of the following subsections:
 
 ## [4. UX Design](Portfolio/UX_Design.md)
 
-This section is comprised of the following subsections:
-
-* Design Process and Ideation
-* Identification of users and stakeholders
-* UX approach - design methods
-* Understanding user group
-* Wireframes and interaction flow diagrams
+- Design Process and Early prototyping and ideation (including mood boards and paper prototyping)
+- Identification of interacting users and broader stakeholders.
+- UX approach – design heuristics/approach, design methods (design fiction / heuristics)
+- Understanding of user group (questionnaires / user stories / interviews)
+- Wireframes and interaction flow diagrams for final key subsystems.
 
 
 ## [5. Sprints & Project Management](Portfolio/Sprints_Project_Management.md)
