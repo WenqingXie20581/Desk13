@@ -1,3 +1,4 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,7 +15,11 @@ describe('CookbookComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CookbookComponent ],
-      providers: [/*ActivatedRoute*/{provide: ActivatedRoute, useValue: fakeActivatedRoute}]
+      providers: [
+        {provide: ActivatedRoute, useValue: fakeActivatedRoute},
+        HttpClient,
+        HttpHandler
+      ]
     })
     .compileComponents();
   });
