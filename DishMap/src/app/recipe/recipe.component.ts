@@ -42,11 +42,19 @@ export class RecipeComponent implements OnInit {
       (val) => {
       let id =  val.get('id');
       this.recipeService.getRecipeById(id)
-      .subscribe(recipe => this.recipe = recipe);
+      .subscribe(
+        (recipe : Recipe) => {
+          this.recipe = recipe;
+        },
+        (err) => {
+          console.log(err);
+        }
+        );
       },
       (err) => {
         console.log(err);
-      }
+      },
+      
 
     );
       
