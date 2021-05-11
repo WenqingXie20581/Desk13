@@ -20,4 +20,15 @@ describe('WorldmapComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  it('should create', () => {
+    expect(component).toBeDefined();
+  });
+
+  it('should have <h2> with "banner works!"', () => {
+    const bannerElement: HTMLElement = fixture.nativeElement;
+    const h2 = bannerElement.querySelector('h2');
+    expect(h2.textContent).toEqual("Hi, Do you want to travel with us? Let's start from Bristol and eat all delicious dishes in the world");
+  });
+
 });
