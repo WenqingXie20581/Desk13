@@ -23,9 +23,9 @@ Our product is called **A Bite of World**, it's a single page app (SPA), designe
 
 This section is comprised of the following subsections:
 
-- Abstract. 
-- Project Objectives. 
-- Video. 
+- Abstract.
+- Project Objectives.
+- Video.
 
 ## [2. Background and Motivation](Portfolio/Background.md)
 

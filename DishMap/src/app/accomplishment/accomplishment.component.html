@@ -1,0 +1,52 @@
+<p id="buttonGroup">
+  <mat-button-toggle-group name="showRecipes" aria-label="showRecipes">
+  <mat-button-toggle (click)="showRecipes($event)" value="LikedRecipes">LikedRecipes</mat-button-toggle>
+  <mat-button-toggle value="UploadedRecipes" (click)="showRecipes($event)">UploadedRecipes</mat-button-toggle>
+  <mat-button-toggle value="CompletedRecipes" (click)="showRecipes($event)">CompletedRecipes</mat-button-toggle>
+  </mat-button-toggle-group>
+</p>
+
+<div id="LikedRecipes"*ngIf="showLikedRecipes">
+  <h2>LikedRecipes</h2>
+<div class="grid">
+  <div *ngFor="let recipe of likedRecipes" >
+    <div class="recipeItem">
+      <a routerLink="/recipe/{{recipe._id}}"  >
+        <p><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/default.gif'}}" alt="image"></p>
+        <p class="title">{{recipe.title}}<span class="fav">{{recipe.popularity}}&nbsp;<mat-icon [inline]="true" color="warning" >favorite</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        <p>{{recipe.introduction}}</p>
+     </a>
+    </div>
+    </div>
+</div>
+</div>
+
+<div id="UpladeRecipes" *ngIf="showUploadedRecipes">
+  <h2>UploadedRecipes</h2>
+  <div class="grid">
+  <div *ngFor="let recipe of uploadedRecipes" >
+    <div class="recipeItem">
+      <a routerLink="/recipe/{{recipe._id}}"  >
+        <p><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/default.gif'}}" alt="image"></p>
+        <p class="title">{{recipe.title}}<span class="fav">{{recipe.popularity}}&nbsp;<mat-icon [inline]="true" color="warning" >favorite</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        <p>{{recipe.introduction}}</p>
+     </a>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div id="CompletedRecipes" *ngIf="showCompletedRecipes">
+  <h2>CompletedRecipes</h2>
+  <div class="grid">
+  <div *ngFor="let recipe of completedRecipes" >
+    <div class="recipeItem">
+      <a routerLink="/recipe/{{recipe._id}}"  >
+        <p><img src="{{ recipe.imgUrl ? recipe.imgUrl : '../../assets/images/default.gif'}}" alt="image"></p>
+        <p class="title">{{recipe.title}}<span class="fav">{{recipe.popularity}}&nbsp;<mat-icon [inline]="true" color="warning" >favorite</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        <p>{{recipe.introduction}}</p>
+     </a>
+    </div>
+  </div>
+  </div>
+</div>
