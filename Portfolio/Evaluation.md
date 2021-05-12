@@ -1,3 +1,11 @@
+# Evaluation
+
+## Testing
+
+### **Function Testing** 
+
+### Unit Testing
+
 ## User Experience Test Survey
 
 Our user testing is mainly divided into three stages, as shown in the following table.
@@ -75,21 +83,24 @@ The questionnaire is shown as below.
 ##### Q8: Do you think this website help raise your interest of the cooking and socializing with other people?
 
 -   sure (10)
-    
 -   maybe (5)
-    
 -   no (0)
+
+##### **Q9: Do you have any advice to help us improve the website? （Open-ended question）**
+
+
+
+
+
 ###  Feedback analysis
 
 We get approximately 100 valid feedbacks from our users. The data of the testing result has been approximately rounded. The result is shown in the figure below.
 
-##### Q9: Do you have any advice to help us improve the website? （Open-ended question）
+##### 
 
-![image-20210511081759039](file://C:\Users\16835\Desktop\readme\Portfolio\images\Evaluation\image-20210511081759039.png?lastModify=1620693834)
+![static1](images/Evaluation/static1.png)![static](images/Evaluation/static.png)
 
-![image-20210511081851331](file://C:\Users\16835\Desktop\readme\Portfolio\images\Evaluation\image-20210511081851331.png?lastModify=1620693834)
-
- 1. Obviously, with the increase of website functions and  the progress of website interface,  users’ satisfaction with our website is getting higher and higher. 
+ 1. Obviously, with the increase of website functions and  the progress of website interface,  users’ satisfaction with our website is getting higher and higher.
 
  2. In the three stages, the question with the biggest change in score is question 6 (Do you think our website is fully functional?) and question 7 (Will you recommend our website to your friends), which means that no one will like a website that is too simple. With the gradual improvement of the website, people are very sensitive to the changes in the function of the website and will rapidly increase their favor-ability of the website.
  3. In the final stage, the question 3 (How do you feel about the interface design?) and the question (4) get the lowest score, which means our website interface design is relatively simple, and there are many point need to improve. We should beautify our interface design in future work.
