@@ -1,6 +1,5 @@
-Test Plan - Content page frontend (#101000000)
+Test Plan 
 
-As an editor I want to have a way to build basic pages in the CMS so that I can add content to it without being limited to particular template.
 
 1 Outline/prerequisites
 
@@ -70,7 +69,7 @@ C. Test a use can login
 13. Check the app sign out correctly and go back to home page
 
 
-D. Test a user can upload recipe
+D. Test a user can upload recipes
 
 1.  login as in step C
 2.  Click the "upload" button on the left navigation bar
@@ -85,20 +84,15 @@ D. Test a user can upload recipe
 11. Check the uploaded recipe appears in the accomplishment
 
 
+E. Test a user can like and complete recipes
 
-A. Test a user can add articles
+1.  Login as in step C
+2.  Select a recipe as in step A
+3.  Click the "I like it" button
+4.  Click the "Accomplishment" button on the left navigation bar
+5.  Check the selected recipe is in the "liked recipes" list
+6.  Select a recipe as in step A 
+7.  Click the "I complete it" button
+8.  Click the "Accomplishment" button on the left navigation bar
+9.  Check the selected recipe is in the "completed recipes" list
 
-1. Click on add content
-2. Select `Add article`
-3. Fill in all required fields
-4. Click save
-5. Ensure you can see all content you inputted
-6. Ensure the design looks correct in all supported browsers
-
-B. Test a user can edit articles
-// setup
-// steps
-// teardown
-
-C. Test a user can delete articles
-// steps
