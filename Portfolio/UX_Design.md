@@ -1,3 +1,9 @@
+# UX Design
+
+## Paper Prototyping
+
+![prototype](images/UX_Design/prototype-1620811023649.png)
+
 ## Prototype
 
 ![image-20210511231816838](images/UX_Design/home_page.png)

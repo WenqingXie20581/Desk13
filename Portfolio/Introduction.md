@@ -1,6 +1,6 @@
 # Introduction
 
-In this section, firstly，we will introduce our motivation for the project, framing of the problem and a high-level overview of the system in detail. Additionally，we will show our high level goals of the project and the contribution towards solving the problem.Lastly，we will use the video to explain your system clearly.
+In this section, we introduce our motivation for the project, framing of the problem and a high-level overview of the system in detail. Additionally, we show our high level goals of the project and the contribution towards solving the problem. we use the video to explain our motivation and system clearly.
 
 ## Table of contents
 
@@ -12,7 +12,6 @@ In this section, firstly，we will introduce our motivation for the project, fra
    * [Goals](#goals)
    * [Contribution](#contribution)
 * [**Video**](#video)
-  
 
 
 ## Abstract
@@ -36,7 +35,6 @@ We are a group of young student who are curious about the Internet world. Last y
 ### contribution
 
 ## Video
-
 
 
 

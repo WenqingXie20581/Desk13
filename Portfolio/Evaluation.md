@@ -4,7 +4,21 @@
 
 ### **Function Testing** 
 
+Our function testing is manually operate the running app and check it works properly. Our [test plan](..\test\test-plan.md) includes:
+
+- Test a user can find recipes (without login)
+- Test a user can register
+- Test a use can login
+- Test a user can upload recipes
+- Test a user can like and complete recipes
+
+Before testing, we perform proper Setup, and after testing, we do Teardown.
+
 ### Unit Testing
+
+ We do the unit tests by running the [`ng test`](https://angular.io/cli/test) CLI command.
+
+The `ng test` command builds the app in *watch mode*, and launches the [Karma test runner](https://karma-runner.github.io/).
 
 ## User Experience Test Survey
 

@@ -204,7 +204,7 @@ A container is defined by its image as well as any configuration options you pro
 
 
 
-Our project uses 2 Docker Containers, a container for server.js and another container for MongoDB database.
+Our project uses 2 Docker Containers, a container for server.js and another container for MongoDB database. They are built with [Dockerfile](..\DishMap\Dockerfile) and [docker-compose.yml](..\DishMap\docker-compose.yml).
 
 <img src="images/System_Implementation/DockerContainer.png" alt="Docker Container" style="zoom:150%;" />
 

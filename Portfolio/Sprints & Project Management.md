@@ -1,4 +1,4 @@
-# 5. Sprints & Project Management
+# Sprints & Project Management
 
 The success of our project is due to our team’s effectual Group working methods, good team organisation and efficient communication. In this section, we will introduce group working methods, team roles and contributions, documentation of sprints and team use of git.
 
