@@ -234,7 +234,7 @@ Time plan for sprints is as follows:
 
 #### Done issues
 
-|      | Child issues                 |
+| No.  | Child issues                 |
 | ---- | ---------------------------- |
 | 1    | Create our Github repository |
 | 2    | Idea from  Yifan Luo         |
@@ -261,7 +261,7 @@ We created a Github repository belonging to our group and started practicing Git
 
 ####  Done issues
 
-|      | Child issues               |
+| No.  | Child issues               |
 | ---- | -------------------------- |
 | 1    | features from Kaixiang Ma  |
 | 2    | features from  Yifan Luo   |
@@ -286,7 +286,7 @@ In weekly meeting, we took turns to propose our own prepared features. When each
 
 #### Done issues
 
-| No   | Priority | Child issues                        |
+| No.  | Priority | Child issues                        |
 | ---- | -------- | ----------------------------------- |
 | 1    | A        | Add model recipe, model Ingredients |
 | 2    | A        | Add recipe service module           |
@@ -321,7 +321,7 @@ In this sprint, we have designed the data model that we currently need. In the f
 
 #### Done issues
 
-| No   | Priority | Child issues                                            |
+| No.  | Priority | Child issues                                            |
 | ---- | -------- | ------------------------------------------------------- |
 | 1    | A        | Add API framework                                       |
 | 2    | A        | Deploy docker                                           |
@@ -359,7 +359,7 @@ In this sprint, We have implemented all B level features include upload, worldma
 
 ####  Done issues
 
-| No   | Priority | Child issues                          |
+| No.  | Priority | Child issues                          |
 | ---- | -------- | ------------------------------------- |
 | 1    | A        | Build MongoDB database                |
 | 2    | A        | Upload recipes                        |
