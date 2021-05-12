@@ -8,6 +8,7 @@ import '../../assets/world.js'
   templateUrl: './worldmap.component.html',
   styleUrls: ['./worldmap.component.css']
 })
+
 export class WorldmapComponent implements OnInit {
 
   nations : string[];
