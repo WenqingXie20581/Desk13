@@ -92,7 +92,6 @@ router.post("/recipe/complete", verify, async (req, res) => {
   if (!recipe) {
     return res.status(400).send("Recipe doesn't exists");
   }
-  console.log(userid);
   var userdata = await UserDataModel.findOne({ userid: userid });
   if (!userdata) {
     return res.send("database error, empty userdata");

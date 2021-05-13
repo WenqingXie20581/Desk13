@@ -60,7 +60,7 @@ router.post("/auth/signin", async (req, res) => {
   //检查user是否注册过
   const user = await UserInfoModel.findOne({ email: req.body.email });
   if (!user) {
-    return res.status(400).send("Email doesn't exists");
+    return res.status(400).send("Email is wrong or not sign up");
   }
 
   const validPassword = await bcrypt.compare(req.body.password, user.password);
