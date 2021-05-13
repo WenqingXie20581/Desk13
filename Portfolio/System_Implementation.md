@@ -221,6 +221,8 @@ When a **container** runs, no changes are stored in **image** layer. So when the
 - **Volumes** are stored in a part of the host filesystem which is *managed by Docker* (`/var/lib/docker/volumes/` on Linux). Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
 - **Bind mounts** may be stored *anywhere* on the host system. They may even be important system files or directories. Non-Docker processes on the Docker host or a Docker container can modify them at any time.
 
-In order to persist the recipe and user data in the database, we apply the **bind mounts**.
+In order to persist the recipe and user data in the database, we apply the **bind mounts**. 
+
+If we use **Volumes**, the database would be stored somewhere else than the project working directory, and it would not be pushed on the Github.
 
 ****
