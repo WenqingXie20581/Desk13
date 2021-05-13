@@ -1,0 +1,19 @@
+UseCaseDiagram{
+    actor user as "User"
+    system s as "DishMap" {
+      usecase ur1 as "View recipes on Web"
+      usecase ur2 as "Upload recipes"
+      usecase ur3 as "Search recipes of a region"
+      
+      usecase uu1 as "Create user profile on Web"
+      usecase uu2 as "Like a recipe"
+      usecase uu3 as "Complete a recipe"
+    }
+  user -- ur1
+  user -- ur2
+  user -- ur3
+  user -- uu1
+  user -- uu2
+  user -- uu3
+  
+}

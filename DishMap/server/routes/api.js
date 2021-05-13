@@ -1,20 +1,12 @@
 //todo 把error恰当地返回
 
-const { number } = require("echarts");
 const express = require("express");
 const router = express.Router();
-
-const RecipeOperation = require("../db/RecipeOperations");
 const RecipeModel = require("../db/RecipeSchema");
-
-const UserOperation = require("../db/UserOperations");
-const UserModel = require("../db/UserSchema");
-const UserInfoModel = require("../db/UserInfoSchema");
 const UserDataModel = require("../db/UserDataSchema");
-
-const JwtUtil = require("../jwt");
 const verify = require("./verifyToken");
 const tools = require("../tools");
+const { feedbackValidation } = require("./validation");
 
 router.use(express.json());
 
@@ -23,23 +15,12 @@ router.get("/", (req, res) => {
   res.send("api works");
 });
 
-//Recipe
-
-const NATIONS = [
-  "China",
-  "Italy",
-  "Japan",
-  "Russia",
-  "Germany",
-  "Thailand",
-  "Mexico",
-  "Spain",
-];
-
+//获取所有recipes
 router.get("/recipe", (req, res) => {
   // res.send(req.userid); 能提取出来userid
   RecipeModel.find({}, function (err, doc) {
     if (err) {
+      console.log(err);
       res.status(400).send("db error");
     } else {
       res.send(doc);
@@ -47,14 +28,19 @@ router.get("/recipe", (req, res) => {
   });
 });
 
-// router.get("recipes/:nation", (req, res) => {
-//   RecipeModel.find({"nationality":req.params.nation}, function (err, doc) {
-//     if (err) {
-//       console.log(err);
-//     }
-//     res.send(doc);
-//   });
-// })
+//获取指定的recipe
+router.get("/recipe/:id", (req, res) => {
+  // const recipe = RECIPES.find(r => (r.id === parseInt(req.params.id)));
+  // const recipe = RecipeOperation.findById(parseInt(req.params.id));
+  const _id = req.params.id;
+  RecipeModel.findOne({ _id, _id }, function (err, doc) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("db error");
+    }
+    res.send(doc);
+  });
+});
 
 //favour喜欢
 router.post("/recipe/favour", verify, async (req, res) => {
@@ -131,103 +117,67 @@ router.post("/recipe/complete", verify, async (req, res) => {
   }
 });
 
-router.get("/recipe/:id", (req, res) => {
-  // const recipe = RECIPES.find(r => (r.id === parseInt(req.params.id)));
-  // const recipe = RecipeOperation.findById(parseInt(req.params.id));
-  console.log("获取recipe");
-  const _id = req.params.id;
-  RecipeModel.findOne({ _id, _id }, function (err, doc) {
-    if (err) {
-      console.log(err);
+//上传
+router.post(
+  "/recipe/upload",
+  verify,
+  tools.multer().single("file"),
+  async (req, res) => {
+    const recipeStr = req.body.recipeJson;
+    const recipeData = JSON.parse(recipeStr);
+    const recipe = new RecipeModel({
+      title: recipeData.title,
+      introduction: recipeData.introduction,
+      nationality: recipeData.nationality,
+      ingredients: recipeData.ingredients,
+      directions: recipeData.directions,
+      popularity: 0,
+      imgUrl: req.filepath,
+    });
+
+    const userid = req.token.userid;
+    var userdata = await UserDataModel.findOne({ userid: userid });
+    if (!userdata) {
+      return res.send("database error, empty userdata");
     }
-    res.send(doc);
+
+    try {
+      const savedRecipe = await recipe.save();
+      //添加recipeId
+      userdata.uploadRecipeIds.push(savedRecipe._id);
+      await UserDataModel.updateOne(
+        { userid: userid },
+        { uploadRecipeIds: userdata.uploadRecipeIds }
+      );
+      res.send("update successfully.");
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  }
+);
+
+//feedback 不登陆也行
+router.post("/recipe/feedback", async (req, res) => {
+  //Validate feedback内容
+  const { error } = feedbackValidation(req.body);
+  if (error) {
+    return res.status(400).send(error.details[0].message);
+  }
+
+  const feedback = new FeedbackModel({
+    name: req.body.name,
+    email: req.body.email,
+    questions: req.body.questions,
+    advice: req.body.advice,
   });
+
+  try {
+    await feedback.save();
+    res.send("submit feedback successfully.");
+  } catch (err) {
+    res.status(400).send(err);
+  }
 });
 
-/**
- * 因为数据结构改变，因此不需要再进行 id 自增
- */
-router.post("/recipe/upload", tools.multer().single("file"), (req, res) => {
-  // var recipe = JSON.parse(req.body);
-  // console.log(req.body.recipeJSON);
-
-  const recipeStr = req.body.recipeJson;
-  const recipe = JSON.parse(recipeStr);
-  handleUpdate(recipe, function (err, doc) {
-    if (err) {
-      // console.log(err);
-      res.send({
-        body: req.body,
-      });
-    } else {
-      res.send({
-        body: "successful",
-      });
-    }
-  });
-});
-
-var handleUpdate = function handleUpdate(recipeData, done) {
-  var recipe = {
-    title: recipeData.title,
-    introduction: recipeData.introduction,
-    nationality: recipeData.nationality,
-    ingredients: recipeData.ingredients,
-    directions: recipeData.directions,
-    popularity: 0,
-    imgUrl: "",
-  };
-  // console.log(recipe);
-  var instance = new RecipeModel(recipe);
-  instance.save(done);
-};
-
-router.get("/user/profile/:id", (req, res) => {
-  UserInfoModel.find({ id: id }, (err, doc) => {
-    if (err) {
-      return err;
-    }
-    console.log("req.body" + req.body);
-    console.log(doc);
-    res.send(doc);
-  });
-});
-
-router.get("/user/accomplishment/:id", (req, res) => {});
 
 module.exports = router;
-
-// const RECIPES = [
-//   {
-//     id: 1,
-//     title: "burgerTest",
-//     nationality: "Germany",
-//     ingredients: [{ name: "beef", quantity: "1 kg", treatment: "null" }],
-//     directions: ["fry", "done"],
-//   },
-//   {
-//     id: 2,
-//     title: "hot potTest",
-//     nationality: "China",
-//     ingredients: [
-//       { name: "beef", quantity: "1 kg", treatment: "null" },
-//       { name: "chili", quantity: "200 g", treatment: "null" },
-//     ],
-//     directions: ["boil", "done"],
-//   },
-// ];
-
-/*
-
-
-router.post("/recipe/feedback", (req, res) => {});
-
-router.post("/recipe/favour", (req, res) => {});
-
-router.post("/user/register", (req, res) => {});
-
-router.post("/user/login", (req, res) => {});
-
-router.post("/user/logout", (req, res) => {});
-
-*/

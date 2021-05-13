@@ -1,0 +1,19 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor user
+  lifeline "Local Storage" as localStorage
+  lifeline "Client" as client
+  lifeline "server" as server
+  
+  user --> client "input username/password"
+  client --> server "login"
+  server  --> client "return userId/token"
+  
+  client --> localStorage "store userId/token"
+  localStorage --> client "pass userId/token"
+  
+  client --> server "get profile/accomplishment with userId/token"
+  server --> client "return profile/accomplishment"
+	
+  
+  
+}

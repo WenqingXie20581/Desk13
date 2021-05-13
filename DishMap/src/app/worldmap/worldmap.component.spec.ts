@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 import { WorldmapComponent } from './worldmap.component';
 
@@ -8,7 +9,8 @@ describe('WorldmapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorldmapComponent ]
+      declarations: [ WorldmapComponent ],
+      providers : [Router,Function]
     })
     .compileComponents();
   });
@@ -20,6 +22,13 @@ describe('WorldmapComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
+
+  it('should have <h2> with "words"', () => {
+    const bannerElement: HTMLElement = fixture.nativeElement;
+    const h2 = bannerElement.querySelector('h2');
+    expect(h2.textContent).toEqual("Hi, Do you want to travel with us? Let's start from Bristol and eat all delicious dishes in the world");
+  });
+
 });

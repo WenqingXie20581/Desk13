@@ -1,3 +1,4 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccomplishmentComponent } from './accomplishment.component';
@@ -8,7 +9,8 @@ describe('AccomplishmentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AccomplishmentComponent ]
+      declarations: [ AccomplishmentComponent ],
+      providers : [HttpClient, HttpHandler]
     })
     .compileComponents();
   });

@@ -12,6 +12,8 @@ export class RecipeComponent implements OnInit {
 
     recipe : Recipe ;
 
+    recipes : Recipe[];
+
     topRecipes : Recipe[];
 
     fav : boolean = false;
@@ -19,31 +21,62 @@ export class RecipeComponent implements OnInit {
     complete : boolean = true;
 
   constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
-    route.params.subscribe(val => {
-      this.getRecipe();
-      // this.getTop10recipes();
-  });
+    
   }
 
   addFav() {
     if (this.fav === false) {
       this.recipe.popularity++;
-      this.recipeService.addFavour(this.recipe).subscribe(fav => this.fav = true)
-    }   
+      this.recipeService.addFavour(this.recipe).subscribe(
+        fav => {this.fav = true;},
+        err => {console.log(err);}
+        )
+        
+    }
   }
 
   addComplete(){
     if (this.fav === false) {
-        this.recipeService.addComplete(this.recipe).subscribe(complete => this.complete = true)
-      }   
+        this.recipeService.addComplete(this.recipe).subscribe(
+          complete => this.complete = true,
+          err => console.log(err)
+        )
+      }
   }
+
   getRecipe(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    this.route.paramMap.subscribe(
+      (val) => {
+      let id =  val.get('id');
       this.recipeService.getRecipeById(id)
-      .subscribe(recipe => this.recipe = recipe);
+      .subscribe(
+        (recipe : Recipe) => {
+          this.recipe = recipe;
+        },
+        (err) => {
+          console.log(err);
+        }
+        );
+      },
+      (err) => {
+        console.log(err);
+      },
+      
+    );
+      
   }
-  
+
   ngOnInit(): void {
+    this.getRecipe();
+    this.getRecipes();
+  }
+
+  getRecipes(): void {
+    this.recipeService.getRecipes().subscribe(
+      recipes => {this.recipes = recipes ;
+     this.topRecipes =  this.recipes.sort((a, b) => { return b.popularity - a.popularity}).slice(0,10);
+      }
+      );
   }
 
   // getTop10recipes():void {

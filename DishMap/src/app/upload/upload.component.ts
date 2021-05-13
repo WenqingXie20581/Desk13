@@ -70,7 +70,8 @@ export class UploadComponent implements OnInit {
     const formData = new FormData(); 
     const recipeJson = JSON.stringify(this.recipe);
     // const recipeJson = JSON.stringify(this.recipe, undefined, 2);
-    formData.append('file',this.pictureFile)
+    const name = this.recipe.title;
+    formData.append('file',this.pictureFile, name);
     formData.append('recipeJson', recipeJson);
     // formData.append('title', this.recipe.title);
     // formData.append('introduction', this.recipe.introduction);

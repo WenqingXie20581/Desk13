@@ -1,75 +1,91 @@
-# DishMap
-Project of Desk13
+# A Bite of World
+
+![head](images/README/head.png)
+
+## Team And Product's Name
+
+Our team is called **Love and Peace**，which consists of five handsome boys. More importantly, two of them are single！！！
+
+Our product is called **A Bite of World**, it's a single page app (SPA), designed to inspire users in the journey of enjoying food, to feel the gifts from nature, learn the cultures of various countries, strengthen the mutual understanding of users from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
+
+## Team Member
+
+* Wei Wei       : <fb20165@bristol.ac.uk>
+* Haolong Li  : <fr20938@bristol.ac.uk>
+* Yifan Luo : <jp20469@bristol.ac.uk>
+* Wenqing Xie : <es20581@bristol.ac.uk>
+* Kaixiang Ma : <da20468@bristol.ac.uk>
 
 
-## Project Report
+## Table of contents
 
-Also on your Github repository, you must write a front-page document (readme.md) that will form your project report. It is scored out of 100 marks and should include the following sections in the order outlined.
+## [1. Introduction](Portfolio/Introduction.md)
 
+This section is comprised of the following subsections:
 
-### Team
-Team (product) name
-- Wenqing Xie
-- Haolong Li
-- Kaixiang Ma
-- Yifan Luo
-- Renjie Wei
-Name / photo / role for each team member.
+- Abstract.
+- Project Objectives.
+- Video.
 
+## [2. Background and Motivation](Portfolio/Background.md)
 
-### Introduction [10 marks]
-Abstract. Motivation for the project, framing of the problem and a high-level overview of the system.
-Project Objectives. The high level goals of the project and the contribution towards solving the problem. A checklist against which the team can evaluate their success.
-Video. Short (1-2min) demo video to explain your system (think Kickstarter)
+This section is comprised of the following subsections:
 
+* Background literature
+* State of the art survey
+* Problem definition
+* Motivation
 
-### Background and Motivation [10 marks]
-Background literature. Academic research review.
-State of the art survey. Current industry review.
-Clear definition of the problem. How does your project relate to the above? We will be marking the ability of your team to identify a worthwhile and important problem and clearly articulate the scope and challenge of the problem.
+## [3. System Implementation](Portfolio/System_Implementation.md)
 
+This section is comprised of the following subsections:
 
-### System Implementation [20 marks]:
-Stack architecture and system design (e.g. class diagrams, sequence diagrams).
-Back End - MongoDB - database implementation, the data model that you developed your back end from (e.g. entity relationship diagrams).
-Middle Tier - Express, Node, the RESTful API
-Front End - Angular. Details of implementation.
-Additional elements and components e.g. authentification. Tell us about any other aspects not covered above!
-Deployment details (including Docker), include how you have been achieving continuous integration and deployment.
+* Stack architecture and system design
+* Back End - database implementation
+* Middle Tier - express, Node, the RESTful API
+* Front End - Angular
+* Authentication
+* Deployment and integration
 
+## [4. UX Design](Portfolio/UX_Design.md)
 
-### UX Design [15 marks]
-Design Process and Early prototyping and ideation (including mood boards and paper prototyping)
-Identification of interacting users and broader stakeholders.
-UX approach – design heuristics/approach, design methods (design fiction / heuristics)
-Understanding of user group (questionnaires / user stories / interviews)
-Wireframes and interaction flow diagrams for final key subsystems.
+- Design Process and Early prototyping and ideation (including mood boards and paper prototyping)
+- Identification of interacting users and broader stakeholders.
+- UX approach – design heuristics/approach, design methods (design fiction / heuristics)
+- Understanding of user group (questionnaires / user stories / interviews)
+- Wireframes and interaction flow diagrams for final key subsystems.
 
 
-### Sprints & Project Management [15 marks]
-Group working methods used (for instance did your team choose a particular style of agile? what communication channels did you use?)
-Discussion of team roles (specialisation is ok!). A summary of individual contributions (note: this is for reference, your team will all receive the same grade!).
-Documentation of your sprints, including both high level overview, timeline, and selected highlights that were critical points in the project (remember to show the users stories implemented in each sprint). We expect a summary of meeting logs (including for instance apologies for absence etc)
-Team use of Git, how your team used continuous integration / continuous deployment. Streamlining of workflow throughout.
+## [5. Sprints & Project Management](Portfolio/Sprints_Project_Management.md)
+
+This section is comprised of the following subsections:
+
+* Group working methods
+* Team roles and contributions
+* Documentation of sprints
+* Team use of Git
 
 
+## [6. Evaluation](Portfolio/Evaluation.md)
 
-### Evaluation [15 marks]
-Details of how you evaluated your designs (techniques used & awareness of their limitations). Description of techniques suitable for your particular design. A timeline of evaluation of your design.
-Unit testing / Functional testing.
-User acceptance testing. Evaluation of your design with users – methods undertaken, findings, implications.
+This section is comprised of the following subsections:
 
+* Evaluation of design
+* Unit testing
+* User acceptance testing
 
+## [7. Conclusion](Portfolio/Conclusion.md)
 
-### Conclusion [10 marks]:
-Reflect on the working practices of your group, how well they did or did not work, e.g, management of issues, communication, Agile (etc).
-Reflective discussion of the success of the project. How well did your project fulfil the brief? Were all of your own objectives met
-This is a chance to reflect on how coronavirus has affected your project (remote working practices etc)
-Discussion of Social and Ethical implications of your work.
-Discussion of future work (in terms of design, development and evaluation)
+This section is comprised of the following subsections:
 
+* Reflection on working practices
+* Reflection of successes
+* Impact of COVID-19
+* Social and ethical implications
+* Future work
 
+## Acknowledgments
 
-### Presentation [5 marks]
-There is a 5% mark for presentation, including formatting. We are looking for consistency, readability, conciseness, good use of figures and with the ultimate aim of this being a readable and useful public repo!
+![201610241720298258](images/README/thank.gif)
 
+A big thank you to everyone whose code and libraries we used during this project, referenced above. We are also incredibly thankful for the support and guidance of our lecturers: Stuart Gray, Tom Bale, Pete Bennett, and Marcile Wac. We have learn so much from them, and are excited to implement the skills that they have taught us in our future careers.

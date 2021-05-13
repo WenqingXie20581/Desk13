@@ -12,7 +12,7 @@ import { UserService } from '../user.service';
 export class AccomplishmentComponent implements OnInit {
   private accomplishment: UserAccomplishment;
 
-  showLinkedRecipes: boolean = true;
+  showLikedRecipes: boolean = true;
   showUploadedRecipes: boolean = false;
   showCompletedRecipes: boolean = false;
 
@@ -45,23 +45,23 @@ export class AccomplishmentComponent implements OnInit {
 
   showRecipes(event) {
     switch(event.target.outerText){
-      case "LinkedRecipes":
-        this.showLinkedRecipes = true;
+      case "LikedRecipes":
+        this.showLikedRecipes = true;
         this.showUploadedRecipes = false;
         this.showCompletedRecipes = false;
         break;
       case "UploadedRecipes":
-        this.showLinkedRecipes = false;
+        this.showLikedRecipes = false;
         this.showUploadedRecipes = true;
         this.showCompletedRecipes = false;
       break;
       case "CompletedRecipes":
-        this.showLinkedRecipes = false;
+        this.showLikedRecipes = false;
         this.showUploadedRecipes = false;
         this.showCompletedRecipes = true;
       break;
       default:
-        this.showLinkedRecipes = false;
+        this.showLikedRecipes = false;
         this.showUploadedRecipes = false;
         this.showCompletedRecipes = false;
     }
