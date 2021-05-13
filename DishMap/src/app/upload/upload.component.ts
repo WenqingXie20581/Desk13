@@ -47,7 +47,6 @@ export class UploadComponent implements OnInit {
       return;
     }
     this.recipe.introduction = introduction;
-    e.target.value = '';
   }
 
   saveIngredient() {
