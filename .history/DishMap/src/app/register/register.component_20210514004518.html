@@ -22,13 +22,13 @@
           required
           minlength="6"
           maxlength="20"
-          placeholder="please enter 6-20 digit"
+          placeholder="please enter a 6-20 digit user name"
           #username="ngModel"
         />
         <div class="alert-danger" *ngIf="f.submitted && username.invalid">
           <div *ngIf="username.errors.required">Username is required</div>
           <div *ngIf="username.errors.minlength">
-            Username must be at least 6 characters
+            Username must be at least 3 characters
           </div>
           <div *ngIf="username.errors.maxlength">
             Username must be at most 20 characters

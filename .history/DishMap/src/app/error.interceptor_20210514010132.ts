@@ -27,6 +27,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(catchError(
       (err) => {
+        console.log(err);
         if([401, 403].includes(err.status) && this.tokenStorageService.getUser){
           this.tokenStorageService.signOut;
           this.router.navigate([this.url]);

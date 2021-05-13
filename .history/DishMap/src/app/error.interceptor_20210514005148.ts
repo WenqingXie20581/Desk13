@@ -32,7 +32,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           this.router.navigate([this.url]);
         }
         if ([400].includes(err.status)) {
-          alert(err.message);
+          console.log(err.message);
         }
         const error = err.error?.message || err.statusText;
         console.error(err);

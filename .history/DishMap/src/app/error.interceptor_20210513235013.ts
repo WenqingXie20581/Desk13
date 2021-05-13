@@ -10,7 +10,6 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { TokenStorageService } from './token-storage.service';
 import { Router } from '@angular/router';
-import { asLiteral } from '@angular/compiler/src/render3/view/util';
 
 
 
@@ -30,9 +29,6 @@ export class ErrorInterceptor implements HttpInterceptor {
         if([401, 403].includes(err.status) && this.tokenStorageService.getUser){
           this.tokenStorageService.signOut;
           this.router.navigate([this.url]);
-        }
-        if ([400].includes(err.status)) {
-          alert(err.message);
         }
         const error = err.error?.message || err.statusText;
         console.error(err);
