@@ -1,0 +1,8 @@
+<h2>Hi, Do you want to travel with us? Let's start from Bristol and eat all delicious dishes in the world</h2>
+  <!-- <a *ngFor="let nation of nations" class="nations"
+   routerLink="/cookbook/{{nation}}">
+   <div>
+     <h4>{{nation}}</h4>
+    </div>
+  </a> -->
+<div echarts [options]="option" class="worldmap" (chartClick)="onChartClick($event)"></div>

@@ -1,0 +1,55 @@
+<mat-toolbar class="header" color="warn">
+    <mat-toolbar-row>
+    <button mat-icon-button (click)="sideNav.toggle()">
+        <mat-icon>{{ sideNav.opened ? 'close' : 'menu' }}</mat-icon>
+      </button>
+      <span>Dish Map</span>
+      <span class="toolbar-seprator"></span>
+
+      <!-- <button type="button" mat-icon-button ng-click="window.location.href='/feedback'">
+        <mat-icon>login</mat-icon>
+      </button>
+      <button  type="button" mat-icon-button ng-click="window.location='/register'">
+        <mat-icon>user</mat-icon>
+      </button> -->
+      <span *ngIf ="!isLoggedIn">
+        <a class="navbar-text" routerLink="/login" mat-button color="Basic">Login</a>
+        <a routerLink="/register" mat-button color="Basic">Register</a> 
+      </span>
+      
+      <span *ngIf ="isLoggedIn" >
+        <a  routerLink="/profile" mat-icon-button><mat-icon>perm_identity_icon</mat-icon></a>
+        <a  href class="nav-link" id="logout-link" (click)="logOut()" mat-icon-button><mat-icon>exit_to_app</mat-icon></a>
+      </span>
+      
+      <button mat-icon-button color="Basic" class="navbar-text" type="button"  (click)="goBack()">
+        <mat-icon>keyboard_backspace</mat-icon>
+</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="container">
+    <mat-sidenav class="sidenav" #sideNav mode="side" position="start" opened="true" 
+       fixedTopGap="0" fixedBottomGap="0">
+       <mat-nav-list>
+        <a routerLink="/worldmap" mat-list-item><mat-icon>map</mat-icon>world map</a>
+        <button id="nationButton" type="button" (click)="showNations = !showNations" mat-list-item><mat-icon>list</mat-icon>nations</button>
+      </mat-nav-list> 
+        <mat-nav-list *ngIf="showNations">
+            <ul *ngFor="let nation of nations" class="nations">
+             <li><a routerLink="/cookbook/{{nation}}" >{{nation}}</a></li> 
+           </ul>
+        </mat-nav-list> 
+      <mat-nav-list>
+        <a routerLink="/accomplishment" mat-list-item><mat-icon> insert_emoticon</mat-icon>accomplishment</a>
+        <a routerLink="/upload" mat-list-item><mat-icon>upload</mat-icon>upload</a>
+        <a routerLink="/feedback" mat-list-item><mat-icon>chat</mat-icon>feedback</a>
+        
+      </mat-nav-list>
+      <div id="nhs">
+        <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/coronavirus-vaccine/" target="_blank"><img src="../../assets/images/nhs.jpg" alt=""></a>
+      </div>
+      </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

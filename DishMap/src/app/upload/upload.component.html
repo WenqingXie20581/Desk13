@@ -1,0 +1,149 @@
+<div id="container">
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #ulForm="ngForm">
+      <div>
+        <ng-template>
+          <u>title</u>
+        </ng-template>
+        <mat-form-field>
+          <mat-label>title</mat-label>
+          <input name="title" matInput placeholder="dish name" [(ngModel)]="recipe.title" 
+          required>
+        </mat-form-field>
+      </div>
+      <div>
+        <ng-template>
+          <u>Nationality</u>
+        </ng-template>
+      <mat-form-field>
+        <mat-label>Select</mat-label>
+        <mat-select name="nation"
+         [(ngModel)]="recipe.nationality" required >
+          <mat-option *ngFor="let nation of nations" [value]="nation">{{nation}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+      <div>   
+        <ng-template>
+          <u>introduction</u>
+        </ng-template>
+      <mat-form-field>
+        <mat-label>introduction</mat-label>
+        <input
+        matInput
+        placeholder="Introduction"
+        (blur)="addIntroduction($event)"
+        >
+      </mat-form-field>
+      </div> 
+
+      <div>
+        <ol class="ingredientList">
+          <li *ngFor="let ig of recipe.ingredients; let i = index;">
+            <div>
+              {{ig.name}}
+            </div>
+            <div>
+              {{ig.quantity}}
+            </div>
+            <div>
+              {{ig.treatment}}
+            </div>
+              <button type="button"
+              mat-icon-button color="primary"         
+              (click)="removeIngredient(i)"><mat-icon>delete</mat-icon></button>
+          </li>
+        </ol>
+      </div>
+
+      <div>   
+        <ng-template>
+          <u>ingredients</u>
+        </ng-template>
+
+      <div>
+      <mat-form-field>
+        <mat-label>ingredient's name </mat-label>
+        <input
+        name="name"
+        matInput
+        placeholder="ingredient's name"
+        [(ngModel)]="ingredient.name"
+        >
+      </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>ingredient's quantity </mat-label>
+          <input
+          name="quantity"
+          matInput
+          placeholder="ingredient's quantity"
+          [(ngModel)]="ingredient.quantity"
+          >
+        </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <mat-label>ingredient's treatment </mat-label>
+            <input
+            name="treatment"
+            matInput
+            placeholder="ingredient's treatment"
+            [(ngModel)]="ingredient.treatment"
+            >
+          </mat-form-field>
+          <button mat-icon-button color="primary" type="button" (click)="saveIngredient()"
+          ><mat-icon>save</mat-icon>save</button>
+          </div>
+        </div>
+        <div>
+          <ol class="directionsList">
+            <li *ngFor="let dt of recipe.directions; let i = index;">
+              {{dt}}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="button"
+              mat-icon-button color="primary"         
+              (click)="removeDirection(i)"><mat-icon>delete</mat-icon></button>
+            </li>
+          </ol>
+        </div>
+        <div>   
+          <ng-template>
+            <u>directions</u>
+          </ng-template>
+        <mat-form-field>
+          <mat-label>directions</mat-label>
+          <input
+          name="direction"
+          matInput
+          placeholder="Direction"
+          [(ngModel)]="direction"
+          >
+        </mat-form-field>
+        <button  
+        mat-icon-button 
+        color="primary"
+         type="button" 
+         (click)="addDirection()"><mat-icon>save</mat-icon>save</button>
+        </div>  
+        <div>
+          <ng-template>
+            <u>picture</u>
+          </ng-template>
+            <label>Choose food picture &nbsp;</label>
+            <input type="file" name="pic" 
+            (change)="handleFileInput($event)" required>
+        </div>
+        <br>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!ulForm.form.valid"
+          ><mat-icon>upload</mat-icon>submit</button>
+          
+    </form>
+    </div>
+    <div *ngIf="submitted">
+      <h2>Thanks for your upload</h2>
+    </div>
+</div>

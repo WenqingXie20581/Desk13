@@ -1,0 +1,39 @@
+.grid {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 300px 300px 300px;
+  column-gap: 100px;
+  row-gap: 150px;
+  justify-content: center;
+}
+.recipeItem {
+  text-align: center;
+  line-height: 14px;
+  background-color: antiquewhite;
+  border-style: dotted;
+}
+a {
+  text-decoration: none;
+}
+.title {
+  font-weight: bold;
+  font-size: larger;
+  line-height: 60%;
+  color: coral;
+}
+.fav {
+  font-size: small;
+  color: red;
+  text-align: right;
+  float: right;
+}
+p {
+  color: darkgoldenrod;
+}
+img {
+  height: 280px;
+  width: 280px;
+}
+h2 {
+  text-align: center;
+}
