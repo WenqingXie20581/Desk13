@@ -19,7 +19,7 @@ module.exports = function auth(req, res, next) {
     next();
   } catch (err) {
     if (err.name == "TokenExpiredError") {
-      res.status(401).send("登录过期，请重新登录");
+      res.status(401).send("Login expired, please login again.");
     } else {
       res.status(401).send("Invalid token");
     }
