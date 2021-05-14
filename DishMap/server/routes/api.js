@@ -4,6 +4,8 @@ const express = require("express");
 const router = express.Router();
 const RecipeModel = require("../db/RecipeSchema");
 const UserDataModel = require("../db/UserDataSchema");
+const FeedbackModel = require("../db/FeedbackSchema");
+
 const verify = require("./verifyToken");
 const tools = require("../tools");
 const { feedbackValidation } = require("./validation");
@@ -76,7 +78,7 @@ router.post("/recipe/favour", verify, async (req, res) => {
       { userid: userid },
       { likedRecipeIds: userdata.likedRecipeIds }
     );
-    res.send("favour successfully");
+    res.send({OK :"favour successfully"});
   } catch (err) {
     res.send(err);
   }
@@ -92,7 +94,6 @@ router.post("/recipe/complete", verify, async (req, res) => {
   if (!recipe) {
     return res.status(400).send("Recipe doesn't exists");
   }
-  console.log(userid);
   var userdata = await UserDataModel.findOne({ userid: userid });
   if (!userdata) {
     return res.send("database error, empty userdata");
@@ -111,7 +112,7 @@ router.post("/recipe/complete", verify, async (req, res) => {
       { userid: userid },
       { completedRecipeIds: userdata.completedRecipeIds }
     );
-    res.send("complete successfully");
+    res.send({OK :"complete successfully"});
   } catch (err) {
     res.send(err);
   }
@@ -146,7 +147,7 @@ router.post(
         { userid: userid },
         { uploadRecipeIds: userdata.uploadRecipeIds }
       );
-      res.send("update successfully.");
+      res.send({message: "upload successfully."});
     } catch (err) {
       res.status(400).send(err);
     }
@@ -155,6 +156,9 @@ router.post(
 
 //feedback 不登陆也行
 router.post("/recipe/feedback", async (req, res) => {
+    if(typeof req.body.advice == "undefined" || req.body.advice == null || req.body.advice == "") {
+        req.body.advice = " ";
+    }
   //Validate feedback内容
   const { error } = feedbackValidation(req.body);
   if (error) {
@@ -170,7 +174,7 @@ router.post("/recipe/feedback", async (req, res) => {
 
   try {
     await feedback.save();
-    res.send("submit feedback successfully.");
+    res.send({message: "upload successfully."});
   } catch (err) {
     res.status(400).send(err);
   }

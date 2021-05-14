@@ -50,8 +50,11 @@ export class UploadComponent implements OnInit {
   }
 
   saveIngredient() {
-    if (!(this.ingredient.name.length && this.ingredient.quantity.length && this.ingredient.treatment.length)) {
+    if (!(this.ingredient.name.length && this.ingredient.quantity.length)) {
       return;
+    }
+    if (!this.ingredient.treatment) {
+      this.ingredient.treatment = " ";
     }
     this.recipe.ingredients.push(this.ingredient);
     this.ingredient = new Ulingredient;

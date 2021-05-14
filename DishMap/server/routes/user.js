@@ -4,9 +4,7 @@ const verify = require("./verifyToken");
 const UserDataModel = require("../db/UserDataSchema");
 
 router.get("/accomplishment", verify, async (req, res) => {
-  console.log("获取accomplishment");
   const userid = req.token.userid;
-
   var userdata = await UserDataModel.findOne({ userid: userid });
   if (!userdata) {
     return res.send("database error, empty userdata");
@@ -20,7 +18,6 @@ router.get("/accomplishment", verify, async (req, res) => {
 });
 
 router.get("/profile", verify, async (req, res) => {
-  console.log("获取user profile");
   const _id = req.token.userid;
   var userinfo = await UserInfoModel.findOne({ _id: _id });
   if (!userinfo) {
