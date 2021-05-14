@@ -424,7 +424,7 @@ We realized the importance of branch management from the beginning. We created a
 
 #### Network graph
 
-
+![](images/Sprints_Project_Management/branch.gif)
 
 ## References
 
