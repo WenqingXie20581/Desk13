@@ -78,7 +78,7 @@ router.post("/recipe/favour", verify, async (req, res) => {
       { userid: userid },
       { likedRecipeIds: userdata.likedRecipeIds }
     );
-    res.send("favour successfully");
+    res.send({OK :"favour successfully"});
   } catch (err) {
     res.send(err);
   }
@@ -112,7 +112,7 @@ router.post("/recipe/complete", verify, async (req, res) => {
       { userid: userid },
       { completedRecipeIds: userdata.completedRecipeIds }
     );
-    res.send("complete successfully");
+    res.send({OK :"complete successfully"});
   } catch (err) {
     res.send(err);
   }
