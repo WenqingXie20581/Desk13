@@ -1,6 +1,6 @@
 # Conclusion
 
-In this final section, we will reflect on our app and what we have done. Firstly, we will reflect on our working practices,and clearly evaluate  our work. Then, We will reflect on the success of the project, with a focus on whether the brief and objectives were met. What's more, We will talk about the impact COVID-19 had on our project. finally, we will discuss the social and ethical implications of our app and look ahead to future work in terms of design, development and evaluation.
+In this final section, we will illustrate our app and what we have done. Firstly, we will reflect on our working practices, and clearly evaluate  our work. Then, We will come to the achievement of the project, with a focus on whether the brief and objectives were met. What's more, the influence of COVID-19 to our project will be demonstrated. Finally, we will discuss the social and ethical implications of our app and look ahead to future work in terms of design, development and evaluation.
 
 ![img](images/Conclusion/Z$X{S]0}10SBWSME$A9PTT.jpg)
 
@@ -8,20 +8,19 @@ In this final section, we will reflect on our app and what we have done. Firstly
 
 ## Working practices
 
-In the previous section of Sprints & Project Management, we have shown our work practices in detail, here we will reflect on our working practices.
+In the previous section of Sprints & Project Management, we have shown our work practices in detail, here we will focus on our working practices.
 
 ###  Team organization
-Because the members of our team have different strengths and interests, everyone was tasked with one responsibility or subsystem. In addition, each person is involved in system design and project sprints to ensure that everyone always understands what is happening and always keeps up to date with the project's skills and knowledge. These are particularly valuable in this difficult time.
+Because the members of our team have different strengths and interests, everyone was tasked with one responsibility or subsystem. In addition, each person is involved in system design and project sprints to ensure that everyone always understands what is happening and always keeps up to date with the project's skills and knowledge. All of above are particularly valuable in this difficult time.
 
-Wenqing is a  careful and rigorous boy who likes to learn new technologies and he is responsible for designing the framework of the project, including data model, sequence and use case. HaoLong dreams of becoming a front-end engineer, so he focus on designing the web page style and developing part of functions in front end. Both Yifan and Kaixiang are experienced back-end engineers and they collaborated with group members on the back-end function, which includes realization and Database, etc. Wei Wei has the least web experience, but he has the great ideas and excellent organizational and presentation abilities. He is mainly responsible for collecting information, making plans and writing the report. Despite this special period, our work are organized well and each group's member try his best to make the web app. More importantly, each member maximized his strengths !
+Wenqing is a  careful and rigorous boy who likes to learn new technologies and he is responsible for designing the framework of the project, including data model, sequence and use case. HaoLong is devoted to becoming a front-end engineer, so he focus on designing the web page style and developing part of functions in front end. Both Yifan and Kaixiang are experienced back-end engineers and they collaborated with group members on the back-end development, which includes front-end API realization and Database, etc. Wei Wei has the least web experience, but he has the great ideas and excellent organizational and presentation abilities. He is mainly responsible for collecting information, making plans and writing the report. Despite this special period, our work are organized well and each group's member try his best to make the web app. More importantly, each member maximized his strengths !
 
 ### Management of issues
-At first, we managed issues or subsystem requirements on Team and Wechat, more specifically, 
-we write the question as text and communicate on Wechat and Team. However, we found that this issues management model can easily cause confusion. So, we chose to let Wei Wei specialize in issues management. He uses Trello very well and makes the checklists like "To Do", "In Progress", and "Done" to help us to keep track of the sprint progress. In addition, when performing agile sprints, weiwei can help us plan the tasks to be completed every week and communicate technical details to ensure that our backlog and sprints can be completed on time.
+At first, we managed issues or subsystem requirements on Teams and Wechat. More specifically, we write the question as text and communicate on Wechat and Teams. However, we found that this issues management model can easily cause confusion. So Wei Wei is responsible for issues management. He if proficient with Trello and makes the checklists like "To Do", "In Progress", and "Done" to help us to keep track of the sprint progress. In addition, when performing agile sprints, weiwei can help us plan the tasks to be completed every week and communicate technical details to ensure that our backlog and sprints can be completed on time.
 Therefore, we believe that having the project manager specifically responsible for management of issues is a good way to improve efficiency.
 
 ### Communication
-Due to the outbreak of the coronavirus epidemic, the team members were separated in different cities. In order to effectively communicate and share information with each other, we decide to use the Team and the WeChat for discussing this project , as shown in the following two pictures.
+Due to the pandemic of coronavirus, the team members were separated in different cities, and all of them out of Bristol. In order to effectively communicate and share information with each other, we decide to use the Team and the WeChat for discussing this project , as shown in the following two pictures.
 
 ![time (1)](images/Conclusion/time(1).gif)
 
