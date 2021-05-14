@@ -16,7 +16,7 @@ const options = {
 };
 
 // 连接docker
-// const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+ //const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 //连接本地mongodb
 // const url = `mongodb://localhost:27017/DishMap`;
 //连接罗哥服务器
