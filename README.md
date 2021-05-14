@@ -93,8 +93,8 @@ This section is comprised of the following subsections:
 
 - Design Process and Early prototyping and ideation (including mood boards and paper prototyping)
 - Identification of interacting users and broader stakeholders.
-- UX approach – design heuristics/approach, design methods (design fiction / heuristics)
-- Understanding of user group (questionnaires / user stories / interviews)
+- UX approach – design heuristics/approach, design methods 
+- Understanding of user group 
 - Wireframes and interaction flow diagrams for final key subsystems.
 
 
