@@ -1,6 +1,6 @@
 # Conclusion
 
-In this final section, we will reflect on our app and what we have done. Firstly, we will reflect on our working practices,and clearly evaluate  our work. Then, We will reflect on the success of the project, with a focus on whether the brief and objectives were met. What's more, We will talk about the impact Covid-19 had on our project. finally, we will discuss the social and ethical implications of our app and look ahead to future work in terms of design, development and evaluation.
+In this final section, we will reflect on our app and what we have done. Firstly, we will reflect on our working practices,and clearly evaluate  our work. Then, We will reflect on the success of the project, with a focus on whether the brief and objectives were met. What's more, We will talk about the impact COVID-19 had on our project. finally, we will discuss the social and ethical implications of our app and look ahead to future work in terms of design, development and evaluation.
 
 ![img](images/Conclusion/Z$X{S]0}10SBWSME$A9PTT.jpg)
 
@@ -87,19 +87,57 @@ At the same time, we fully consider the personal wishes of users. If users do no
 
 ## Future work
 
-Due to our time constrains,in our project we rushed through big chunks of what would be a normal design process and we have to admit that we skipped a lot of small content. In this part, we will plan future work to make our products more competitive. More importantly，Wei Wei was an excellent student majoring in finance when he was a undergraduate and now he hopes to build a complete business model for our app. Therefore, as for the future work,he thinks there are  two things we have to do.
+Due to our time constrains,in our project we rushed through big chunks of what would be a normal design process and we have to admit that we skipped a lot of small content. In this part, we will plan future work to make our products more competitive. 
 
-On the one hand, we are supposed to consider some additional features that would make our product more viable, so after analyzing the current apps of the same type, we think that we need to add **consumer market**, **Social Network Service**, and interesting **tasks** and **competition mechanisms**. These functions must be completed simultaneously and work together. It is meaningless to add one of these functions separately. 
+### Short term
 
-Firstly，our app must have a complete consumer market. In our consumer market, users can use the special virtual currency we provide (hereinafter referred to as food coins) to purchase related goods. The goods that can be purchased by food coins include virtual good provided on our website, such as VIP privilege (the VIP users can enjoy exclusive discounts, exclusive titles and recipes and will be placed in a more prominent position on the website...) In addition, the goods also include real goods such as Kitchen furniture including Pressure Cooker, Insulate Food Container, Air Fryer and food materials including potatoes, broccoli, chicken breast,etc, which can be provided by the merchants cooperated with us. At this stage, there are two ways to obtain food coins. For the most ordinary users, they can get food coins by uploading recipes. In addition, uploading recipes that we require or uploading recipes that is liked by others can help users get more food coins, which can also encourage players to share interesting recipes with others and enhance the website’s user stickiness. What's more , for wealthy users, sharing recipes and completing designated tasks to earn food coins is not attractive enough. They could purchase it using real currency through our website, which make us have to develop a secure payment system using an existing online money transfer service like Pay-pal. Although these functions are not easy, it will bring us considerable benefits if we can complete them.
+Now that our product is still rough, we can to several relatively simple tasks to complete it in the short term.
 
-Secondly, Social Network Service is necessary. Although we have implemented part of the social functions, we allow users to click the like bottom to other users' recipes, this is far from enough for a mature app. Therefore, in order to improve our social network service, we plan to add the following functions. First of all，we plan to allow users to comment on other user’s recipes and increase the friend function. Users who like similar recipes can become friends, discuss their favorite recipes with each other, and even meet in real life to try interesting new recipes together. In addition, we also plan to build an online communication community based on the needs of users for different recipes. Users can discuss specific recipes in their own communities. If there are many users interested in the same type of recipes, we will consider contacting an experienced chef to explain the recipe via video on our web.  In our research, social network functions are currently ignored by most food apps, so we believe that reliable social network services can become our unique advantage and build our core competitiveness. 
+####  A more attractive achievement system
 
-Thirdly, in order to enhance our app's attraction, we will add the task mechanism and the competition mechanism. The task system can improve the interest of the website app help users gain the sense of accomplishment and satisfaction. We plan to design different recipe tasks according to the actual situation of each country. Taking China as an example, China’s task recipes include roast Beijing duck, saute diced chicken with hot peppers,braised common carp, saute fish slices with bamboo shoots,saute chops with sweet&sour sauce. If you upload the recipe belong to the task recipe, you will get double food coin as a reward. In addition，competition mechanism play an significant role in the web app. We believe that the introduction of a competition mechanism can make our app more viable. We decided to implement the competition mechanism by setting different points for users. The points are determined by the online time and the quality of the uploaded recipes. Within each fixed period, the corresponding rewards will be given at the end of each period according to the points ranking, thus encouraging users to use our product more actively. We believe that  the task mechanism and the competition mechanism can make our products stand out in food apps.
+Achievement system provides most of the **serious play** part in our product. We want to encourage people to try dishes from different regions through attractive achievement system. 
 
-From the technical perspective, allowing users to comment on other user’s recipes and adding simple task mechanism seem to be easier to implement, so we plan to implement these functions in the short term. For those more difficult functions, we think the more appropriate method is to take them as long-term goals and complete them in cooperation with experienced programmers in the future.
+However, since the authentication part and the data storage part are complex, we don't have enough time to publish all functions we conceived. As you can see, for the time being, the achievement system (or accomplishment system) includes only records of uploaded recipes, liked recipes and completed recipes.
 
-On the other hand, our  profit model can be divided into three main categories: advertising insertion, e-commerce platform sharing, and selling ingredients.
+At the very beginning, we want to design several paths on the map. Users can follow the paths to finish required achievement. They may gather chef's hats by finish achievements, and hats can be used to unlock special (dark maybe) cuisine recipes.  So this funny achievements system can be our next step.
+
+
+
+#### Cool style
+
+Now the style of our product also needs promotion.  We used Angular material but it takes a lot of time. Many contents still don't have a proper style for the time being. Bootstrap may help make our app more handsome.
+
+
+
+####  **Stable and User-friendly Interaction**
+
+Now some of our functions and interactions are not user-friendly enough. The alerts are not always display correctly.  After user finishes tasks, the app will not automatically jump to the proper page. 
+
+We may add **Alert Component** and **Alert Service** to deal with all alerts of the app. Also,  we need to realize a better use of router to jump wisely.
+
+
+
+### Long term
+
+More excitingly, **Wei Wei** was an excellent student majoring in finance when he was a undergraduate and now he hopes to build a complete business model for our app. Therefore, as for the future work, he thinks there are some additional features that would make our product more viable, after analyzing the current apps of the same type. We may add **consumer market** and  **Social Network Service**.
+
+
+
+#### Consumer market
+
+In our consumer market, users can use the special virtual currency we provide (hereinafter referred to as food coins) to purchase related goods. The goods that can be purchased by food coins include virtual good provided on our website, such as VIP privilege (the VIP users can enjoy exclusive discounts, exclusive titles and recipes and will be placed in a more prominent position on the website...) In addition, the goods also include real goods such as Kitchen furniture including Pressure Cooker, Insulate Food Container, Air Fryer and food materials including potatoes, broccoli, chicken breast,etc, which can be provided by the merchants cooperated with us. At this stage, there are two ways to obtain food coins. For the most ordinary users, they can get food coins by uploading recipes. In addition, uploading recipes that we require or uploading recipes that is liked by others can help users get more food coins, which can also encourage players to share interesting recipes with others and enhance the website’s user stickiness. What's more , for wealthy users, sharing recipes and completing designated tasks to earn food coins is not attractive enough. They could purchase it using real currency through our website, which make us have to develop a secure payment system using an existing online money transfer service like Pay-pal. Although these functions are not easy, it will bring us considerable benefits if we can complete them.
+
+
+
+#### Social Network Service
+
+Although we have implemented part of the social functions, we allow users to click the like bottom to other users' recipes, this is far from enough for a mature app. Therefore, in order to improve our social network service, we plan to add the following functions. First of all，we plan to allow users to comment on other user’s recipes and increase the friend function. Users who like similar recipes can become friends, discuss their favorite recipes with each other, and even meet in real life to try interesting new recipes together. In addition, we also plan to build an online communication community based on the needs of users for different recipes. Users can discuss specific recipes in their own communities. If there are many users interested in the same type of recipes, we will consider contacting an experienced chef to explain the recipe via video on our web.  In our research, social network functions are currently ignored by most food apps, so we believe that reliable social network services can become our unique advantage and build our core competitiveness. 
+
+
+
+#### Profit (If any)
+
+Our  profit model can be divided into three main categories: advertising insertion, e-commerce platform sharing, and selling ingredients.
 
 Firstly, Inserting advertisements is a common way to make money on websites. When the users enter the APP, we plan to show an advertising image about 3 seconds. The content is usually a partner’s furniture goods or a meal advertisement. By the way, we don’t want to insert a variety of advertisements, we only intend to insert these advertisements related to our website app. What's more, other places for insert advertisements are the edge of the page. However, in order to ensure a good user experience, there will be not many advertisement spaces. Now, we are considering whether to insert a three-second advertisement every hour, because we are not sure whether this will reduce user satisfaction.
 
