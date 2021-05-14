@@ -135,13 +135,10 @@ router.post(
       imgUrl: req.filepath,
     });
 
-    const userid = req.token.userid;
-    var userdata = await UserDataModel.findOne({ userid: userid });
-    if (!userdata) {
-      return res.send("database error, empty userdata");
-    }
-
     try {
+      const userid = req.token.userid;
+      var userdata = await UserDataModel.findOne({ userid: userid });
+
       const savedRecipe = await recipe.save();
       //添加recipeId
       userdata.uploadRecipeIds.push(savedRecipe._id);
@@ -178,6 +175,5 @@ router.post("/recipe/feedback", async (req, res) => {
     res.status(400).send(err);
   }
 });
-
 
 module.exports = router;

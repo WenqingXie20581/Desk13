@@ -89,21 +89,184 @@ To sum up, the use case of our app is like below:
 
 ## Back End - database implementation
 
+### Why MongoDB?
+
+We use database MongoDB with Mongoose (for modeling) to provide a backend for our Node.js application.
+
+MongoDB is an open-source document database built on a horizontal scale-out architecture. It has been around for more than 13 years and has been deployed at thousands of companies for a wide range of use cases. 
+
+Instead of storing data in tables of rows or columns like SQL databases, each row in a MongoDB database is a document described in JSON, a formatting language which is human readable and natural form to store data. And it's very convenient to use Javascipt or Node.js for handling JSON. So MongoDB can be easily integrated into a Node/Express environment. 
+
+Moreover It is a NoSQL database, which is great for scaling, fast queries and it makes life a lot simpler for developers. It's document data model is a powerful way to store and retrieve data that allows developers to move fast.  Thus, mongoDB will take less time to implement, and will offer similar (if not better) performance for the kinds of tasks and operations we are doing. 
+
+### Data models
+
+![data_models](images/System_Implementation/data_models.png)
+
+#### User Models
+
+As shown in the data model diagram above, for the sake of data security, we store the informations and data of users separately. The userid in userdata model is used like the foreign key in mysql, which is used to determine which user the user data belongs to. 
+
+**For security and privacy, we can't store the password directly into the database,** which will expose user's password to everyone who can access the database.  We use bcrypt, an adaptive hash function based on the Blowfish symmetric block cipher cryptographic algorithm, to encrypt the password. When a user registers, **we store his hashed password to the database.** When he login to our website, by comparing the hashed result of input password with the hashed password we stored in the database, we can verify whether the input password is correct.
+
+```js
+//generate salt and hash the password using salt when register
+const salt = await bcrypt.genSalt(10);
+const hashedPassword = await bcrypt.hash(req.body.password, salt);
+```
+
+```js
+//validate the password when login
+const validPassword = await bcrypt.compare(req.body.password, user.hashedPassword);
+```
+
+#### Recipe models
+
+Users are able to upload the recipes by themselves. Recipe is also a json format data. One recipe should have at least one ingredient. Ingredient consists of name, quantity and treatment. For example, {name:"chicken thighs", quantity:"½ pounds", treatment:"boneless, skinless chicken thighs, cut into 1/2 inch cubes"}.
+
+To record the accomplishments The _id of recipe is used when recording user's like/complete/upload operations. 
+
+User can upload one picture file of the recipe. In http, the default post form is `application/x-www-urlencoded`, which is not suport for uploading files. **To support for uploading image, we use `multipart/form-data` and a middleware called `Multer`.**
+
+#### Feedback models
+
+Because the content of the feedback is designed ahead, the feedback model is relatively simple. When the content of our feedback design changes, we can easily evolve our documents, which is much easier when we use mongodb than mysql.
+
+For our future work, we can design a feedback analysis system to visually analyze the feedback results. If we want to optimize our website further more, this step is very necessary.
+
+### Schema
+
+Mongoose provides a straight-forward, schema-based solution to model our application data. It includes built-in type casting, validation, query building, business logic hooks and so on. So we use this middleware to model our data.
+
+We defined the schemas based on the data model diagram. We strictly check the data input from the user(both front-end and back-end). Take UserInfo Schema for example:
+
+```js
+const mongoose = require("mongoose");
+
+var UserInfoSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    min: 6,
+    max: 255,
+  },
+  email: {
+    type: String,
+    required: true,
+    min: 6,
+    max: 255,
+  },
+  password: {
+    type: String,
+    required: true,
+    min: 6,
+    max: 1024,  //why it's such long? Because we store the hashed password.
+  },
+  date: {
+    type: Date,
+    default: Date.now(),
+  },
+});
+
+module.exports = mongoose.model("UserInfo", UserInfoSchema, "userinfo");
+```
 
 
-### Data model
 
-![userModel](images/System_Implementation/userModel.png)
+## Middle Tier
 
-![recipeModel](images/System_Implementation/recipeModel.png)
+### Node, Express, RESTful API
 
-![feedbackModel](images/System_Implementation/feedbackModel.png)
+#### Node
+
+Node.js is the application runtime that the MEAN stack runs on.
+
+The use of Node.js, which is said to represent a "JavaScript Everywhere" paradigm. It's a back-end JavaScript runtime environment that executes JavaScript code outside a web browser. So we can use javascript both front-end and back-end without learning different languages for client-side scripts and server-side.
+
+#### Express
+
+Express.js, or simply Express,  is an open-source back end web application framework for Node to help organize our web application into an MVC architecture on the server side. 
+
+Express is built around configuration and granular simplicity of Connect middleware. It basically helps us manage everything, from routes, to handling requests and views.
+
+#### RESTful API
+
+A RESTful API is an Application Programming Interface (API) that uses HTTP verbs like GET, PUT,
+POST, and DELETE to operate data. RESTful is ideal for scaling because the state to handle the request is
+contained within the request itself, in other words, the client must include all information for the
+server to fulfill the request. 
+
+### API
+
+| HTTP Method | Path             | fuction                                                      |
+| ----------- | ---------------- | ------------------------------------------------------------ |
+| get         | /                | get api listing                                              |
+| get         | /recipe          | get all recipes                                              |
+| get         | /recipe/:id      | get a specified recipe by id                                 |
+| post        | /recipe/favour   | add favour to a specified recipe                             |
+| post        | /recipe/complete | add complete mark to recipe that has been completed by the user |
+| post        | /recipe/upload   | upload recipe                                                |
+| post        | /recipe/feedback | get feedback from the user                                   |
+| post        | /auth/signup     | signup                                                       |
+| post        | /auth/signin     | signin                                                       |
+
+### Details of Implementation
+
+Take login method for example.
+
+#### validation
+
+Everytime we get a request from user, we need to check if the parameters are valid. In order to verify the input parameters conveniently, we use middleware Joi to help us verify the data. 
+
+```js
+//Register validation
+const loginValidation = (data) => {
+  const schema = Joi.object({
+    email: Joi.string().min(6).max(255).required().email(),
+    password: Joi.string().min(6).max(1024).required(),
+  });
+  return schema.validate(data);
+};
+```
+
+#### Login Implementation
+
+```js
+router.post("/auth/signin", async (req, res) => {
+  //Validate req.body
+  const { error } = loginValidation(req.body);
+  if (error) {
+    res.status(400).send(error.details[0].message);
+  }
+
+  //check if the user has registered
+  const user = await UserInfoModel.findOne({ email: req.body.email });
+  if (!user) {
+    return res.status(400).send("Email is wrong or not register");
+  }
+
+  //verify password  
+  const validPassword = await bcrypt.compare(req.body.password, user.password);
+  if (!validPassword) {
+    return res.status(400).send("Password is wrong");
+  }
+    
+  //generate token  
+  let token = jwt.sign({
+      userid: user._id,
+    },
+    fs.readFileSync(path.join(__dirname, "../privatekey.pem")),
+    { algorithm: "RS256", expiresIn: 60 * 60 }
+  );
+  const profile = {
+    username: user.username,
+    email: user.email,
+  };
+  res.header("auth-token", token).send({ profile: profile });
+});
+```
 
 
-
-
-
-## Middle Tier - express, Node, the RESTful API
 
 ## Front End - Angular
 
@@ -138,8 +301,6 @@ Similarly, **User Service** can help User **Profile Component** and **User Accom
 
 
 ## Authentication
-
-
 
 Authentication of our project follows the [given example]([segp/9_User_Authentication.md at main · segp-uob/segp (github.com)](https://github.com/segp-uob/segp/blob/main/dev/Worksheets/9_User_Authentication.md)).
 
@@ -183,9 +344,51 @@ In our app, we use 2 interceptors, **Auth Interceptor** and **Error Interceptor*
 
 **Error Interceptor** records the error message in each response, and if it find access token invalid or expired, it will ask **token-storage Service** to sign-out: delete the token from the local storage.
 
-### Token
+### JWT
 
-### 
+**JSON Web Token (JWT)** is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. 
+
+When users login, tokens are generated with expires time and can be sent to response's header. **Token-storage service** stores the access token. Then we can use the token to check if the user is login and control their access to sensitive resources. When users want to access resourse from server, we can check if they have token, and if the token expired.
+
+For example, when users want to complete the recipe, we first check if the user has logged in.
+
+```js
+router.post("/recipe/complete", verify, async (req, res) => {
+    ...
+}
+```
+
+We make the fuction verify as the middleware.
+
+```js
+module.exports = function verify(req, res, next) {
+  const token = req.header("x-access-token");
+  //without token -> hasn't login or has no permission
+  if (!token) {
+    return res.status(401).send("Access Denied"); 
+  }
+
+  try {
+    const verified =
+      jwt.verify(
+        token,
+        fs.readFileSync(path.join(__dirname, "../publickey.pem")),
+        { algorithms: ["RS256"] }
+      ) || {};
+    //set the data stored in token to request.body  
+    req.token = verified;
+    next();
+  } catch (err) {
+    if (err.name == "TokenExpiredError") {
+      res.status(401).send("Login expired, please login again");
+    } else {
+      res.status(401).send("Invalid token");
+    }
+  }
+};
+```
+
+
 
 ## Deployment and integration
 

@@ -64,7 +64,7 @@ router.post("/auth/signin", async (req, res) => {
   }
 
   const validPassword = await bcrypt.compare(req.body.password, user.password);
-  bcrypt.compareSync;
+  //   bcrypt.compareSync;
   if (!validPassword) {
     return res.status(400).send("Password is wrong");
   }
@@ -80,9 +80,7 @@ router.post("/auth/signin", async (req, res) => {
     username: user.username,
     email: user.email,
   };
-  res
-    .header("auth-token", token)
-    .send({ token: token, profile: profile });
+  res.header("auth-token", token).send({ token: token, profile: profile });
 });
 
 module.exports = router;
