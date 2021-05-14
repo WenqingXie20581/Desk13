@@ -21,9 +21,11 @@ const loginValidation = (data) => {
 
 const feedbackValidation = (data) => {
   const schema = Joi.object({
-    // name: Joi.string().min(6).max(255).required(),
+    name: Joi.string().min(6).max(255).required(),
     email: Joi.string().min(6).max(255).required().email(),
-    advice: Joi.string().min(6).max(1024).required(),
+    advice: Joi.string().max(1024),
+    // questions: Joi.allow,
+    questions: Joi.array().optional(),
   });
   return schema.validate(data);
 };

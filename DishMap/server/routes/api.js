@@ -4,6 +4,8 @@ const express = require("express");
 const router = express.Router();
 const RecipeModel = require("../db/RecipeSchema");
 const UserDataModel = require("../db/UserDataSchema");
+const FeedbackModel = require("../db/FeedbackSchema");
+
 const verify = require("./verifyToken");
 const tools = require("../tools");
 const { feedbackValidation } = require("./validation");
@@ -148,7 +150,7 @@ router.post(
         { userid: userid },
         { uploadRecipeIds: userdata.uploadRecipeIds }
       );
-      res.status(200).send("update successfully.");
+      res.send({message: "upload successfully."});
     } catch (err) {
       res.status(400).send(err);
     }
@@ -157,6 +159,9 @@ router.post(
 
 //feedback 不登陆也行
 router.post("/recipe/feedback", async (req, res) => {
+    if(typeof req.body.advice == "undefined" || req.body.advice == null || req.body.advice == "") {
+        req.body.advice = " ";
+    }
   //Validate feedback内容
   const { error } = feedbackValidation(req.body);
   if (error) {
@@ -172,7 +177,7 @@ router.post("/recipe/feedback", async (req, res) => {
 
   try {
     await feedback.save();
-    res.send("submit feedback successfully.");
+    res.send({message: "upload successfully."});
   } catch (err) {
     res.status(400).send(err);
   }
