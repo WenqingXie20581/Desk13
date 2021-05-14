@@ -41,8 +41,7 @@ export class WorldmapComponent implements OnInit {
         'Germany': [13.25,52.30],
         'Thai' : [100.35,13.45], 
         'Mexico' : [-99.10,19.20],
-        'Spain' : [-3.45,40.25],
-        'France' : [2.20, 48.50],
+        'Spain': [-3.45,40.25],
         // 'USA': [-83.357567, 35.951935],
         // 'Brazil': [-56.903606, -5.480594],
         // 'Australian': [135.209296, -20.86882]
@@ -93,11 +92,6 @@ export class WorldmapComponent implements OnInit {
         value: "Spanish Recipes",
         num: 8
       }],
-      [{
-        name: 'France',
-        value: "French Recipes",
-        num: 9
-      }]
   
     ];
     var convertData = function(data) {
