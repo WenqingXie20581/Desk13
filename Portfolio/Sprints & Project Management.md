@@ -424,3 +424,12 @@ We realized the importance of branch management from the beginning. We created a
 
 #### Network graph
 
+
+
+## References
+
+[1] Waterfall model - Wikipedia https://en.wikipedia.org/wiki/Waterfall_model
+
+[2] Iterative and incremental development https://en.wikipedia.org/wiki/Iterative_and_incremental_development
+
+[3] Spiral model https://en.wikipedia.org/wiki/Spiral_model
