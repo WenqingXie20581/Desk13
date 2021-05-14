@@ -2,22 +2,32 @@
 
 ![head](images/README/head.png)
 
-## Team And Product's Name
+## The Product
 
-Our team is called **Love and Peace**，which consists of five handsome boys. More importantly, two of them are single！！！
-
-Our product is called **A Bite of World**, it's a single page app (SPA), designed to inspire users in the journey of enjoying food, to feel the gifts from nature, learn the cultures of various countries, strengthen the mutual understanding of users from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
-
-## Team Member
-
-* Wei Wei       : <fb20165@bristol.ac.uk>
-* Haolong Li  : <fr20938@bristol.ac.uk>
-* Yifan Luo : <jp20469@bristol.ac.uk>
-* Wenqing Xie : <es20581@bristol.ac.uk>
-* Kaixiang Ma : <da20468@bristol.ac.uk>
+Our product is called **Dish Map (A Bite of World)**, it's a single page app (SPA), designed to inspire users in the journey of enjoying food, to feel the gifts from nature, learn the cultures of various countries, strengthen the mutual understanding of users from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
 
 
-## Table of contents
+
+## Instructions for Use
+
+1. 
+
+## Our Team 
+
+Our team is called **Love and Peace** and we are five handsome boys. 
+
+### Team Members
+
+| Name        | Email                 |
+| ----------- | --------------------- |
+| Wei Wei     | fb20165@bristol.ac.uk |
+| Haolong Li  | fr20938@bristol.ac.uk |
+| Yifan Luo   | jp20469@bristol.ac.uk |
+| Wenqing Xie | es20581@bristol.ac.uk |
+| Kaixiang Ma | da20468@bristol.ac.uk |
+
+
+## Contents
 
 ## [1. Introduction](Portfolio/Introduction.md)
 
@@ -88,4 +98,5 @@ This section is comprised of the following subsections:
 
 ![201610241720298258](images/README/thank.gif)
 
-A big thank you to everyone whose code and libraries we used during this project, referenced above. We are also incredibly thankful for the support and guidance of our lecturers: Stuart Gray, Tom Bale, Pete Bennett, and Marcile Wac. We have learn so much from them, and are excited to implement the skills that they have taught us in our future careers.
+A big thanks to people whose contents and libraries contribute to this project. We are also incredibly thankful for the support and guidance of our lecturers: Stuart Gray, Tom Bale, Pete Bennett, and Marceli Wac. We have learn so much from them, and are excited to implement the skills that they have taught us in our future careers.
+
