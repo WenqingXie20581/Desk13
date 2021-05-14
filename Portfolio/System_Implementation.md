@@ -122,6 +122,78 @@ Similarly, **User Service** can help User **Profile Component** and **User Accom
 
 
 
+## Apache ECharts and GeoJSON
+
+
+
+### ECharts
+
+ECharts is a declarative framework for rapid construction of web-based visualization. ECharts has many powerful features.
+
+![image-20210514161131748](images/System_Implementation/image-20210514161131748.png)
+
+
+
+### GeoJSON
+
+GeoJSON is a format for encoding a variety of geographic data structures. GeoJSON supports the following geometry types: `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, and `MultiPolygon`. Geometric objects with additional properties are `Feature` objects. Sets of features are contained by `FeatureCollection` objects.
+
+We combined ECharts and GeoJSON  to draw a fascinating world map.
+
+![](images/System_Implementation/worldmap.gif)
+
+​																																					                     	[click here jump to our code](./Code of ECharts and GeoJSON.md)
+
+
+
+## Angular material 
+
+Angular Material  has some benefits as it is an angular UI framework. It has complete material design support and has a mobile-first framework that functions well with a desktop. It also consists of adaptive layout directives and a flexbox grid system.
+
+#### [Angular material has three strengths:](https://material.angular.io/)
+
+
+
+| High quality                                                 | Versatile                                                    | Frictionless                                                 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1. Internationalized and accessible components for everyone. Well tested to ensure performance and reliability.<br>2. Straightforward APIs with consistent cross platform behaviour. | 1. Provide tools that help developers build their own custom components with common interaction patterns.<br>2. Customizable within the bounds of the Material Design specification. | 1. Built by the Angular team to integrate seamlessly with Angular.<br>2. Start from scratch or drop into your existing applications. |
+
+
+
+### Anguarl material in our app
+
+Many angular material components have been added to our design. 
+
+| Component in our app | UI components from Angular Material                          |
+| -------------------- | ------------------------------------------------------------ |
+| cookbook             | mat-icon                                                     |
+| feedback             | mat-vertical-stepper, mat-step, mat-form-field, mat-label, mat-select, mat-option |
+| layout               | mat-toolbar, mat-toolbar-row, mat-icon, mat-sidenav-container, mat-sidenav, mat-nav-list,mat-sidenav-content |
+| recipe               | mat-icon                                                     |
+| upload               | mat-form-field, mat-label, mat-select, mat-option, mat-form-field |
+
+
+
+#### SideNav  in our app
+
+
+
+<img src="images/System_Implementation/sidenav.gif" style="zoom: 50%;" />
+
+
+
+
+
+#### Stepper  in our app
+
+
+
+<img src="images/System_Implementation/stepper.gif" style="zoom: 50%;" />
+
+
+
+
+
 ## Authentication
 
 
