@@ -37,7 +37,7 @@ For the sake of function separation and security, the User class contains three 
 | UserAccomplishment | likedRecipeId, completedRecipeId, uploadedRecipeId | User accomplishment system |
 | UserCredential     | username, password                                 | Authentication             |
 
- **UserProfile** class stores basic user information. For the time being, it only contains email of users. Other profile like address, phone number and portrait can be added in the future.
+**UserProfile** class stores basic user information. For the time being, it only contains email of users. Other profile like address, phone number and portrait can be added in the future.
 
 **UserAccomplishment** class is designed for accomplishment system, the "playing" part of this app. Users can try achieving all kinds of accomplishment and getting rewards. These accomplishment records are stored in this class.
 
@@ -85,8 +85,23 @@ To sum up, the use case of our app is like below:
 - Create user profile on web
 - Like a recipe
 - Complete a recipe
+- Submit feedback
 
 ## Back End - database implementation
+
+
+
+### Data model
+
+![userModel](images/System_Implementation/userModel.png)
+
+![recipeModel](images/System_Implementation/recipeModel.png)
+
+![feedbackModel](images/System_Implementation/feedbackModel.png)
+
+
+
+
 
 ## Middle Tier - express, Node, the RESTful API
 
