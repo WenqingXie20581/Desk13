@@ -2,22 +2,64 @@
 
 ![head](images/README/head.png)
 
-## Team And Product's Name
+## The Product
 
-Our team is called **Love and Peace**，which consists of five handsome boys. More importantly, two of them are single！！！
-
-Our product is called **A Bite of World**, it's a single page app (SPA), designed to inspire users in the journey of enjoying food, to feel the gifts from nature, learn the cultures of various countries, strengthen the mutual understanding of users from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
-
-## Team Member
-
-* Wei Wei       : <fb20165@bristol.ac.uk>
-* Haolong Li  : <fr20938@bristol.ac.uk>
-* Yifan Luo : <jp20469@bristol.ac.uk>
-* Wenqing Xie : <es20581@bristol.ac.uk>
-* Kaixiang Ma : <da20468@bristol.ac.uk>
+[Product Video Link](https://youtu.be/ixo0H-L_d4k)
+Our product **Dish Map (A Bite of World)** is a single page app (SPA), designed to inspire users in the journey to enjoy delicious food, feel the gifts from nature, experience the cultures of various regions, strengthen the mutual understanding of people from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
 
 
-## Table of contents
+
+## Running Instructions 
+
+#### Database on the cloud (Recommend!)
+1. Change directory to the folder containing Dockerfile
+
+   ```
+   cd .\Desk13\DishMap
+   ```
+
+2. Build Docker image
+
+   ```
+   docker build .
+   ```
+
+3. Start the container based on the built image
+
+   ```
+   docker run --publish 3000:3000 <nameofimage>
+   ```
+
+   <nameofimage> was included in the return information of  **step 2**, like "Successfully built <nameofimage>".
+
+#### Database in the Docker Container (Not Recommend : No preload data!!)
+
+1. Change directory to the folder containing Dockerfile and docker-compose.yml
+
+   ```
+   cd .\Desk13\DishMap
+   ```
+
+2. Start the service
+
+   ```
+   docker-compose up -d
+   ```
+
+### Team Members
+
+Our team is called **Love and Peace** and we are five handsome boys.
+
+| Name        | Email                 |
+| ----------- | --------------------- |
+| Wei Wei     | fb20165@bristol.ac.uk |
+| Haolong Li  | fr20938@bristol.ac.uk |
+| Yifan Luo   | jp20469@bristol.ac.uk |
+| Wenqing Xie | es20581@bristol.ac.uk |
+| Kaixiang Ma | da20468@bristol.ac.uk |
+
+
+## Contents
 
 ## [1. Introduction](Portfolio/Introduction.md)
 
@@ -27,7 +69,7 @@ This section is comprised of the following subsections:
 - Project Objectives.
 - Video.
 
-## [2. Background and Motivation](Portfolio/Background.md)
+## [2. Background and Motivation](Portfolio/Background_and_Motivation.md)
 
 This section is comprised of the following subsections:
 
@@ -51,8 +93,8 @@ This section is comprised of the following subsections:
 
 - Design Process and Early prototyping and ideation (including mood boards and paper prototyping)
 - Identification of interacting users and broader stakeholders.
-- UX approach – design heuristics/approach, design methods (design fiction / heuristics)
-- Understanding of user group (questionnaires / user stories / interviews)
+- UX approach – design heuristics/approach, design methods 
+- Understanding of user group 
 - Wireframes and interaction flow diagrams for final key subsystems.
 
 
@@ -88,4 +130,9 @@ This section is comprised of the following subsections:
 
 ![201610241720298258](images/README/thank.gif)
 
-A big thank you to everyone whose code and libraries we used during this project, referenced above. We are also incredibly thankful for the support and guidance of our lecturers: Stuart Gray, Tom Bale, Pete Bennett, and Marcile Wac. We have learn so much from them, and are excited to implement the skills that they have taught us in our future careers.
+Our project is based on teaching material: [segp/dev/Worksheets at main · segp-uob/segp (github.com)](https://github.com/segp-uob/segp/tree/main/dev/Worksheets).
+
+Also, part of our recipes comes from [Allrecipes | Food, friends, and recipe inspiration](https://www.allrecipes.com/), only for study use.
+
+A big thanks to people whose contents and libraries contribute to this project. We are also incredibly thankful for the support and guidance of our lecturers: Stuart Gray, Tom Bale, Pete Bennett, and Marceli Wac. We have learnt so much from them, and we are excited to implement the skills that they have taught us in our future careers.
+

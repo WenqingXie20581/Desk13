@@ -12,13 +12,12 @@ var UserInfoSchema = new mongoose.Schema({
     required: true,
     min: 6,
     max: 255,
-    // unique: true, 在插入前做校验
   },
   password: {
     type: String,
     required: true,
     min: 6,
-    max: 1024, //会hash，弄长一点
+    max: 1024,
   },
   date: {
     type: Date,

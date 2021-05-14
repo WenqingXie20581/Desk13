@@ -1,40 +1,24 @@
 # Introduction
 
-In this section, we introduce our motivation for the project, framing of the problem and a high-level overview of the system in detail. Additionally, we show our high level goals of the project and the contribution towards solving the problem. we use the video to explain our motivation and system clearly.
-
-## Table of contents
-
-* [**Abstract**](#abstract)
-   * [Motivation](#motivation)
-   * [Framing](#framing)
-   * [Overview](#overview)
-* [**Objectives**](#objectives)
-   * [Goals](#goals)
-   * [Contribution](#contribution)
-* [**Video**](#video)
-
 
 ## Abstract
 
-### Motivation
-We are a group of young student who are curious about the Internet world. Last year, the Covid-19 epidemic affected everyone's lives and many people have to face unemployment, financial crisis, and loneliness caused by forced separation......  Therefore, we hope to create a single page app（SPA ）project to encourage people to share the food they enjoy, so as to strengthen the communication between users from different cultural backgrounds  and reduce people's loneliness. Additionally, interesting recipes can not only enrich people's lives, but also reduce people's living costs and help people get through financial crises. In a word, only nature can lift the virus,but we hope to fight the disaster brought by the epidemic through our project.
+Our product **Dish Map (A Bite of World)** is a single page app (SPA) based on [MEAN](https://docs.docker.com/get-started/overview/) Stack. It is designed to inspire users in the journey to enjoy delicious food, enjoy the gifts from nature, experience the cultures of various regions, strengthen the mutual understanding of people from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
 
-### Framing
+User can find recipes designed as travel plan through different regions on **Dish Map**. Once users select a recipe, they will get the complete guidance. The achievement system will encourage users to upload new recipes. Users who follow a recipe could click "I complete it" button below the recipe, also they can click "I like it" to vote for and collect a recipe. The most popular 10 recipes will be shown as a list whenever user browse any recipe.
 
- 1. 
- 2. 
-
-### Overview
+However, because of the limited time, both of the style and the achievement system of our product are still not perfect.  The improvement of these aspect will be our future work. 
 
 
 ## Objectives
 
-
-###  Goals
-
-### contribution
+- Design and build a single page app (SPA) with MEAN stack
+- Display several recipes of each region
+- Encourage people to try recipes from different regions by adding achievement system
+- Decorate the app with Angular material and Echarts framework.
 
 ## Video
 
+[Desk 13 Project Videos](https://youtu.be/ixo0H-L_d4k)
 
 
