@@ -238,3 +238,4 @@ As a solution, we put our database on the cloud storage.
 In this way, we do not need to leave all the data in the submitted folder, which not only protects user information and privacy better, but also minimize the volume of our folder.  Also, now uploading recipe data separately is available and natural.
 
 We preserve the Docker deployment in case the cloud doesn't work properly, but there's no preloaded recipes in it.
+
