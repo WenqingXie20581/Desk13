@@ -39,7 +39,7 @@ This section is comprised of the following subsections:
 - Project Objectives.
 - Video.
 
-## [2. Background and Motivation](Portfolio/Background.md)
+## [2. Background and Motivation](Portfolio/Background_and_Motivation.md)
 
 This section is comprised of the following subsections:
 
