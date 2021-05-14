@@ -32,7 +32,7 @@
 
    <nameofimage> was included in the return information of  **step 2**, like "Successfully built <nameofimage>".
 
-#### Database in the Docker Container (Not Recommend : No preload data!!)
+#### Database in the Docker Container (Not Recommend : No preloaded data!!)
 
 1. Change directory to the folder containing Dockerfile and docker-compose.yml
 
