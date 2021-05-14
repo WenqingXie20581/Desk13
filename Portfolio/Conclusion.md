@@ -41,27 +41,27 @@ In a word, for a five people team, agile development is our first choice.
 
 ## Success of Project
 
-Overall we are proud what we have achieved as a group since beginning this project .  Now , we have delivered a working prototype of an idea we crafted in the early phase of this unit. In the past three months, our team  worked together and every member learn a lot of things about software engineering as well as how to work well in a group. Each of us is aware of the value of unity and cooperation -- only when each member can give full play to his own advantages can we make the excellent projects !
+Overall we are proud of what we have achieved as a group since beginning this project. Now, we have delivered a working prototype of an idea we crafted in the early phase of this unit. In the past three months, our team worked together and every member learnt a lot about software engineering as well as how to work well in a group. Each of us is aware of the value of unity and cooperation -- only when each member can give full play to his own advantages can we make the excellent projects !
 
-| No.  | objective                               | achieve or not | comments                                                     |
+| No.  | objective                               | achieved or not | comments                                                     |
 | ---- | --------------------------------------- | -------------- | ------------------------------------------------------------ |
-| 1    | Build a full web application            | achieve        | We built a full web application with Angular,  Angular Material , Express, Node.js and MongoDB. |
-| 2    | Make agile management plan              | achieve        | We used Jira as our agile development tool. There are 4 epics in Roadmap, which are front end, back end, API and document. And corresponding child issues have been added to these four epics. |
-| 3    | Use Angular for front end               | achieve        | We used Angular to develop a complex and integrity front end.  We have eleven components include world map, cookbook, recipe, user, login, upload and feedback etc. |
-| 4    | Use Angular Material and Echarts for UI | achieve        | We used some functional and decorative APIs in UI design. Angular Material was used to improve our layout and interface. Echart was used to draw a fascinating world map. |
-| 5    | Design many features  for users         | achieve        | We designed and developed as much as possible of  features  for users includes login, uploading their own recipes , giving like to their favorite food , collecting  their feedbacks by questionnaire etc. |
-| 6    | Use Express for Back end                | achieve        | We designed and implemented four APIs include recipe, nations, feedback and user to post and get request. |
-| 7    | Use MangoDB for database                | achieve        | We managed to build a satisfactory database by MangoDB. Our data include user information, recipes and nation was stored in it. |
-| 8    | Deploy docker                           | achieve        | We deployed docker for our application, which made our application portable. |
-| 9    | Evaluation our design                   | achieve        | We evaluated the app in three ways.  Unit testing, Functional testing, performance testing and User acceptance testing are adopted to the evaluation. |
-| 10   | Preserve and share the recipes          | achieve        | Delicious food from various countries was saves and shares  in the app, which have a positive influence on convenience of people's life and the recording and diffusion of food culture. |
+| 1    | Build a full web application            | achieved        | We built a full web application with Angular,  Angular Material , Express, Node.js and MongoDB. |
+| 2    | Make agile management plan              | achieved        | We used Jira as our agile development tool. There are 4 epics in Roadmap, which are front end, back end, API and document. And corresponding child issues have been added to these four epics. |
+| 3    | Use Angular for front end               | achieved        | We used Angular to develop a complex and integrity front end.  We have eleven components include world map, cookbook, recipe, user, login, upload and feedback etc. |
+| 4    | Use Angular Material and Echarts for UI | achieved        | We used some functional and decorative APIs in UI design. Angular Material was used to improve our layout and interface. Echart was used to draw a fascinating world map. |
+| 5    | Design many features  for users         | achieved        | We designed and developed as much as possible of  features  for users includes login, uploading their own recipes , giving like to their favorite food , collecting  their feedbacks by questionnaire etc. |
+| 6    | Use Express for Back end                | achieved        | We designed and implemented four APIs include recipe, nations, feedback and user to post and get request. |
+| 7    | Use MangoDB for database                | achieved        | We managed to build a satisfactory database by MangoDB. Our data includes user information, recipes and nation was stored in it. |
+| 8    | Deploy docker                           | achieved        | We deployed docker for our application, which made our application portable. |
+| 9    | Evaluation our design                   | achieved        | We evaluated the app in three ways.  Unit testing, Functional testing, performance testing and User acceptance testing are adopted to the evaluation. |
+| 10   | Preserve and share the recipes          | achieved        | Delicious food from various countries was saves and shares  in the app, which have a positive influence on convenience of people's life and the recording and diffusion of food culture. |
 
 
 
 ## Impact of COVID-19
 
 
-The outbreak of COVID-19 in March, and the subsequent lockdowns running up to the end of April affected each us in many ways. 
+The pandemic of COVID-19 in March, and the subsequent lockdowns running up to the end of April affected each us in many ways. 
 
   1. Communication inconvenience. Because the members of the group are located in different cities, we cannot conduct efficient face-to-face communication and we had to talk our work by **Microsoft Teams** . However, many technical-related details cannot be explained clearly only by online communication, which has brought a lot of trouble to our project. Every weeks we spend not less than 8 hours in communication , as we more and more understand each other , this difficulty was overcome finally. 
 
@@ -77,20 +77,20 @@ The outbreak of COVID-19 in March, and the subsequent lockdowns running up to th
 
 ## Social and ethical implications
 
-In this part , we will focus on the discussion of social and ethical implications of our app.
+In this part , we will focus on the aspect of social and ethical implications of our app.
 
 In the previous part, we have talked about the social implications of the our product many times and I will simply repeat here. According to the  previous survey, we have learned that COVID-19 make a large number of people have to face unemployment ，financial crisis and spiritual crisis. Our product can teach people to cook their own meals according to the recipe and help these people who are suffering financial crisis reduce living cost, more importantly, the app encourage people to share their favorite recipes, which can promote people's communication, enrich people's spiritual world, and heal the mental trauma caused by the COVID-19.
 
-Now,we will focus on the ethical implications of the product. Our product is a gourmet food and social app. As the developer, we think that we have the responsibility to protect the privacy of every user. Last term, our computer science introduction's professor teach us that our products are supposed to protect the user's privacy,  which is a fundamental moral human right - a right that preserves autonomy and dignity which is of paramount importance when dealing with stakeholders. Therefore,we put customer privacy protection at an important position in the design of our products. In order to safely protect the privacy of users，we used the ‘The International Data Privacy Principles' (IDPPs) as the core guide to managing personal data.
+Now,we will focus on the ethical implications of the product. Our product is a gourmet food and social app. As developers, we think that we have the responsibility to protect the privacy of every user. Last term, our computer science introduction's professor teach us that our products are supposed to protect the user's privacy,  which is a fundamental moral human right - a right that preserves autonomy and dignity which is of paramount importance when dealing with stakeholders. Therefore,we put customer privacy protection at an important position in the design of our products. In order to safely protect the privacy of users，we used the ‘The International Data Privacy Principles' (IDPPs) as the core guide to managing personal data.
 At the same time, we fully consider the personal wishes of users. If users do not want us to keep their personal data, we will delete all private information in accordance with user requirements  at any time. In addition, we have adopted a variety of encryption methods and algorithms such as secure-sockets-layer (SSL) and MD5 algorithms to protect the data of our app. Although there are no bug-free apps in the world, we believe that through our strong tests, our products are capable of protecting users’ privacy from being leaked.
 
 ## Future work
 
-Due to our time constrains,in our project we rushed through big chunks of what would be a normal design process and we have to admit that we skipped a lot of small content. In this part, we will plan future work to make our products more competitive. 
+Due to our time constrains, we rushed through big chunks in our project of what would be a normal design process and we have to admit that we skipped a lot of small content. In this part, we will plan future work to make our products more competitive. 
 
 ### Short term
 
-Now that our product is still rough, we can to several relatively simple tasks to complete it in the short term.
+Our product is still not perfect, but we can improve several relatively simple tasks in the short term.
 
 ####  A more attractive achievement system
 
@@ -102,9 +102,9 @@ At the very beginning, we want to design several paths on the map. Users can fol
 
 
 
-#### Cool style
+#### Better style
 
-Now the style of our product also needs promotion.  We used Angular material but it takes a lot of time. Many contents still don't have a proper style for the time being. Bootstrap may help make our app more handsome.
+The style of our product also needs promotion.  We used Angular material but it takes a lot of time. Many contents still don't have a proper style for the time being. Bootstrap may help make our app more handsome.
 
 
 
@@ -124,7 +124,7 @@ More excitingly, **Wei Wei** was an excellent student majoring in finance when h
 
 #### Consumer market
 
-In our consumer market, users can use the special virtual currency we provide (hereinafter referred to as food coins) to purchase related goods. The goods that can be purchased by food coins include virtual good provided on our website, such as VIP privilege (the VIP users can enjoy exclusive discounts, exclusive titles and recipes and will be placed in a more prominent position on the website...) In addition, the goods also include real goods such as Kitchen furniture including Pressure Cooker, Insulate Food Container, Air Fryer and food materials including potatoes, broccoli, chicken breast,etc, which can be provided by the merchants cooperated with us. At this stage, there are two ways to obtain food coins. For the most ordinary users, they can get food coins by uploading recipes. In addition, uploading recipes that we require or uploading recipes that is liked by others can help users get more food coins, which can also encourage players to share interesting recipes with others and enhance the website’s user stickiness. What's more , for wealthy users, sharing recipes and completing designated tasks to earn food coins is not attractive enough. They could purchase it using real currency through our website, which make us have to develop a secure payment system using an existing online money transfer service like Pay-pal. Although these functions are not easy, it will bring us considerable benefits if we can complete them.
+In our commercial plan, users can use the special virtual currency we provide (hereinafter referred to as food coins) to purchase related goods. The goods that can be purchased by food coins include virtual good provided on our website, such as VIP privilege (the VIP users can enjoy exclusive discounts, exclusive titles and recipes and will be placed in a more prominent position on the website...) In addition, the goods also include real goods such as Kitchen furniture including Pressure Cooker, Insulate Food Container, Air Fryer and food materials including potatoes, broccoli, chicken breast,etc, which can be provided by the merchants cooperated with us. At this stage, there are two ways to obtain food coins. For the most ordinary users, they can get food coins by uploading recipes. In addition, uploading recipes that we require or uploading recipes that is liked by others can help users get more food coins, which can also encourage players to share interesting recipes with others and enhance the website’s user stickiness. What's more , for wealthy users, sharing recipes and completing designated tasks to earn food coins is not attractive enough. They could purchase it using real currency through our website, which make us have to develop a secure payment system using an existing online money transfer service like Pay-pal. Although these functions are not easy, it will bring us considerable benefits if we can complete them.
 
 
 
