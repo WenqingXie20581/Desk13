@@ -4,27 +4,9 @@ In this final section, we will reflect on our app and what we have done. Firstly
 
 ![img](images/Conclusion/Z$X{S]0}10SBWSME$A9PTT.jpg)
 
-## Table of contents
 
 
-* [**Reflection on working practices**](#reflection-on-working-practices)
-  * [Team organization](#team-organization)
-  * [Management of issues](#management-of-issues)
-  * [Communication](#communication)
-  * [Agile Development](#agile-development)
-
-* [**Reflection of success of project**](#reflection-of-success-of-proejct)
-* [**Impact of Covid-19s**](#social-and-ethical-implications)
-* [**Social and ethical implications**](#social-and-ethical-implications)
-
-* [**Future work**](#future-work)
-  * [User incentive mechanism](#user-incentive-mechanism)
-  * [Design, development, and evaluation](#design-development-and-evaluation)
-  * [Possible extensions](#possible-extensions)
-
-
-
-## Reflection on working practices
+## Working practices
 
 In the previous section of Sprints & Project Management, we have shown our work practices in detail, here we will reflect on our working practices.
 
@@ -41,7 +23,7 @@ Therefore, we believe that having the project manager specifically responsible f
 ### Communication
 Due to the outbreak of the coronavirus epidemic, the team members were separated in different cities. In order to effectively communicate and share information with each other, we decide to use the Team and the WeChat for discussing this project , as shown in the following two pictures.
 
-![time (1)](images/Conclusion/time (1).gif)
+![time (1)](images/Conclusion/time(1).gif)
 
 Microsoft Teams is a team collaboration tool that we are all familiar with. We have weekly meeting in our bubble more than once a week.
 
@@ -58,7 +40,7 @@ In a word, for a five people team, agile development is our first choice.
 
 
 
-## Reflection of success of project
+## Success of Project
 
 Overall we are proud what we have achieved as a group since beginning this project .  Now , we have delivered a working prototype of an idea we crafted in the early phase of this unit. In the past three months, our team  worked together and every member learn a lot of things about software engineering as well as how to work well in a group. Each of us is aware of the value of unity and cooperation -- only when each member can give full play to his own advantages can we make the excellent projects !
 
@@ -66,9 +48,9 @@ Overall we are proud what we have achieved as a group since beginning this proje
 | ---- | --------------------------------------- | -------------- | ------------------------------------------------------------ |
 | 1    | Build a full web application            | achieve        | We built a full web application with Angular,  Angular Material , Express, Node.js and MongoDB. |
 | 2    | Make agile management plan              | achieve        | We used Jira as our agile development tool. There are 4 epics in Roadmap, which are front end, back end, API and document. And corresponding child issues have been added to these four epics. |
-| 3    | Use Angular for front end               | achieve        | We used Angular to develope a complex and integrity front end.  We have eleven components include worldmap, cookbook, recipe, user, login, upload and feedback etc. |
+| 3    | Use Angular for front end               | achieve        | We used Angular to develop a complex and integrity front end.  We have eleven components include world map, cookbook, recipe, user, login, upload and feedback etc. |
 | 4    | Use Angular Material and Echarts for UI | achieve        | We used some functional and decorative APIs in UI design. Angular Material was used to improve our layout and interface. Echart was used to draw a fascinating world map. |
-| 5    | Design many features  for users         | achieve        | We designed and developed as much as possible of  features  for users includes login, uploading theri own recipes , giving like to their favorite food , collecting  their feedbacks by questionnaire etc. |
+| 5    | Design many features  for users         | achieve        | We designed and developed as much as possible of  features  for users includes login, uploading their own recipes , giving like to their favorite food , collecting  their feedbacks by questionnaire etc. |
 | 6    | Use Express for Back end                | achieve        | We designed and implemented four APIs include recipe, nations, feedback and user to post and get request. |
 | 7    | Use MangoDB for database                | achieve        | We managed to build a satisfactory database by MangoDB. Our data include user information, recipes and nation was stored in it. |
 | 8    | Deploy docker                           | achieve        | We deployed docker for our application, which made our application portable. |
@@ -76,14 +58,15 @@ Overall we are proud what we have achieved as a group since beginning this proje
 | 10   | Preserve and share the recipes          | achieve        | Delicious food from various countries was saves and shares  in the app, which have a positive influence on convenience of people's life and the recording and diffusion of food culture. |
 
 
-## Impact of Covid-19
+
+## Impact of COVID-19
 
 
 The outbreak of COVID-19 in March, and the subsequent lockdowns running up to the end of April affected each us in many ways. 
 
   1. Communication inconvenience. Because the members of the group are located in different cities, we cannot conduct efficient face-to-face communication and we had to talk our work by **Microsoft Teams** . However, many technical-related details cannot be explained clearly only by online communication, which has brought a lot of trouble to our project. Every weeks we spend not less than 8 hours in communication , as we more and more understand each other , this difficulty was overcome finally. 
 
-  2. Working Environment. Due to the severe COVID -19 epidemic, we could not go to the campus library to study together and we have no chioce but to work in our homes separately. Unfortunately, the home environment is not suitable for work. Our team members often complain that the home is too noisy so that we can’t concentrate on work!
+  2. Working Environment. Due to the severe COVID -19 epidemic, we could not go to the campus library to study together and we have no choice but to work in our homes separately. Unfortunately, the home environment is not suitable for work. Our team members often complain that the home is too noisy so that we can’t concentrate on work!
 
 
   3. Teaching support. Because all the courses in this semester are online teaching, we can't have face-to-face communication with professors and in-depth discussion of complex Internet technical details, so that we have to spend more time searching for related problem solutions on the website. This undoubtedly greatly increases our learning costs and reduces the efficiency and quality of our work.
