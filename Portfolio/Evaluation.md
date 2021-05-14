@@ -20,7 +20,7 @@ Before testing, we perform proper Setup, and after testing, we do Teardown.
 
 The `ng test` command builds the app in *watch mode*, and launches the [Karma test runner](https://karma-runner.github.io/).
 
-In order to test components and services 
+In order to test components and services with providers like **ActivatedRoute**, sometimes we need to make a fake providers.
 
 ## User Experience Test Survey
 
