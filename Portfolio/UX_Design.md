@@ -22,7 +22,7 @@ Then, after the in-depth discussion, we think that the idea of Wei Wei is very g
 
 We initially identified the functionality through brainstorming. Although in the subsequent website design process we found that many of our early ideas were very naive, and we added new features according to the needs of users, but we have to say that these ideas helped us initially complete the design of the website.
 
-![image-20210514171538052](images/UX_Design/image-20210514171538052.png)
+![function](images/UX_Design/function.png)
 
 
 
@@ -42,9 +42,9 @@ Most dish websites only regard dish lovers as their end users, but we believe th
 
 -   **End user - dish lover** The dish lover is a group of people who have much interest in cooking. They may like to study cooking by themselves in their free time and their main tutorial might be materials online. Our website is a good supplement to their self-study. In order to have a deeper understanding of this group, we collected user data of cooking lovers from the similar gourmet website. The data visualization results are as follows.
     
-    ![1620945214(1)](file://C:\Users\16835\Desktop\readme\Portfolio\images\UX_Design\1620945214(1).jpg?lastModify=1620950211?lastModify=1620952373)
+    ![pan](images/UX_Design/pan.png)
     
-    ![image-20210514065314727](file://C:\Users\16835\Desktop\readme\Portfolio\images\UX_Design\image-20210514065314727.png?lastModify=1620950211?lastModify=1620952373)
+    ![histogram](images/UX_Design/histo.jpg)
     
     Obviously，from the perspective of age, most dish lovers are young people, with 24-36 year-olds accounting for the largest proportion, reaching 54%. In addition, from the perspective of gender, dish lovers are mainly female, and the proportion far exceeds that of men.
     
