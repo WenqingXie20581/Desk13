@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\研究生\COMSM1401-SE&GP\Desk13\DishMap\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! D:\front\angular\Desk13\DishMap\src\polyfills.ts */"hN/g");
 
 
 /***/ }),

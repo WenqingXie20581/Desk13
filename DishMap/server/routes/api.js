@@ -148,7 +148,7 @@ router.post(
         { userid: userid },
         { uploadRecipeIds: userdata.uploadRecipeIds }
       );
-      res.send("update successfully.");
+      res.status(200).send("update successfully.");
     } catch (err) {
       res.status(400).send(err);
     }
