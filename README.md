@@ -10,6 +10,8 @@ Our product **Dish Map (A Bite of World)** is a single page app (SPA), designed 
 
 ## Instructions for Use
 
+[Product Video Link](https://youtu.be/ixo0H-L_d4k)
+
 1. 
 
 ## Our Team 
@@ -98,5 +100,5 @@ This section is comprised of the following subsections:
 
 ![201610241720298258](images/README/thank.gif)
 
-A big thanks to people whose contents and libraries contribute to this project. We are also incredibly thankful for the support and guidance of our lecturers: Stuart Gray, Tom Bale, Pete Bennett, and Marceli Wac. We have learn so much from them, and are excited to implement the skills that they have taught us in our future careers.
+A big thanks to people whose contents and libraries contribute to this project. We are also incredibly thankful for the support and guidance of our lecturers: Stuart Gray, Tom Bale, Pete Bennett, and Marceli Wac. We have learnt so much from them, and we are excited to implement the skills that they have taught us in our future careers.
 
