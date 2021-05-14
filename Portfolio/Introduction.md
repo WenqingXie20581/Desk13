@@ -3,11 +3,11 @@
 
 ## Abstract
 
-Our product **Dish Map (A Bite of World)** is a single page app (SPA) based on [MEAN](https://docs.docker.com/get-started/overview/) Stack. It is designed to inspire users in the journey to enjoy delicious food, feel the gifts from nature, experience the cultures of various regions, strengthen the mutual understanding of people from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
+Our product **Dish Map (A Bite of World)** is a single page app (SPA) based on [MEAN](https://docs.docker.com/get-started/overview/) Stack. It is designed to inspire users in the journey to enjoy delicious food, enjoy the gifts from nature, experience the cultures of various regions, strengthen the mutual understanding of people from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
 
-User can find recipes classified by regions on **Dish Map**. Once users select a recipe, they will get the complete guidance. The achievement system will encourage users to try new recipes. Users can complete a recipe and then click "I complete it" button below the recipe, and they can click "I like it" to vote for a recipe. The most popular 10 recipes will be shown on a list.
+User can find recipes designed as travel plan through different regions on **Dish Map**. Once users select a recipe, they will get the complete guidance. The achievement system will encourage users to upload new recipes. Users who follow a recipe could click "I complete it" button below the recipe, also they can click "I like it" to vote for and collect a recipe. The most popular 10 recipes will be shown as a list whenever user browse any recipe.
 
-However, because of the limited time, both of the style and the achievement system of our product are still humble.  The improvement of these aspect will be our future work. 
+However, because of the limited time, both of the style and the achievement system of our product are still not perfect.  The improvement of these aspect will be our future work. 
 
 
 ## Objectives
