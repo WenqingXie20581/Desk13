@@ -4,7 +4,7 @@
 
 ## The Product
 
-Our product is called **Dish Map (A Bite of World)**, it's a single page app (SPA), designed to inspire users in the journey of enjoying food, to feel the gifts from nature, learn the cultures of various countries, strengthen the mutual understanding of users from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
+Our product **Dish Map (A Bite of World)** is a single page app (SPA), designed to inspire users in the journey to enjoy delicious food, feel the gifts from nature, experience the cultures of various regions, strengthen the mutual understanding of people from different cultural backgrounds, enrich people's lives,  reduce people's living costs and make the world full of love and peace.
 
 
 
