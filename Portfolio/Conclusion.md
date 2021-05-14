@@ -1,8 +1,6 @@
-![conclusion(1)](images/Conclusion/conclusion(1).jpg)
-
 # Conclusion
 
-In this final section, we will reflect on our app and what we have done. Firstly, we will reflec on our working practices,and clearly evaluate  our work. Then, We wellreflect on the success of the project, with a focus on whether the brief and objectives were met. What's more, We will talk about the impact Covid-19 had on our project. finally, we will discuss the social and ethical implications of our app and look ahead to future work in terms of design, development and evaluation.
+In this final section, we will reflect on our app and what we have done. Firstly, we will reflect on our working practices,and clearly evaluate  our work. Then, We will reflect on the success of the project, with a focus on whether the brief and objectives were met. What's more, We will talk about the impact Covid-19 had on our project. finally, we will discuss the social and ethical implications of our app and look ahead to future work in terms of design, development and evaluation.
 
 ![img](images/Conclusion/Z$X{S]0}10SBWSME$A9PTT.jpg)
 
@@ -31,22 +29,19 @@ In this final section, we will reflect on our app and what we have done. Firstly
 In the previous section of Sprints & Project Management, we have shown our work practices in detail, here we will reflect on our working practices.
 
 ###  Team organization
-
 Because the members of our team have different strengths and interests, everyone was tasked with one responsibility or subsystem. In addition, each person is involved in system design and project sprints to ensure that everyone always understands what is happening and always keeps up to date with the project's skills and knowledge. These are particularly valuable in this difficult time.
 
 Wenqing is a  careful and rigorous boy who likes to learn new technologies and he is responsible for designing the framework of the project, including data model, sequence and use case. HaoLong dreams of becoming a front-end engineer, so he focus on designing the web page style and developing part of functions in front end. Both Yifan and Kaixiang are experienced back-end engineers and they collaborated with group members on the back-end function, which includes realization and Database, etc. Wei Wei has the least web experience, but he has the great ideas and excellent organizational and presentation abilities. He is mainly responsible for collecting information, making plans and writing the report. Despite this special period, our work are organized well and each group's member try his best to make the web app. More importantly, each member maximized his strengths !
 
 ### Management of issues
-
 At first, we managed issues or subsystem requirements on Team and Wechat, more specifically, 
 we write the question as text and communicate on Wechat and Team. However, we found that this issues management model can easily cause confusion. So, we chose to let Wei Wei specialize in issues management. He uses Trello very well and makes the checklists like "To Do", "In Progress", and "Done" to help us to keep track of the sprint progress. In addition, when performing agile sprints, weiwei can help us plan the tasks to be completed every week and communicate technical details to ensure that our backlog and sprints can be completed on time.
 Therefore, we believe that having the project manager specifically responsible for management of issues is a good way to improve efficiency.
 
 ### Communication
-
 Due to the outbreak of the coronavirus epidemic, the team members were separated in different cities. In order to effectively communicate and share information with each other, we decide to use the Team and the WeChat for discussing this project , as shown in the following two pictures.
 
-![time (1)](images/Conclusion/time(1).gif)
+![time (1)](images/Conclusion/time (1).gif)
 
 Microsoft Teams is a team collaboration tool that we are all familiar with. We have weekly meeting in our bubble more than once a week.
 
@@ -57,7 +52,6 @@ Wechat is a very popular chat software. It is also a daily chat tool used by our
 Overall, good communication is very important. A meeting communication, even if it is only one hour (usually longer), can greatly improve the progress and completeness of the project. In our view, effective communication is the basis for the success of the group projects.
 
 ###  Agile Development
-
 Our group undertook an Agile work-flow while completing our project. This allowed us to embrace changing requirements, and ensured that when our working methods had to become remote, we were prepared and did not fall behind. Agile Development can divide a project into multiple sub-projects that can be run, which enables us to quickly build the core functions of coursework. Help us in the next step of the development of non-core functions. Agile Development is willing to accept changes in requirements. Our team members are exposed to the design, development, testing and maintenance of a project for the first time. During the development phase, some of us have new ideas, and agile development can be more flexible to help realize our ideas. Agile Development is suitable for projects with short project cycles. In our plan, the project development time is 2 months, which is a very short time for us. Using agile development can help us improve efficiency and shorten the project cycle. Agile Development is more suitable for projects with a small number of team members and similar skill levels. 
 
 In a word, for a five people team, agile development is our first choice.
@@ -68,7 +62,18 @@ In a word, for a five people team, agile development is our first choice.
 
 Overall we are proud what we have achieved as a group since beginning this project .  Now , we have delivered a working prototype of an idea we crafted in the early phase of this unit. In the past three months, our team  worked together and every member learn a lot of things about software engineering as well as how to work well in a group. Each of us is aware of the value of unity and cooperation -- only when each member can give full play to his own advantages can we make the excellent projects !
 
-CHECKLIST
+| No.  | objective                               | achieve or not | comments                                                     |
+| ---- | --------------------------------------- | -------------- | ------------------------------------------------------------ |
+| 1    | Build a full web application            | achieve        | We built a full web application with Angular,  Angular Material , Express, Node.js and MongoDB. |
+| 2    | Make agile management plan              | achieve        | We used Jira as our agile development tool. There are 4 epics in Roadmap, which are front end, back end, API and document. And corresponding child issues have been added to these four epics. |
+| 3    | Use Angular for front end               | achieve        | We used Angular to develope a complex and integrity front end.  We have eleven components include worldmap, cookbook, recipe, user, login, upload and feedback etc. |
+| 4    | Use Angular Material and Echarts for UI | achieve        | We used some functional and decorative APIs in UI design. Angular Material was used to improve our layout and interface. Echart was used to draw a fascinating world map. |
+| 5    | Design many features  for users         | achieve        | We designed and developed as much as possible of  features  for users includes login, uploading theri own recipes , giving like to their favorite food , collecting  their feedbacks by questionnaire etc. |
+| 6    | Use Express for Back end                | achieve        | We designed and implemented four APIs include recipe, nations, feedback and user to post and get request. |
+| 7    | Use MangoDB for database                | achieve        | We managed to build a satisfactory database by MangoDB. Our data include user information, recipes and nation was stored in it. |
+| 8    | Deploy docker                           | achieve        | We deployed docker for our application, which made our application portable. |
+| 9    | Evaluation our design                   | achieve        | We evaluated the app in three ways.  Unit testing, Functional testing, performance testing and User acceptance testing are adopted to the evaluation. |
+| 10   | Preserve and share the recipes          | achieve        | Delicious food from various countries was saves and shares  in the app, which have a positive influence on convenience of people's life and the recording and diffusion of food culture. |
 
 
 ## Impact of Covid-19
@@ -76,15 +81,15 @@ CHECKLIST
 
 The outbreak of COVID-19 in March, and the subsequent lockdowns running up to the end of April affected each us in many ways. 
 
-    1. Communication inconvenience. Because the members of the group are located in different cities, we cannot conduct efficient face-to-face communication and we had to talk our work by **Microsoft Teams** . However, many technical-related details cannot be explained clearly only by online communication, which has brought a lot of trouble to our project. Every weeks we spend not less than 8 hours in communication , as we more and more understand each other , this difficulty was overcome finally. 
+  1. Communication inconvenience. Because the members of the group are located in different cities, we cannot conduct efficient face-to-face communication and we had to talk our work by **Microsoft Teams** . However, many technical-related details cannot be explained clearly only by online communication, which has brought a lot of trouble to our project. Every weeks we spend not less than 8 hours in communication , as we more and more understand each other , this difficulty was overcome finally. 
 
-    2. Working Environment. Due to the severe COVID -19 epidemic, we could not go to the campus library to study together and we have no chioce but to work in our homes separately. Unfortunately, the home environment is not suitable for work. Our team members often complain that the home is too noisy so that we can’t concentrate on work!
-
-
-    3. Teaching support. Because all the courses in this semester are online teaching, we can't have face-to-face communication with professors and in-depth discussion of complex Internet technical details, so that we have to spend more time searching for related problem solutions on the website. This undoubtedly greatly increases our learning costs and reduces the efficiency and quality of our work.
+  2. Working Environment. Due to the severe COVID -19 epidemic, we could not go to the campus library to study together and we have no chioce but to work in our homes separately. Unfortunately, the home environment is not suitable for work. Our team members often complain that the home is too noisy so that we can’t concentrate on work!
 
 
-    4. Infrastructure. Due to isolation from university infrastructure the team was heavily reliant on local machines and Internet being usable. Some team members' laptops are low in configuration. In addition, the Internet speed of the home is unstable, which brings great trouble to our work. What's more frustrating is that these hardware problems cannot be solved by our knowledge and usually we can only wait patiently for the system to run slowly , which makes us desperate.
+  3. Teaching support. Because all the courses in this semester are online teaching, we can't have face-to-face communication with professors and in-depth discussion of complex Internet technical details, so that we have to spend more time searching for related problem solutions on the website. This undoubtedly greatly increases our learning costs and reduces the efficiency and quality of our work.
+
+
+  4. Infrastructure. Due to isolation from university infrastructure the team was heavily reliant on local machines and Internet being usable. Some team members' laptops are low in configuration. In addition, the Internet speed of the home is unstable, which brings great trouble to our work. What's more frustrating is that these hardware problems cannot be solved by our knowledge and usually we can only wait patiently for the system to run slowly , which makes us desperate.
 
  
 
@@ -125,3 +130,6 @@ Finally, this is a simple SWOT analysis :
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Opportunities   ：Internet users increase and rapid development of e-commerce | SO : According to the unique profit model and the advantages of low labor costs, quickly complete the initial capital accumulation and improve core competitiveness | WO : Use profit to recruit experienced Internet programmers to improve website quality and security, and attract strategic investment |
 | Threats ：Malicious competition among website food application | ST : Recruit legal consultants to prevent malicious competition and malicious mergers and acquisitions, use the law to protect our rights. Improve our consumer market, Social Network Service,  tasks mechanisms and competition mechanisms to Enhance core competitiveness. | WT : Retain technical talents with common goals and dreams.  |
+
+
+___
