@@ -16,11 +16,17 @@ Before testing, we perform proper Setup, and after testing, we do Teardown.
 
 ### Unit Testing
 
+![test](images/Evaluation/test.png)
+
  We do the unit tests by running the [`ng test`](https://angular.io/cli/test) CLI command.
 
 The `ng test` command builds the app in *watch mode*, and launches the [Karma test runner](https://karma-runner.github.io/).
 
+<<<<<<< Updated upstream
 In order to test components and services with providers like **ActivatedRoute**, sometimes we need to make a fake providers.
+=======
+In order to test components and services with specific providers like **ActivatedRoute**, sometimes we need to use fake providers.
+>>>>>>> Stashed changes
 
 ## User Experience Test Survey
 
